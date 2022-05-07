@@ -11,5 +11,19 @@
 <a href="hello-servlet">Hello Servlet</a>
 <br/>
 <a href="settings.jsp">Page des paramètres</a>
+
+<h2>Login</h2>
+
+<form method="post" action="LoginController" name="login_form" onsubmit="return validate();">
+    Nom d'utilisateur (addresse courriel) : <input type = "text" name="username">
+    <br>
+    Mot de passe : <input type="password" name="password">
+    <br>
+
+    <input type="submit" name="login_btn" value="Se connecter">
+
+    <h3>Vous n'avez pas de compte ? <a href="register.jsp">Créer un compte</a></h3>
+</form>
+
 </body>
 </html>
