@@ -5,17 +5,14 @@
     <title>Accueil</title>
 </head>
 <body>
-<h1><%= "Bonjour bonjour !" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<h1><%="Bonjour bonjour !"%></h1>
 <br/>
 <a href="settings.jsp">Page des paramètres</a>
 
-<h2>Login</h2>
+<h2>Se connecter</h2>
 
-<form method="post" action="LoginController" name="login_form" onsubmit="return validate();">
-    Nom d'utilisateur (addresse courriel) : <input type = "text" name="username">
+<form method="post" action="/loginController" name="login_form" onsubmit="return validate();">
+    Nom d'utilisateur (adresse courriel) : <input type = "email" name="username">
     <br>
     Mot de passe : <input type="password" name="password">
     <br>
