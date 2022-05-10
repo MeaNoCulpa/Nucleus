@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 
 public class RegisterDao {
 	public String authoriseRegister(RegisterBean registerBean) {
-        //String firstname = registerBean.getFirstname();
-        //String lastname = registerBean.getLastname();
-        String username = registerBean.getUsername();
+        String firstname = registerBean.getFirstname();
+        String lastname = registerBean.getLastname();
+        String email = registerBean.getEmail();
         String password = registerBean.getPassword();
 
         String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
@@ -21,11 +21,13 @@ public class RegisterDao {
 
             PreparedStatement preparedStatement = null;
 
-            String query = "insert into member(Username,Password,Role) values(?,?,?)";
+            String query = "insert into member(Username,Password,Firstname,Lastname,Role) values(?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, username);
+            preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
-            preparedStatement.setString(3, "user");
+            preparedStatement.setString(3, firstname);
+            preparedStatement.setString(4, lastname);
+            preparedStatement.setString(5, "user");
             preparedStatement.executeUpdate();
 
             preparedStatement.close();

@@ -2,7 +2,6 @@ package com.example.nucleus.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,14 +15,7 @@ import com.example.nucleus.model.RegisterDao;
  */
 public class RegisterController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,16 +31,16 @@ public class RegisterController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	        if (request.getParameter("register_btn") != null) {
-	            //String firstname = request.getParameter("firstname");
-	            //String lastname = request.getParameter("lastname");
-	            String username = request.getParameter("username");
+	            String firstname = request.getParameter("firstname");
+	            String lastname = request.getParameter("lastname");
+	            String email = request.getParameter("email");
 	            String password = request.getParameter("password");
 
 	            RegisterBean registerBean = new RegisterBean();
 
-	            //registerBean.setFirstname(firstname);
-	            //registerBean.setLastname(lastname);
-	            registerBean.setUsername(username);
+	            registerBean.setFirstname(firstname);
+	            registerBean.setLastname(lastname);
+	            registerBean.setEmail(email);
 	            registerBean.setPassword(password);
 
 	            RegisterDao registerDao = new RegisterDao();
