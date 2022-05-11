@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 /.idea/
+=======
+.classpath
+.project
+/.idea/
+.settings
+build
+>>>>>>> login-Nathanael

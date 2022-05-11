@@ -1,7 +1,9 @@
 package com.example.nucleus.model;
 
 public class LoginBean {
-    private String username, password;
+
+	private String username, password;
+
 
     public String getUsername() {
         return username;

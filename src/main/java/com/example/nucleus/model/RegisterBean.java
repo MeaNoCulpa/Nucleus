@@ -1,7 +1,7 @@
 package com.example.nucleus.model;
 
 public class RegisterBean {
-    private String firstname, lastname, username, password;
+	private String firstname, lastname, email, password;
 
     public String getFirstname() {
         return firstname;
@@ -19,12 +19,12 @@ public class RegisterBean {
         this.lastname = lastname;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
