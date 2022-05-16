@@ -3,14 +3,29 @@
 <html lang="fr">
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="styles/register.css">
+<title>Création de compte - Home Exchange</title>
+
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 <link rel="shortcut icon" href="#">
-<title>Création de compte - Home Exchange</title>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+$(function(){
+  $("#header").load("header.jsp"); 
+  $("#footer").load("footer.jsp"); 
+});
+</script>
+<link rel="stylesheet" href="styles/header_footer.css" />
+<link rel="stylesheet" href="styles/header_footer.css" />
+<link rel="stylesheet" href="styles/register.css">
+
 </head>
 <body>
-
+<div id="header"></div>
 <div class="container">
 
 <form class="form" id="register-form" name="register-form" method="post" action="registerController">
@@ -61,6 +76,7 @@
   <h1> Avez-vous un compte ? <a href="index.jsp">Se connecter</a></h1>
 </form>
 </div>
+<div id="footer"></div>
 <script src="scripts/register.js"></script>
 </body>
 </html>
