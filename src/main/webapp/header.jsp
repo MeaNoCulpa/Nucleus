@@ -1,10 +1,32 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header>
-	<img src="images/nucleus_white_header.png" alt="logo nucleus" />
-	<div class="header-right">
-		<a href="index.jsp" class="active">Accueil</a>
-		<a href="login.jsp" class="btn-login" >Se connecter</a>
-		<a href="register.jsp" class="btn-register">S'enregister</a>
-		<a href="settings.jsp">Paramètres</a>
-	</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="index.jsp">
+      <img src="images/nucleus_white_header.png" alt="logo nucleus" width="200" height="20"/>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+    	<li><a href="index.jsp">ACCUEIL</a></li>
+    	<li><a href="index.jsp#about">À PROPOS</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="register.jsp">INSCRIPTION</a></li>
+        <li><a href="login.jsp">CONNEXION</a></li>
+        
+        <!-- <li><a href="#portfolio">LES MIEUX NOTES</a></li> -->
+        <!-- <li><a href="index.jsp#services">OFFRES</a></li> -->
+        <!-- <li><a href="#pricing">TARIFS</a></li> -->
+        <!-- <li><a href="index.jsp#contact">CONTACT</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
 </header>
