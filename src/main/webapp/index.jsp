@@ -13,8 +13,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
 <script>
+var firstname = '<%=session.getAttribute("firstname")%>';
 $(function(){
-	  $("#header").load("header.jsp"); 
+	if(firstname == "null"){
+	  $("#header").load("header.jsp");
+	}
+	else {
+		$("#header").load("headerLogged.jsp");
+	}
 	  $("#footer").load("footer.jsp"); 
 	});
 </script>
@@ -207,7 +213,7 @@ body {
 <div id="header"></div>
 
 <div class="jumbotron text-center">
-  <h1>Nucleus</h1> 
+  <h1>Nucleus</h1>
   <p>Home Exchange Manager</p> 
   <form class="form-inline">
     <div class="input-group">

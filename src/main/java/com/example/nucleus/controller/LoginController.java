@@ -51,11 +51,13 @@ public class LoginController extends HttpServlet {
             LoginDao loginDao = new LoginDao();
 
             String authorise = loginDao.authoriseLogin(loginBean);
+            String firstname = loginDao.getFirstnameFromDataBase(loginBean);
 
             if (authorise.equals("SUCCESS LOGIN")) {
                 HttpSession session = request.getSession();
-                session.setAttribute("login", loginBean.getUsername());
-                response.sendRedirect("welcome.jsp");
+                session.setAttribute("username", loginBean.getUsername());
+                session.setAttribute("firstname", firstname);
+                response.sendRedirect("index.jsp");
                 //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
                 //requestDispatcher.forward(request, response);
             }
