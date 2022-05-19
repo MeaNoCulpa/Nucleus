@@ -13,7 +13,7 @@ public class LoginDao {
 	    String dbUsername;
 	    String dbPassword;
 
-	    String DBURL = "jdbc:mysql://localhost:3306/Nucleus"; // database connexion url string
+	    String DBURL = "jdbc:mysql://localhost:3307/Nucleus"; // database connexion url string
 	    String DBLOGIN = "root"; // database username
 	    String DBPASSWORD = "root"; // database password
 

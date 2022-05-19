@@ -20,6 +20,8 @@ $(function(){
   $("#footer").load("footer.jsp"); 
 });
 </script>
+
+<link rel="stylesheet" href="styles/register.css">
 <style type="text/css">
 body {
     font: 400 15px Lato, sans-serif;

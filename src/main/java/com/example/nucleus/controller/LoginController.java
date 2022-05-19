@@ -55,13 +55,15 @@ public class LoginController extends HttpServlet {
             if (authorise.equals("SUCCESS LOGIN")) {
                 HttpSession session = request.getSession();
                 session.setAttribute("login", loginBean.getUsername());
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
-                requestDispatcher.forward(request, response);
+                response.sendRedirect("welcome.jsp");
+                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
+                //requestDispatcher.forward(request, response);
             }
 
             else {
                 request.setAttribute("WrongLoginMsg", authorise);
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+                request.setAttribute("WrongLoginMessage", "L'adresse couriel et/ou le mot de passe est incorrect.");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
                 requestDispatcher.include(request, response);
             }
         }

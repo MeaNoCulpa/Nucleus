@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Se connecter</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -209,6 +209,14 @@ body {
 <h2>Se connecter</h2>
 
 <form method="post" action="loginController" name="login_form">
+	<p style="color: red;">
+	<%
+	if (request.getAttribute("WrongLoginMsg") !=  null) {
+		out.println(request.getAttribute("WrongLoginMessage"));
+	}
+	%>
+	</p>
+	
 	<div class="form-group">
 	<label class="form-label" for="lastName">Nom d'utilisateur (adresse courriel)</label>
     <input type="email" class="form-control" name="username">

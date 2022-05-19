@@ -11,7 +11,7 @@ public class RegisterDao {
         String email = registerBean.getEmail();
         String password = registerBean.getPassword();
 
-        String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
+        String DBURL = "jdbc:mysql://localhost:3307/Nucleus";
         String DBLOGIN = "root";
         String DBPASSWORD = "root";
 
