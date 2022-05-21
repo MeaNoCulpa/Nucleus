@@ -6,7 +6,7 @@
 <title>Paramètres du compte</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" media="all">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -26,12 +26,15 @@ $(function(){
 </script>
 
 <link rel="shortcut icon" href="#">
+<link href="styles/settings.css" rel="stylesheet">
+<link href="styles/footer.css" rel="stylesheet">
 
 <style type="text/css">
 body {
+	background: #f7f7f8;
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
-    color: #818181;
+    color: #949494;
   }
   h2 {
     font-size: 24px;
@@ -48,7 +51,7 @@ body {
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #f4511e;
+    background-color: #f6673c;
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -60,11 +63,11 @@ body {
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 50px;
   }
   .logo {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 200px;
   }
   .thumbnail {
@@ -137,7 +140,7 @@ body {
   }
   .navbar {
     margin-bottom: 0;
-    background-color: #f4511e;
+    background-color: #f6673c;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -160,7 +163,7 @@ body {
   footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #f4511e;
+    color: #f6673c;
   }
   .slideanim {visibility:hidden;}
   .slide {
@@ -212,43 +215,55 @@ body {
 
 <div id="header"></div>
 
-<div class="container-fluid">
-    <h1>Paramètres</h1>
-    <h5>Choisissez ce que vous voulez modifier.</h5>
-    <form class="row g-4">
+<div class="container-fluid profil-section">
 
-        <div class="col-md-6">
-            <label class="form-label" for="lastName">Nom</label>
-            <input type="text" class="form-control" id="lastName">
-        </div>
-        <div class="col-md-6">
-            <label class="form-label" for="firstName">Prénom</label>
-            <input type="text" class="form-control" id="firstName">
-        </div>
+<div class="profil-info">
+<h1>Paramètres</h1>
+   	<div>
+		<span class="profil-name"><%=session.getAttribute("firstname")%></span>
+	</div>
+</div>
 
-        <div class="col-md-6">
-            <label class="form-label" for="email">Adresse courriel</label>
-            <input type="email" class="form-control" id="email" placeholder="example@mail.com">
-        </div>
+</div>
 
-        <div class="col-md-6">
-            <label class="form-label" for="pass">Mot de passe</label>
-            <input type="password" class="form-control" id="pass">
-        </div>
+<div class="container-fluid form-section">
 
-        <div class="col-md-12">
-            <label class="form-label" for=birthday>Date de naissance</label>
-            <input type="date" class="form-control" id="birthday">
-        </div>
-        
-        <div class="col-md-6">
-            <button type="button" class="btn btn-primary">Enregistrer</button>
-        </div>
-        <div class="col-md-6">
-            <button type="button" class="btn btn-default">Annuler</button>
-        </div>
+    <div class="col-sm-3">
+    
+    </div>
+    
+    <form class="form col-sm-9">
+    <div class="form-group">
+    	<h3>Adresse courriel</h3>
+
+    	<input type="email" class="form-control space-between" id="email" placeholder="<%=session.getAttribute("username")%>" disabled>
+    	
+    	<button type="button" class="btn btn-primary">Modifier l'adresse courriel</button>
+    </div>
+    
+    <div class="form-group">
+    	<h3>Changer le mot de passe</h3>
+    	
+    	<input type="password" class="form-control space-between" id="pass" placeholder="Mot de passe actuel">
+    	
+    	<input type="password" class="form-control space-between" id="pass" placeholder="Nouveau mot de passe" size="20">
+    	
+    	<input type="password" class="form-control space-between" id="pass" placeholder="Nouveau mot de passe (encore)">
+    	
+    	<button type="button" class="btn btn-primary">Modifier le mot de passe</button>
+    	
+    </div>
+    
+    <div class="form-group">
+    	<h3>Informations du compte</h3>
+
+    	<input type="text" class="form-control space-between" id="lastName" placeholder="Nom">
+    	<input type="text" class="form-control space-between" id="lastName" placeholder="Prénom">
+    	
+    	<button type="button" class="btn btn-primary">Enregistrer</button>
+    </div>
     </form>
-
+    
 </div>
 
 <div id="footer"></div>

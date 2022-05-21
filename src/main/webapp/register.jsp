@@ -22,8 +22,11 @@ $(function(){
 </script>
 
 <link rel="stylesheet" href="styles/register.css">
+<link href="styles/footer.css" rel="stylesheet">
+
 <style type="text/css">
 body {
+	background: #f7f7f8;
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
     color: #818181;
@@ -43,7 +46,7 @@ body {
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #f4511e;
+    background-color: #f6673c;
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -55,11 +58,11 @@ body {
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 50px;
   }
   .logo {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 200px;
   }
   .thumbnail {
@@ -132,7 +135,7 @@ body {
   }
   .navbar {
     margin-bottom: 0;
-    background-color: #f4511e;
+    background-color: #f6673c;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -155,7 +158,7 @@ body {
   footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #f4511e;
+    color: #f6673c;
   }
   .slideanim {visibility:hidden;}
   .slide {

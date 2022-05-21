@@ -64,7 +64,7 @@ public class LoginController extends HttpServlet {
 
             else {
                 request.setAttribute("WrongLoginMsg", authorise);
-                request.setAttribute("WrongLoginMessage", "L'adresse couriel et/ou le mot de passe est incorrect.");
+                request.setAttribute("WrongLoginMessage", "Le nom d'utilisateur ou le mot de passe est incorrect.");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
                 requestDispatcher.include(request, response);
             }
