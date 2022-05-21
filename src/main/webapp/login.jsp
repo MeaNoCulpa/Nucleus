@@ -20,6 +20,7 @@ $(function(){
 </script>
 <link rel="shortcut icon" href="#">
 <link href="styles/footer.css" rel="stylesheet">
+<link href="styles/login.css" rel="stylesheet">
 
 <style type="text/css">
 body {
@@ -203,37 +204,48 @@ body {
 </style>
 </head>
 
-<body>
+<body id="myPage">
 
 <div id="header"></div>
 
-<div class="container-fluid">
+<div class="container-fluid profil-section">
 
-<h2>Se connecter</h2>
-
-<form method="post" action="loginController" name="login_form">
-	<p style="color: red;">
+<div class="profil-info">
+<h1>Se connecter</h1>
+<p style="color: red;">
 	<%
 	if (request.getAttribute("WrongLoginMsg") !=  null) {
 		out.println(request.getAttribute("WrongLoginMessage"));
 	}
 	%>
-	</p>
-	
-	<div class="form-group">
-	<label class="form-label" for="lastName">Nom d'utilisateur (adresse courriel)</label>
-    <input type="email" class="form-control" name="username">
+</p>
+</div>
+
+</div>
+
+<div class="container-fluid form-section">
+
+    <div class="col-sm-3">
+    
     </div>
     
+    <form class="form col-sm-9" method="post" action="loginController" name="login_form">
+
     <div class="form-group">
+	<label class="form-label" for="lastName">Nom d'utilisateur (adresse courriel)</label>
+    <input type="email" class="form-control" name="username">
+    
+    <br>
+    
     <label class="form-label" for="password">Mot de passe</label>
     <input type="password" class="form-control" name="password">
+    <button type="submit" name="login_btn" class="btn btn-primary">Se connecter</button>
     </div>
-
-	<button type="submit" name="login_btn" class="btn btn-default">Se connecter</button>
-
-    <h3>Vous n'avez pas de compte ? <a href="register.jsp">Créer un compte</a></h3>
-</form>
+   
+    <h4 class="text-center">Vous n'avez pas de compte ? <a href="register.jsp">Créer un compte</a></h4>
+    
+    </form>
+    
 </div>
 
 <div id="footer"></div>
