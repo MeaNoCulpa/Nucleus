@@ -18,8 +18,8 @@
     	<li><a href="index.jsp#about">À PROPOS</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="register.jsp">INSCRIPTION</a></li>
-        <li><a href="login.jsp">CONNEXION</a></li>
+      	<li><a href="settings.jsp"><%=session.getAttribute("firstname")%></a></li>
+        <li><a href="logout.jsp">DECONNEXION</a></li>
         
         <!-- <li><a href="#portfolio">LES MIEUX NOTES</a></li> -->
         <!-- <li><a href="index.jsp#services">OFFRES</a></li> -->

@@ -51,17 +51,21 @@ public class LoginController extends HttpServlet {
             LoginDao loginDao = new LoginDao();
 
             String authorise = loginDao.authoriseLogin(loginBean);
+            String firstname = loginDao.getFirstnameFromDataBase(loginBean);
 
             if (authorise.equals("SUCCESS LOGIN")) {
                 HttpSession session = request.getSession();
-                session.setAttribute("login", loginBean.getUsername());
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
-                requestDispatcher.forward(request, response);
+                session.setAttribute("username", loginBean.getUsername());
+                session.setAttribute("firstname", firstname);
+                response.sendRedirect("index.jsp");
+                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
+                //requestDispatcher.forward(request, response);
             }
 
             else {
                 request.setAttribute("WrongLoginMsg", authorise);
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+                request.setAttribute("WrongLoginMessage", "Le nom d'utilisateur ou le mot de passe est incorrect.");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
                 requestDispatcher.include(request, response);
             }
         }

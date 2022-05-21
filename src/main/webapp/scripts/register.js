@@ -30,7 +30,7 @@ const checkPassword = () => {
     if (!isRequired(password)) {
         showError(passwordElement, 'Le mot de passe ne peut pas être vide');
     } else if (!isPasswordSecure(password)) {
-        showError(passwordElement, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
+        showError(passwordElement, 'Le mot de passe doit comporter au moins 8 caractères, dont au moins 1 minuscule, 1 majuscule, 1 chiffre et 1 caractère spécial dans (!@#$%^&*)');
     } else {
         showSuccess(passwordElement);
         valid = true;
@@ -46,9 +46,9 @@ const checkConfirmPassword = () => {
     const password = passwordElement.value.trim();
 
     if (!isRequired(confirmPassword)) {
-        showError(confirmPasswordElement, 'Please enter the password again');
+        showError(confirmPasswordElement, 'Veuillez entrer à nouveau le mot de passe');
     } else if (password !== confirmPassword) {
-        showError(confirmPasswordElement, 'The password does not match');
+        showError(confirmPasswordElement, 'Le mot de passe ne correspond pas');
     } else {
         showSuccess(confirmPasswordElement);
         valid = true;

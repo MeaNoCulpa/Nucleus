@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Se connecter</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +19,12 @@ $(function(){
 });
 </script>
 <link rel="shortcut icon" href="#">
+<link href="styles/footer.css" rel="stylesheet">
+<link href="styles/login.css" rel="stylesheet">
+
 <style type="text/css">
 body {
+	background: #f7f7f8;
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
     color: #818181;
@@ -40,7 +44,7 @@ body {
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #f4511e;
+    background-color: #f6673c;
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -52,11 +56,11 @@ body {
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 50px;
   }
   .logo {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 200px;
   }
   .thumbnail {
@@ -129,7 +133,7 @@ body {
   }
   .navbar {
     margin-bottom: 0;
-    background-color: #f4511e;
+    background-color: #f6673c;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -152,7 +156,7 @@ body {
   footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #f4511e;
+    color: #f6673c;
   }
   .slideanim {visibility:hidden;}
   .slide {
@@ -200,29 +204,48 @@ body {
 </style>
 </head>
 
-<body>
+<body id="myPage">
 
 <div id="header"></div>
 
-<div class="container-fluid">
+<div class="container-fluid profil-section">
 
-<h2>Se connecter</h2>
+<div class="profil-info">
+<h1>Se connecter</h1>
+<p style="color: red;">
+	<%
+	if (request.getAttribute("WrongLoginMsg") !=  null) {
+		out.println(request.getAttribute("WrongLoginMessage"));
+	}
+	%>
+</p>
+</div>
 
-<form method="post" action="loginController" name="login_form">
-	<div class="form-group">
-	<label class="form-label" for="lastName">Nom d'utilisateur (adresse courriel)</label>
-    <input type="email" class="form-control" name="username">
+</div>
+
+<div class="container-fluid form-section">
+
+    <div class="col-sm-3">
+    
     </div>
     
+    <form class="form col-sm-9" method="post" action="loginController" name="login_form">
+
     <div class="form-group">
+	<label class="form-label" for="lastName">Nom d'utilisateur (adresse courriel)</label>
+    <input type="email" class="form-control" name="username">
+    
+    <br>
+    
     <label class="form-label" for="password">Mot de passe</label>
     <input type="password" class="form-control" name="password">
+    <button type="submit" name="login_btn" class="btn btn-primary">Se connecter</button>
     </div>
-
-	<button type="submit" name="login_btn" class="btn btn-default">Se connecter</button>
-
-    <h3>Vous n'avez pas de compte ? <a href="register.jsp">Créer un compte</a></h3>
-</form>
+   
+    <h4 class="text-center">Vous n'avez pas de compte ? <a href="register.jsp">Créer un compte</a></h4>
+    
+    </form>
+    
 </div>
 
 <div id="footer"></div>

@@ -13,16 +13,24 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
 <script>
+var firstname = '<%=session.getAttribute("firstname")%>';
 $(function(){
-	  $("#header").load("header.jsp"); 
+	if(firstname == "null"){
+	  $("#header").load("header.jsp");
+	}
+	else {
+		$("#header").load("headerLogged.jsp");
+	}
 	  $("#footer").load("footer.jsp"); 
 	});
 </script>
 
 <link rel="shortcut icon" href="#">
+<link href="styles/footer.css" rel="stylesheet">
 
 <style type="text/css">
 body {
+	background: #f7f7f8;
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
     color: #818181;
@@ -42,7 +50,7 @@ body {
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #f4511e;
+    background-color: #f6673c;
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -54,11 +62,11 @@ body {
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 50px;
   }
   .logo {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 200px;
   }
   .thumbnail {
@@ -131,7 +139,7 @@ body {
   }
   .navbar {
     margin-bottom: 0;
-    background-color: #f4511e;
+    background-color: #f6673c;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -154,7 +162,7 @@ body {
   footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #f4511e;
+    color: #f6673c;
   }
   .slideanim {visibility:hidden;}
   .slide {
@@ -207,7 +215,7 @@ body {
 <div id="header"></div>
 
 <div class="jumbotron text-center">
-  <h1>Nucleus</h1> 
+  <h1>Nucleus</h1>
   <p>Home Exchange Manager</p> 
   <form class="form-inline">
     <div class="input-group">
@@ -428,9 +436,17 @@ body {
   <div class="row">
     <div class="col-sm-5">
       <p>Contactez-nous et nous vous répondrons dans les 24 heures.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Paris, Île-de-France</p>
-      <p><span class="glyphicon glyphicon-phone"></span> <a href="tel:06 85 57 35 87">06 85 57 35 87</a></p>
-      <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:support@nucleus.fr">support@nucleus.fr</a></p>
+      
+      <address>
+      <span class="glyphicon glyphicon-map-marker"></span>
+		<a href="https://www.qwant.com/maps/place/addr:2.327998;48.845303:28@28_Rue_Notre-Dame-des-Champs#map=16.50/48.8453030/2.3279980"> 28, rue Notre-Dame-des-Champs<br>
+		75006 Paris, Île-de-France<br>
+		FRANCE
+		</a>
+	  </address>
+	  
+      <!-- <p><span class="glyphicon glyphicon-phone"></span> <a href="tel:06 85 57 35 87">06 85 57 35 87</a></p> -->
+      <address><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:support@nucleus.fr">support@nucleus.fr</a></address>
     </div>
     <div class="col-sm-7 slideanim">
       <div class="row">

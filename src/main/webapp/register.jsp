@@ -20,8 +20,13 @@ $(function(){
   $("#footer").load("footer.jsp"); 
 });
 </script>
+
+<link rel="stylesheet" href="styles/register.css">
+<link href="styles/footer.css" rel="stylesheet">
+
 <style type="text/css">
 body {
+	background: #f7f7f8;
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
     color: #818181;
@@ -41,7 +46,7 @@ body {
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #f4511e;
+    background-color: #f6673c;
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -53,11 +58,11 @@ body {
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 50px;
   }
   .logo {
-    color: #f4511e;
+    color: #f6673c;
     font-size: 200px;
   }
   .thumbnail {
@@ -130,7 +135,7 @@ body {
   }
   .navbar {
     margin-bottom: 0;
-    background-color: #f4511e;
+    background-color: #f6673c;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -153,7 +158,7 @@ body {
   footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #f4511e;
+    color: #f6673c;
   }
   .slideanim {visibility:hidden;}
   .slide {
@@ -200,47 +205,80 @@ body {
   }
 </style>
 </head>
+
 <body id="myPage">
 
 <div id="header"></div>
 
-<div class="container-fluid center-block">
+<div class="container-fluid profil-section">
 
-<form class="form" id="register-form" name="register-form" method="post" action="registerController">
-<h2>Créer un compte</h2>
+<div class="profil-info">
+<h1>Inscription</h1>
+<p style="color: red;">
+	<%
+	if (request.getAttribute("WrongLoginMsg") !=  null) {
+		out.println(request.getAttribute("WrongLoginMessage"));
+	}
+	%>
+</p>
+</div>
+
+</div>
+
+<div class="container-fluid center-block form-section">
+
+<div class="col-sm-3">
+    
+</div>
+
+<form class="form col-sm-9" id="register-form" name="register-form" method="post" action="registerController">
+
 <div class="form-group">
-  	<label for="lastname">Nom :</label>
+  	<label class="form-label" for="lastname">Nom :</label>
   	<input type="text" name="lastname" class="form-control" id="lname">
-  </div>
-  
-  <div class="form-group">
-  	<label for="firstname">Prénom :</label>
+  	
+  	<br>
+  	
+  	<label class="form-label" for="firstname">Prénom :</label>
   	<input type="text" name="firstname" class="form-control" id="fname">
-  </div>
-  
-  <div class="form-group">
-  	<label for="email">Nom d'utilisateur (adresse courriel) : *</label>
+  	
+  	<br>
+  	
+  	<div>
+  	<label class="form-label" for="email">Nom d'utilisateur (adresse courriel) : *</label>
   	<input type="email" name="email" class="form-control" id="email" placeholder="example@mail.com" required>
   	<small></small>
-  </div>
-  
-  
-  <div class="form-group">
-  	<label for="password">Mot de passe : *</label>
+	</div>
+	
+	<br>
+	
+	<div>
+  	<label class="form-label" for="password">Mot de passe : *</label>
   	<input type="password" name="password" class="form-control" id="password" required>
   	<small></small>
-  </div>
-  
-  
-  <div class="form-group">
-  	<label for="confirm-password">Confirmez le mot de passe : *</label>
-    <input type="password" name="confirm-password" class="form-control" id="confirm-password" autocomplete="off">
+	</div>
+	
+	<br>
+	
+	<div>
+  	<label class="form-label" for="confirm-password">Confirmez le mot de passe : *</label>
+    <input type="password" name="confirm-password" class="form-control" id="confirm-password" autocomplete="off" required>
     <small></small>
-  </div>
-  
-  <button type="submit" name="register_btn" class="btn btn-default">S'enregistrer</button>
-<br>
-  <h3> Avez-vous un compte ? <a href="login.jsp">Se connecter</a></h3>
+    </div>
+</div>    
+    
+    <br>
+    <div class="form-terms">
+    <div class="form-check">
+  	<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+  	<label class="form-check-label" for="defaultCheck1">
+    J'ai lu et j'accepte les <a href="#">Conditions Générales d'Utilisation</a> et la <a href="#">Politique de Confidentialité</a>. *
+  	</label>
+	</div>
+    
+  	<button type="submit" name="register_btn" class="btn btn-primary">S'inscrire</button>
+	</div>
+  <h4 class="text-center"> Avez-vous un compte ? <a href="login.jsp">Se connecter</a></h4>
 </form>
 </div>
 

@@ -54,7 +54,6 @@ label {
 	padding: 28px;
 	background-color: white;
 	border-radius: 2px;
-	margin-bottom: 0;
 }
 
 .btn {
@@ -90,14 +89,6 @@ label {
     width: 50%;
 }
 
-.form-terms {
-	padding: 10px;
-}
-
-.form-terms label{
-	margin-left: 5px;
-}
-
 .form-control {
   padding: 6px 0 7px;
 }
@@ -109,16 +100,4 @@ label {
 .form-group input:focus {
 	box-shadow: none;
 	border-bottom: 2px solid #f6673c!important;
-}
-
-div.error input {
-    border-color: var(--error-color);
-}
-
-div.success input {
-    border-color: var(--success-color);
-}
-
-div small {
-    color: var(--error-color);
 }

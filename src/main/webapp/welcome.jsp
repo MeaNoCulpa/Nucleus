@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Welcome</title>
 </head>
 <body>
