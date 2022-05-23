@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class RegisterDao {
+	
 	public String authoriseRegister(RegisterBean registerBean) {
+		
         String firstname = registerBean.getFirstname();
         String lastname = registerBean.getLastname();
         String email = registerBean.getEmail();
@@ -29,8 +31,8 @@ public class RegisterDao {
             preparedStatement.setString(4, lastname);
             preparedStatement.setString(5, "user");
             preparedStatement.executeUpdate();
+            
             preparedStatement.close();
-
             connection.close();
 
             return "SUCCESS REGISTER";

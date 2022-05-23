@@ -82,4 +82,38 @@ public class LoginDao {
 	    
 	    return "null";
 	}
+	
+	public String getLastnameFromDataBase(LoginBean loginBean) {
+		String username = loginBean.getUsername();
+	    String password = loginBean.getPassword();
+		
+		String DBURL = "jdbc:mysql://localhost:3307/Nucleus";
+	    String DBLOGIN = "root";
+	    String DBPASSWORD = "root";
+	    
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+
+	        PreparedStatement preparedStatement = null;
+
+	        preparedStatement = dbconn.prepareStatement("SELECT Lastname FROM member WHERE Username=? AND Password=?");
+	        preparedStatement.setString(1, username);
+	        preparedStatement.setString(2, password);
+	        ResultSet resultSet = preparedStatement.executeQuery();
+
+	        while (resultSet.next()) {
+	            String dbLastname = resultSet.getString("Lastname");
+	            return dbLastname;
+	        }
+
+	        preparedStatement.close();
+	        dbconn.close();
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return "null";
+	}
 }

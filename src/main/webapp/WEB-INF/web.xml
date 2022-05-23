@@ -39,4 +39,14 @@
     <servlet-name>NewServlet</servlet-name>
     <url-pattern>/NewServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SettingsController</display-name>
+    <servlet-name>SettingsController</servlet-name>
+    <servlet-class>com.example.nucleus.controller.SettingsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SettingsController</servlet-name>
+    <url-pattern>/SettingsController</url-pattern>
+  </servlet-mapping>
 </web-app>

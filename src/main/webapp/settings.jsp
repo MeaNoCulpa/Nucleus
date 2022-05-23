@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -212,7 +213,11 @@ body {
 </head>
 
 <body id="myPage">
-
+<%
+if (session.getAttribute("firstname") == null || session.getAttribute("firstname") == "") {
+	response.sendRedirect("index.jsp");
+}
+%>
 <div id="header"></div>
 
 <div class="container-fluid profil-section">
@@ -232,7 +237,8 @@ body {
     
     </div>
     
-    <form class="form col-sm-9">
+    <div class="col-sm-9">
+    <form class="form" method="post" action="SettingsController" id="settings-form" name="settings-form">
     <div class="form-group">
     	<h3>Adresse électronique</h3>
 
@@ -240,7 +246,7 @@ body {
     	
     	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modifier l'adresse électronique</button>
     </div>
-    
+
     <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -253,42 +259,47 @@ body {
           
           <div class="form-group">
           <p>Saisissez la nouvelle adresse électronique de votre compte. Une fois la nouvelle adresse vérifiée, votre compte sera mis à jour.</p>
-          <input type="email" class="form-control" id="email" placeholder="Entrez votre addresse électronique *">
-          <input type="email" class="form-control space-between" id="email" placeholder="Vérifier avec votre mot de passe *">
+          <input type="email" class="form-control" id="email" placeholder="Entrez votre addresse électronique *" name="username">
+          <input type="password" class="form-control space-between" id="password" placeholder="Vérifier avec votre mot de passe *" name="password">
           </div>
           
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Enregistrer</button>
+          <button type="submit" name="settings_email_btn" class="btn btn-primary" value="Enregistrer">Enregistrer</button>
         </div>
       </div>
       
     </div>
   </div>
-
+  </form>
+  
+ 	<form class="form" method="post" action="SettingsController">
     <div class="form-group">
     	<h3>Changer le mot de passe</h3>
     	
-    	<input type="password" class="form-control space-between" id="pass" placeholder="Mot de passe actuel">
+    	<input type="password" class="form-control space-between" name="current-password" placeholder="Mot de passe actuel">
     	
-    	<input type="password" class="form-control space-between" id="pass" placeholder="Nouveau mot de passe" size="20">
+    	<input type="password" class="form-control space-between" name="new-password" placeholder="Nouveau mot de passe" size="20">
     	
-    	<input type="password" class="form-control space-between" id="pass" placeholder="Nouveau mot de passe (encore)">
+    	<input type="password" class="form-control space-between" name="new-password-confirmation" placeholder="Nouveau mot de passe (encore)">
     	
-    	<button type="button" class="btn btn-primary">Modifier le mot de passe</button>
+    	<button type="submit" name="settings_password_btn" class="btn btn-primary">Modifier le mot de passe</button>
     	
-    </div>
-    
-    <div class="form-group">
-    	<h3>Informations du compte</h3>
-
-    	<input type="text" class="form-control space-between" id="lastName" placeholder="Nom">
-    	<input type="text" class="form-control space-between" id="lastName" placeholder="Prénom">
-    	
-    	<button type="button" class="btn btn-primary">Enregistrer</button>
     </div>
     </form>
+    
+    <form class="form" method="post" action="SettingsController">
+    <div class="form-group">
+    	<h3>Informations du compte</h3>
+    	<input type="text" class="form-control space-between" name="lastname" placeholder="<%=session.getAttribute("lastname")%>">
+    	<input type="text" class="form-control space-between" name="firstname" placeholder="<%=session.getAttribute("firstname")%>">
+    	
+    	<button type="submit" name="settings_info_btn" class="btn btn-primary">Enregistrer</button>
+    </div>
+    </form>
+    </div>
+    
     
 </div>
 

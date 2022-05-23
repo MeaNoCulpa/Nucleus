@@ -239,6 +239,7 @@ body {
     
     <label class="form-label" for="password">Mot de passe</label>
     <input type="password" class="form-control" name="password">
+    
     <button type="submit" name="login_btn" class="btn btn-primary">Se connecter</button>
     </div>
    
