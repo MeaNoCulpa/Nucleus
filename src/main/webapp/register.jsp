@@ -245,7 +245,7 @@ body {
   	<br>
   	
   	<div>
-  	<label class="form-label" for="email">Nom d'utilisateur (adresse courriel) : *</label>
+  	<label class="form-label" for="email">Nom d'utilisateur (adresse électronique) : *</label>
   	<input type="email" name="email" class="form-control" id="email" placeholder="example@mail.com" required>
   	<small></small>
 	</div>

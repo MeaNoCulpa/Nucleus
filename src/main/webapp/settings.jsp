@@ -234,13 +234,39 @@ body {
     
     <form class="form col-sm-9">
     <div class="form-group">
-    	<h3>Adresse courriel</h3>
+    	<h3>Adresse électronique</h3>
 
     	<input type="email" class="form-control space-between" id="email" placeholder="<%=session.getAttribute("username")%>" disabled>
     	
-    	<button type="button" class="btn btn-primary">Modifier l'adresse courriel</button>
+    	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modifier l'adresse électronique</button>
     </div>
     
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Mettre à jour l'addresse électronique</h4>
+        </div>
+        <div class="modal-body">
+          
+          <div class="form-group">
+          <p>Saisissez la nouvelle adresse électronique de votre compte. Une fois la nouvelle adresse vérifiée, votre compte sera mis à jour.</p>
+          <input type="email" class="form-control" id="email" placeholder="Entrez votre addresse électronique *">
+          <input type="email" class="form-control space-between" id="email" placeholder="Vérifier avec votre mot de passe *">
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Enregistrer</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
     <div class="form-group">
     	<h3>Changer le mot de passe</h3>
     	
