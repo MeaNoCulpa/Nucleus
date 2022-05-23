@@ -234,18 +234,18 @@ body {
 <form class="form col-sm-9" id="register-form" name="register-form" method="post" action="registerController">
 
 <div class="form-group">
-  	<label class="form-label" for="lastname">Nom :</label>
-  	<input type="text" name="lastname" class="form-control" id="lname">
+  	<label class="form-label" for="lastname">Nom : *</label>
+  	<input type="text" name="lastname" class="form-control" id="lname" required>
   	
   	<br>
   	
-  	<label class="form-label" for="firstname">Prénom :</label>
-  	<input type="text" name="firstname" class="form-control" id="fname">
+  	<label class="form-label" for="firstname">Prénom : *</label>
+  	<input type="text" name="firstname" class="form-control" id="fname" required>
   	
   	<br>
   	
   	<div>
-  	<label class="form-label" for="email">Nom d'utilisateur (adresse courriel) : *</label>
+  	<label class="form-label" for="email">Nom d'utilisateur (adresse électronique) : *</label>
   	<input type="email" name="email" class="form-control" id="email" placeholder="example@mail.com" required>
   	<small></small>
 	</div>

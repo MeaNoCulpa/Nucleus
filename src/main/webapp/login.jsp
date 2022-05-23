@@ -232,13 +232,14 @@ body {
     <form class="form col-sm-9" method="post" action="loginController" name="login_form">
 
     <div class="form-group">
-	<label class="form-label" for="lastName">Nom d'utilisateur (adresse courriel)</label>
+	<label class="form-label" for="lastName">Nom d'utilisateur (adresse électronique)</label>
     <input type="email" class="form-control" name="username">
     
     <br>
     
     <label class="form-label" for="password">Mot de passe</label>
     <input type="password" class="form-control" name="password">
+    
     <button type="submit" name="login_btn" class="btn btn-primary">Se connecter</button>
     </div>
    

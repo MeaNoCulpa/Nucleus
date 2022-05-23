@@ -97,3 +97,24 @@ h3 {
 	box-shadow: none;
 	border-bottom: 2px solid #f6673c!important;
 }
+
+.modal {
+	top: 64px;
+}
+
+.modal .form-group {
+	border: 0;
+	margin-bottom: 0;
+}
+
+.modal .form-group p {
+	margin-bottom: 12px;
+}
+
+.modal .form-group input {
+	width: 100%;
+}
+
+.modal .btn {
+	margin-top: 0;
+}
