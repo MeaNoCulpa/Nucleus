@@ -294,16 +294,23 @@ if (session.getAttribute("firstname") == null || session.getAttribute("firstname
     </div>
     </form>
     
-    <div class="form-group"><h3>Informations du compte</h3>
-    <form class="form-inline" method="post" action="SettingsController" name="infoForm" id="lname-form">
+    <div class="form-group">
+    <form class="form" method="post" action="SettingsController" name="infoForm" id="infoForm">
+    	<h3>Informations du compte</h3>
     	
-    	<input type="text" class="form-control space-between" id="lname" name="lastname" placeholder="<%=session.getAttribute("lastname")%>">
-    	<button type="submit" name="settings_lname_btn" onClick="return emptyLname()" class="btn btn-primary">Enregistrer</button>
-   	</form>
+    	<div>
+    	<input type="text" class="form-control space-between" id="lname" name="lastname" value="<%=session.getAttribute("lastname")%>">
+    	<small></small>
+    	</div>
+    	<!-- <button type="submit" name="settings_lname_btn" class="btn btn-primary">Enregistrer</button>
+   	 </form>
    	
-    <form class="form-inline" method="post" action="SettingsController" name="infoForm" id="fname-form">
-    	<input type="text" class="form-control space-between" id="fname" name="firstname" placeholder="<%=session.getAttribute("firstname")%>">
-    	<button type="submit" name="settings_fname_btn" onClick="return emptyFname()" class="btn btn-primary">Enregistrer</button>
+    <form class="form" method="post" action="SettingsController" name="infoForm" id="fname-form"> -->
+    <div>
+    	<input type="text" class="form-control space-between" id="fname" name="firstname" value="<%=session.getAttribute("firstname")%>">
+    	<small></small>
+   	</div>
+    	<button type="submit" name="settings_info_btn" class="btn btn-primary">Enregistrer</button>
     
     </form>
     </div>

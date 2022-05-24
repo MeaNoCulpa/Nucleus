@@ -1,13 +1,20 @@
 /**
- * 
+ * SETTINGS FORMS VALIDATION FILE
  */
 
 //const emailElement = document.querySelector('#email');
 const passwordElement = document.querySelector('#new-password');
 const confirmPasswordElement = document.querySelector('#confirm-password');
+const lastnameElement = document.querySelector('#lname');
+const firstnameElement = document.querySelector('#fname');
 
-const form = document.querySelector('#passwordForm');
+console.log("lastname: " + lastnameElement.value);
+console.log("firstname: " + firstnameElement.value);
 
+const formPassword = document.querySelector('#passwordForm');
+const formName = document.querySelector('#infoForm');
+
+/*
 function emptyLname() {
     var x;
     x = document.getElementById("lname").value;
@@ -19,6 +26,8 @@ function emptyLname() {
     	}
 }
 
+
+
 function emptyFname() {
 	var y;
     y = document.getElementById("fname").value;
@@ -29,14 +38,36 @@ function emptyFname() {
     	   //alert('Valid');
     	}
 }
+*/
 
+// ------------------------------------ TEST -----------------------------------
+
+const checkName = (nameElement) => {
+	let valid = false;
+	const name = nameElement.value.trim();
+	
+	if (!isRequired(name)) {
+		showError(nameElement, 'Le nom ne peut pas être vide.');
+	}
+	else if (!isNameValid(name)) {
+		showError(nameElement, 'Le nom n\'est pas valide.')
+	}
+	else {
+		showSuccess(nameElement);
+		valid = true;
+	}
+	return valid;
+}
+
+ // ------------------------------- END OF TEST ------------------------------
+ 
 const checkEmail = () => {
     let valid = false;
     const email = emailElement.value.trim();
     if (!isRequired(email)) {
-        showError(emailElement, 'Le courriel ne peut pas être vide');
+        showError(emailElement, 'L\'adresse électronique ne peut pas être vide.');
     } else if (!isEmailValid(email)) {
-        showError(emailElement, 'Le courriel n\'est pas valide')
+        showError(emailElement, 'L\'adresse électronique n\'est pas valide.')
     } else {
         showSuccess(emailElement);
         valid = true;
@@ -117,7 +148,7 @@ const showSuccess = (input) => {
     error.textContent = '';
 }
 
-form.addEventListener('submit', function(e) {
+formPassword.addEventListener('submit', function(e) {
 	// validate fields
     let isPasswordValid = checkPassword(),
     	isConfirmPasswordValid = checkConfirmPassword();
@@ -144,7 +175,7 @@ const debounce = (fn, delay = 500) => {
     };
 };
 
-form.addEventListener('input', debounce(function (e) {
+formPassword.addEventListener('input', debounce(function (e) {
     switch (e.target.id) {
         case 'new-password':
             checkPassword();
@@ -154,3 +185,36 @@ form.addEventListener('input', debounce(function (e) {
             break;
     }
 }));
+
+// ------------------------------- FOR INFORMATION SECTION -------------------------------------
+
+const isNameEmpty = value => value.match(/^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/) ? false : true;
+
+const isNameValid = (name) => {
+    const regEx = /^(\w+[a-zA-ZàéèëêÊÊùÀÉ\s]*)$/;
+    return regEx.test(name);
+};
+
+formName.addEventListener('submit', function(e) {
+	// validate fields
+    let isLastnameValid = checkName(lastnameElement);
+    let isFirstnameValid = checkName(firstnameElement);
+    	
+    let isFormValid = isLastnameValid && isFirstnameValid;
+
+    // stop the submission to the server if the form is invalid
+    if (!isFormValid) {
+		e.preventDefault();
+    }
+});
+
+formName.addEventListener('input', debounce(function (e) {
+	switch (e.target.id) {
+		case 'lname':
+			checkName(lastnameElement);
+			break;
+		case 'fname':
+			checkName(firstnameElement);
+			break;
+	}
+}))
