@@ -274,34 +274,40 @@ if (session.getAttribute("firstname") == null || session.getAttribute("firstname
   </div>
   </form>
   
- 	<form class="form" method="post" action="SettingsController">
+ 	<form class="form" method="post" action="SettingsController" name="passwordForm">
     <div class="form-group">
     	<h3>Changer le mot de passe</h3>
     	
     	<input type="password" class="form-control space-between" name="current-password" placeholder="Mot de passe actuel">
     	
-    	<input type="password" class="form-control space-between" name="new-password" placeholder="Nouveau mot de passe" size="20">
+    	<input type="password" id="password" class="form-control space-between" name="new-password" placeholder="Nouveau mot de passe" size="20">
     	
-    	<input type="password" class="form-control space-between" name="new-password-confirmation" placeholder="Nouveau mot de passe (encore)">
+    	<input type="password" id="confirm-password" class="form-control space-between" name="new-password-confirmation" placeholder="Nouveau mot de passe (encore)">
     	
     	<button type="submit" name="settings_password_btn" class="btn btn-primary">Modifier le mot de passe</button>
     	
     </div>
     </form>
     
-    <form class="form" method="post" action="SettingsController">
-    <div class="form-group">
-    	<h3>Informations du compte</h3>
-    	<input type="text" class="form-control space-between" name="lastname" placeholder="<%=session.getAttribute("lastname")%>">
-    	<input type="text" class="form-control space-between" name="firstname" placeholder="<%=session.getAttribute("firstname")%>">
+    <div class="form-group"><h3>Informations du compte</h3>
+    <form class="form-inline" method="post" action="SettingsController" name="infoForm" id="lname-form">
     	
-    	<button type="submit" name="settings_info_btn" class="btn btn-primary">Enregistrer</button>
-    </div>
+    	<input type="text" class="form-control space-between" id="lname" name="lastname" placeholder="<%=session.getAttribute("lastname")%>">
+    	<button type="submit" name="settings_lname_btn" onClick="return emptyLname()" class="btn btn-primary">Enregistrer</button>
+   	</form>
+   	
+    <form class="form-inline" method="post" action="SettingsController" name="infoForm" id="fname-form">
+    	<input type="text" class="form-control space-between" id="fname" name="firstname" placeholder="<%=session.getAttribute("firstname")%>">
+    	<button type="submit" name="settings_fname_btn" onClick="return emptyFname()" class="btn btn-primary">Enregistrer</button>
+    
     </form>
+    </div>
     </div>
     
     
 </div>
+
+<script src="scripts/settings.js"></script>
 
 <div id="footer"></div>
 

@@ -85,6 +85,11 @@ h3 {
     width: 50%;
 }
 
+.form-inline button {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
 .form-control {
   padding: 6px 0 7px;
 }

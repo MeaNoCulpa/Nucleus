@@ -73,17 +73,14 @@ public class SettingsController extends HttpServlet {
 			
 		}
 		
-		if (request.getParameter("settings_info_btn") != null) {
+		if (request.getParameter("settings_lname_btn") != null) {
 			String newLastname = request.getParameter("lastname");
-			String newFirstname = request.getParameter("firstname");
 			
 			HttpSession session = request.getSession();
             String currentLastname = (String) session.getAttribute("lastname");
-            String currentFirstname = (String) session.getAttribute("firstname");
             String username = (String) session.getAttribute("username");
             String password = (String) session.getAttribute("password");
             
-            String authoriseF = "";
             String authoriseL = "";
             
 			if (newLastname != currentLastname && newLastname != "") {
@@ -98,7 +95,26 @@ public class SettingsController extends HttpServlet {
 				session.setAttribute("lastname", newLastname);
 			}
 			
-			if (newFirstname != currentFirstname && newFirstname != "") {
+			if (authoriseL.equals("Success")) {
+				response.sendRedirect("index.jsp");
+			}
+			else {
+				response.sendRedirect("settings.jsp");
+			}
+			
+		}
+		
+		if (request.getParameter("settings_fname_btn") != null) {
+			String newFirstname = request.getParameter("firstname");
+			
+			HttpSession session = request.getSession();
+			String currentFirstname = (String) session.getAttribute("firstname");
+            String username = (String) session.getAttribute("username");
+            String password = (String) session.getAttribute("password");
+            
+            String authoriseF = "";
+            
+            if (newFirstname != currentFirstname && newFirstname != "") {
 				SettingsBean settingsBean = new SettingsBean();
 				settingsBean.setFirstname(newFirstname);
 				settingsBean.setEmail(username);
@@ -110,15 +126,13 @@ public class SettingsController extends HttpServlet {
 				session.setAttribute("firstname", newFirstname);
 
 			}
-			
-			if (authoriseL.equals("Success") || authoriseF.equals("Success")) {
+            
+            if (authoriseF.equals("Success")) {
 				response.sendRedirect("index.jsp");
 			}
 			else {
 				response.sendRedirect("settings.jsp");
 			}
-			
 		}
-		
 	}
 }
