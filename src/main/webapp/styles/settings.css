@@ -123,3 +123,15 @@ h3 {
 .modal .btn {
 	margin-top: 0;
 }
+
+div.error input {
+    border-color: var(--error-color);
+}
+
+div.success input {
+    border-color: var(--success-color);
+}
+
+div small {
+    color: var(--error-color);
+}

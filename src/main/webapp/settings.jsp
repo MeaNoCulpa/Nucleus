@@ -274,16 +274,21 @@ if (session.getAttribute("firstname") == null || session.getAttribute("firstname
   </div>
   </form>
   
- 	<form class="form" method="post" action="SettingsController" name="passwordForm">
+ 	<form class="form" method="post" id="passwordForm" action="SettingsController" name="passwordForm">
     <div class="form-group">
     	<h3>Changer le mot de passe</h3>
     	
     	<input type="password" class="form-control space-between" name="current-password" placeholder="Mot de passe actuel">
     	
-    	<input type="password" id="password" class="form-control space-between" name="new-password" placeholder="Nouveau mot de passe" size="20">
+    	<div>
+    	<input type="password" id="new-password" class="form-control space-between" name="new-password" placeholder="Nouveau mot de passe" size="20">
+    	<small></small>
+    	</div>
     	
+    	<div>
     	<input type="password" id="confirm-password" class="form-control space-between" name="new-password-confirmation" placeholder="Nouveau mot de passe (encore)">
-    	
+    	<small></small>
+    	</div>
     	<button type="submit" name="settings_password_btn" class="btn btn-primary">Modifier le mot de passe</button>
     	
     </div>
