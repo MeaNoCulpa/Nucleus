@@ -83,8 +83,8 @@ public class SettingsController extends HttpServlet {
             String username = (String) session.getAttribute("username");
             String password = (String) session.getAttribute("password");
             
-            String authoriseF = "";
             String authoriseL = "";
+            String authoriseF = "";
             
 			if (newLastname != currentLastname && newLastname != "") {
 				SettingsBean settingsBean = new SettingsBean();
@@ -97,7 +97,6 @@ public class SettingsController extends HttpServlet {
 				
 				session.setAttribute("lastname", newLastname);
 			}
-			
 			if (newFirstname != currentFirstname && newFirstname != "") {
 				SettingsBean settingsBean = new SettingsBean();
 				settingsBean.setFirstname(newFirstname);
@@ -111,14 +110,12 @@ public class SettingsController extends HttpServlet {
 
 			}
 			
-			if (authoriseL.equals("Success") || authoriseF.equals("Success")) {
+			if (authoriseL.equals("Success") && authoriseF.equals("Success")) {
 				response.sendRedirect("index.jsp");
 			}
 			else {
 				response.sendRedirect("settings.jsp");
 			}
-			
 		}
-		
 	}
 }

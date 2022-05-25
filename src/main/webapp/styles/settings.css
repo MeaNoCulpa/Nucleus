@@ -85,6 +85,11 @@ h3 {
     width: 50%;
 }
 
+.form-inline button {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
 .form-control {
   padding: 6px 0 7px;
 }
@@ -117,4 +122,16 @@ h3 {
 
 .modal .btn {
 	margin-top: 0;
+}
+
+div.error input {
+    border-color: var(--error-color);
+}
+
+div.success input {
+    border-color: var(--success-color);
+}
+
+div small {
+    color: var(--error-color);
 }
