@@ -244,10 +244,7 @@
 						<input type="email" name="email" class="form-control" id="email" placeholder="example@mail.com" required />
 						<small></small>
 					</div>
-
-<<<<<<< HEAD
-					<br />
-=======
+				</div>
 <div class="form-group">
   	<label class="form-label" for="lastname">Nom : *</label>
   	<input type="text" name="lastname" class="form-control" id="lname" required>
@@ -296,8 +293,6 @@
   <h4 class="text-center"> Avez-vous un compte ? <a href="login.jsp">Se connecter</a></h4>
 </form>
 </div>
->>>>>>> security-improvement
-
 					<div>
 						<label class="form-label" for="password">Mot de passe : *</label>
 						<input type="password" name="password" class="form-control" id="password" required />
