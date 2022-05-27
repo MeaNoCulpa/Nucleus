@@ -6,8 +6,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import model.SettingsBean;
-import model.SettingsDao;
+import model.settings.SettingsBean;
+import model.settings.SettingsDao;
 
 import java.io.IOException;
 

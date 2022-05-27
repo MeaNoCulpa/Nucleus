@@ -1,4 +1,4 @@
-package model;
+package model.settings;
 
 public class SettingsBean {
 	private String firstname, lastname, email, password;
