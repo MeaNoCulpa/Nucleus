@@ -236,6 +236,7 @@
 				<%= ConversationController.getSecondMember(String.valueOf(request.getParameter("idConversation")), Integer.parseInt(session.getAttribute("idMember").toString()))%>
 			</h3>
 			<%= ConversationController.getAllMessages(String.valueOf(request.getParameter("idConversation")), Integer.parseInt(session.getAttribute("idMember").toString())) %>
+			<a href="conversations.jsp?idConversation=<%= ConversationController.conversationWith(Integer.parseInt(session.getAttribute("idMember").toString()), 3) %>">Discuter avec Test</a>
 			<% if (request.getParameter("idConversation") != null) { %>
 			<form class="form col-sm-9" action="ConversationController" method="post">
 				<div>
