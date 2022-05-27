@@ -16,6 +16,8 @@ public class LoginDao {
 
 	    String dbUsername;
 	    String dbPassword;
+	    String dbRole;
+	    
 	    try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
 	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
@@ -29,8 +31,13 @@ public class LoginDao {
 	        while (resultSet.next()) {
 	            dbUsername = resultSet.getString("Username");
 	            dbPassword = resultSet.getString("Password");
+	            dbRole = resultSet.getString("Role");
 
 	            if (username.equals(dbUsername) && password.equals(dbPassword)) {
+	            	if (dbRole.equals("admin")) {
+	            		loginBean.setRole("admin");
+	            		return "SUCCESS ADMIN LOGIN";
+	            	}
 	                return "SUCCESS LOGIN";
 	            }
 	        }

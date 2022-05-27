@@ -14,10 +14,15 @@
 
 		<script>
 			var firstname = '<%=session.getAttribute("firstname")%>';
+			var role = '<%=session.getAttribute("role")%>';
 			$(function () {
 				if (firstname == 'null') {
 					$('#header').load('header.jsp');
-				} else {
+				} 
+				if (role == "admin") {
+					$('#header').load('headerAdmin.jsp');
+				}
+				else {
 					$('#header').load('headerLogged.jsp');
 				}
 				$('#footer').load('footer.jsp');
