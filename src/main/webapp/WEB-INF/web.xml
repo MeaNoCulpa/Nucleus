@@ -31,13 +31,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>NewServlet</display-name>
-    <servlet-name>NewServlet</servlet-name>
-    <servlet-class>com.example.nucleus.controller.NewServlet</servlet-class>
+    <display-name>OfferCreationController</display-name>
+    <servlet-name>OfferCreationController</servlet-name>
+    <servlet-class>com.example.nucleus.controller.OfferCreationController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>NewServlet</servlet-name>
-    <url-pattern>/NewServlet</url-pattern>
+    <servlet-name>OfferCreationController</servlet-name>
+    <url-pattern>/OfferCreationController</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

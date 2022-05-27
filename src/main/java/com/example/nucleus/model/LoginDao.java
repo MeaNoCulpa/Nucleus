@@ -7,16 +7,16 @@ import java.sql.ResultSet;
 
 public class LoginDao {
 	
+	private final String DBURL = "jdbc:mysql://localhost:3306/NUCLEUS";
+	private final String DBLOGIN = "root";
+	private final String DBPASSWORD = "root";
+	
 	public String authoriseLogin(LoginBean loginBean) {
 	    String username = loginBean.getUsername();
 	    String password = loginBean.getPassword();
 
 	    String dbUsername;
 	    String dbPassword;
-
-	    String DBURL = "jdbc:mysql://localhost:3307/Nucleus"; // database connexion url string
-	    String DBLOGIN = "root"; // database username
-	    String DBPASSWORD = "root"; // database password
 
 	    try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
@@ -52,10 +52,6 @@ public class LoginDao {
 	public String getFirstnameFromDataBase(LoginBean loginBean) {
 		String username = loginBean.getUsername();
 	    String password = loginBean.getPassword();
-		
-		String DBURL = "jdbc:mysql://localhost:3307/Nucleus"; // database connexion url string
-	    String DBLOGIN = "root"; // database username
-	    String DBPASSWORD = "root"; // database password
 	    
 	    try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
@@ -86,10 +82,6 @@ public class LoginDao {
 	public String getLastnameFromDataBase(LoginBean loginBean) {
 		String username = loginBean.getUsername();
 	    String password = loginBean.getPassword();
-		
-		String DBURL = "jdbc:mysql://localhost:3307/Nucleus";
-	    String DBLOGIN = "root";
-	    String DBPASSWORD = "root";
 	    
 	    try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");

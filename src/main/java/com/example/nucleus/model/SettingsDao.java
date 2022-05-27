@@ -6,15 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class SettingsDao {
-
+		
+	private final String DBURL = "jdbc:mysql://localhost:3306/NUCLEUS";
+	private final String DBLOGIN = "root";
+	private final String DBPASSWORD = "root";
+    	
 		public String authoriseSettings(SettingsBean settingsBean, String currentUsername) {
 			
 		    String username = settingsBean.getEmail();
 		    String password = settingsBean.getPassword();
 		    
-		    String DBURL = "jdbc:mysql://localhost:3307/Nucleus";
-		    String DBLOGIN = "root";
-		    String DBPASSWORD = "root";
+		    
 
 		    String dbUsername;
 		    String dbPassword;
@@ -70,10 +72,6 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
-			
-			String DBURL = "jdbc:mysql://localhost:3307/Nucleus";
-		    String DBLOGIN = "root";
-		    String DBPASSWORD = "root";
 		    
 		    try {
 		    	Class.forName("com.mysql.cj.jdbc.Driver");
@@ -126,10 +124,6 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
-			
-			String DBURL = "jdbc:mysql://localhost:3307/Nucleus";
-		    String DBLOGIN = "root";
-		    String DBPASSWORD = "root";
 		    
 		    try {
 		    	Class.forName("com.mysql.cj.jdbc.Driver");
@@ -180,10 +174,6 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
-			
-			String DBURL = "jdbc:mysql://localhost:3307/Nucleus";
-		    String DBLOGIN = "root";
-		    String DBPASSWORD = "root";
 		    
 		    try {
 		    	Class.forName("com.mysql.cj.jdbc.Driver");
@@ -226,13 +216,9 @@ public class SettingsDao {
 			return "Errare";
 		}
 		
-		public static String getIDFromDataBase(SettingsBean settingsBean) {
+		public String getIDFromDataBase(SettingsBean settingsBean) {
 			String username = settingsBean.getEmail();
 		    String password = settingsBean.getPassword();
-			
-			String DBURL = "jdbc:mysql://localhost:3307/Nucleus";
-		    String DBLOGIN = "root";
-		    String DBPASSWORD = "root";
 		    
 		    try {
 		        Class.forName("com.mysql.cj.jdbc.Driver");
