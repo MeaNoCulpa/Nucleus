@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 
 public class LoginDao {
 	String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
-  String DBLOGIN = "root";
-  String DBPASSWORD = "root";
+	String DBLOGIN = "root";
+	String DBPASSWORD = "root";
 	
 	public String authoriseLogin(LoginBean loginBean) {
 	    String username = loginBean.getUsername();
