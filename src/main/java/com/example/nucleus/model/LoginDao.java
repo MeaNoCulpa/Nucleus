@@ -24,7 +24,7 @@ public class LoginDao {
 
 	        PreparedStatement preparedStatement = null;
 
-	        preparedStatement = dbconn.prepareStatement("select * from member where Username=? and Password=?");
+	        preparedStatement = dbconn.prepareStatement("SELECT * FROM member WHERE Username=? AND Password=?");
 	        preparedStatement.setString(1, username);
 	        preparedStatement.setString(2, password);
 	        ResultSet resultSet = preparedStatement.executeQuery();

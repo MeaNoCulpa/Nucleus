@@ -272,7 +272,7 @@ body {
     <div class="form-check">
   	<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
   	<label class="form-check-label" for="defaultCheck1">
-    J'ai lu et j'accepte les <a href="#">Conditions Générales d'Utilisation</a> et la <a href="#">Politique de Confidentialité</a>. *
+    J'ai lu et j'accepte les <a href="terms.jsp">Conditions Générales d'Utilisation</a> et la <a href="#">Politique de Confidentialité</a>. *
   	</label>
 	</div>
     

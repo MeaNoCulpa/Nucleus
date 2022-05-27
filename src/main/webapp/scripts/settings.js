@@ -8,9 +8,6 @@ const confirmPasswordElement = document.querySelector('#confirm-password');
 const lastnameElement = document.querySelector('#lname');
 const firstnameElement = document.querySelector('#fname');
 
-console.log("lastname: " + lastnameElement.value);
-console.log("firstname: " + firstnameElement.value);
-
 const formPassword = document.querySelector('#passwordForm');
 const formName = document.querySelector('#infoForm');
 
