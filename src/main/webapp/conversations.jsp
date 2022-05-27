@@ -211,7 +211,7 @@ body {
 </style>
 </head>
 <body id="myPage">
-<%@page import="com.example.nucleus.controller.ConversationController" %>
+<%@page import="controller.ConversationController" %>
 <div id="header"></div>
 <div class="container-fluid profil-section">
 	<div class="profil-info">

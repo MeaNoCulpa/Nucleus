@@ -1,4 +1,4 @@
-package com.example.nucleus.model.messages;
+package model.messages;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.nucleus.model.RegisterBean;
+import model.RegisterBean;
 
 public class ConversationDao {
     String DBURL = "jdbc:mysql://localhost:3306/Nucleus";

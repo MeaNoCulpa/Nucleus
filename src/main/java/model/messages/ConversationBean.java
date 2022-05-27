@@ -1,4 +1,4 @@
-package com.example.nucleus.model.messages;
+package model.messages;
 
 public class ConversationBean {
 	private int idMember1, idMember2;

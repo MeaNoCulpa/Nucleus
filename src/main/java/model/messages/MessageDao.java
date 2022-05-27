@@ -1,4 +1,4 @@
-package com.example.nucleus.model.messages;
+package model.messages;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -58,7 +58,7 @@ public class MessageDao {
             	int idSender = resultSet.getInt("ID_sender");
             	Date date = resultSet.getDate("date");
 
-            	messagesList.add(new Message(idSender, message, date));
+            	//messagesList.add(new Message(idSender, message, date));
             }
             preparedStatement.close();
             connection.close();

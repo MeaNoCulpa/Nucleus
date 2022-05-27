@@ -1,14 +1,15 @@
-package com.example.nucleus.controller;
+package controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.SettingsBean;
+import model.SettingsDao;
 
 import java.io.IOException;
-import com.example.nucleus.model.SettingsBean;
-import com.example.nucleus.model.SettingsDao;
 
 public class SettingsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

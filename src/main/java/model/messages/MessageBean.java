@@ -1,4 +1,4 @@
-package com.example.nucleus.model.messages;
+package model.messages;
 
 import java.sql.Date;
 
