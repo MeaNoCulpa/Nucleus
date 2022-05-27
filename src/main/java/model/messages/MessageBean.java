@@ -1,11 +1,12 @@
 package model.messages;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class MessageBean {
 	private int idConversation, idSender;
 	private String content;
-	private Date date;
+	private Timestamp timestamp;
 
     public int getIdConversation() {
         return idConversation;
@@ -30,4 +31,12 @@ public class MessageBean {
     public void setContent(String content) {
         this.content = content;
     }
+    
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }    
 }

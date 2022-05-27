@@ -1,7 +1,7 @@
 package model.messages;
 
 public class ConversationBean {
-	private int idMember1, idMember2;
+	private int idConversation, idMember1, idMember2;
 
     public int getIdMember1() {
         return idMember1;
@@ -18,4 +18,12 @@ public class ConversationBean {
     public void setIdMember2(int idMember2) {
         this.idMember2 = idMember2;
     }
+
+	public int getIdConversation() {
+		return idConversation;
+	}
+
+	public void setIdConversation(int idConversation) {
+		this.idConversation = idConversation;
+	}
 }

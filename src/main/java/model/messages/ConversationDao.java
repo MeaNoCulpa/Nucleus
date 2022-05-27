@@ -53,7 +53,6 @@ public class ConversationDao {
             PreparedStatement preparedStatement = null;
 
             String query = "SELECT * FROM member INNER JOIN conversation ON member.ID_Member=conversation.ID_Member1 OR member.ID_Member=conversation.ID_Member2 WHERE ID_Conversation = ?;";
-            // TODO ajouter membre 2
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, idConversation);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -75,5 +74,36 @@ public class ConversationDao {
         }
 		
 		return new ArrayList<RegisterBean>();
-	} 
+	}
+	
+	public List<ConversationBean> getAllConversations(int idCurrentMember) {
+		try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+            PreparedStatement preparedStatement = null;
+
+            String query = "SELECT * FROM conversation WHERE ID_Member1 = ? OR ID_Member2 = ?;";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, idCurrentMember);
+            preparedStatement.setInt(2, idCurrentMember);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            List<ConversationBean> allConversations = new ArrayList<>();
+            while(resultSet.next()) {
+            	ConversationBean conversation = new ConversationBean();
+            	conversation.setIdConversation(resultSet.getInt("ID_Conversation"));
+            	conversation.setIdMember1(resultSet.getInt("ID_Member1"));
+            	conversation.setIdMember2(resultSet.getInt("ID_Member2"));
+            	allConversations.add(conversation);
+            }
+            preparedStatement.close();
+            connection.close();
+            return allConversations;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+		
+		return null;
+	}
 }

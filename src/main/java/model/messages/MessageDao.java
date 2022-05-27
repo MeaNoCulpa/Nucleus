@@ -47,18 +47,18 @@ public class MessageDao {
             Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
             PreparedStatement preparedStatement = null;
 
-            String query = "SELECT * FROM message WHERE ID_Conversation = ? SORT BY Date";
+            String query = "SELECT * FROM message WHERE ID_Conversation = ? ORDER BY Date";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, idConversation);
             ResultSet resultSet = preparedStatement.executeQuery();
             
             List<MessageBean> messagesList = new ArrayList<>();
-            while(resultSet.next()) { 	
-            	String message = resultSet.getString("content");
-            	int idSender = resultSet.getInt("ID_sender");
-            	Date date = resultSet.getDate("date");
-
-            	//messagesList.add(new Message(idSender, message, date));
+            while(resultSet.next()) {
+            	MessageBean message = new MessageBean();
+            	message.setContent(resultSet.getString("content"));
+            	message.setIdSender(resultSet.getInt("ID_Sender"));
+            	message.setTimestamp(resultSet.getTimestamp("date"));
+            	messagesList.add(message);
             }
             preparedStatement.close();
             connection.close();

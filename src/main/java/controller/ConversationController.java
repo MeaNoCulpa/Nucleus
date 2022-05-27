@@ -1,10 +1,10 @@
 package controller;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -16,19 +16,32 @@ import java.util.TreeMap;
 import model.RegisterBean;
 import model.SettingsBean;
 import model.SettingsDao;
+import model.messages.ConversationBean;
 import model.messages.ConversationDao;
 import model.messages.MessageBean;
 import model.messages.MessageDao;
 
 public class ConversationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public static int getIdConversation() {
-		// TODO getIdConversation
-		return 1;
+	
+	public static String getAllConversations(int idCurrentMember) {
+		ConversationDao conversationDao = new ConversationDao();
+		List<ConversationBean> allConversations = conversationDao.getAllConversations(idCurrentMember);
+		String outStr = "";
+		for (ConversationBean conversation : allConversations) {
+			String secondMember = getSecondMember(String.valueOf(conversation.getIdConversation()), idCurrentMember);
+			int idConversation = conversation.getIdConversation();
+			outStr += "<a href=\"conversations.jsp?idConversation=" + idConversation + "\">" + secondMember + "</a>";
+		}
+		
+		return outStr;
 	}
 	
-	public static String getSecondMember(int idConversation, int idCurrentMember) {
+	public static String getSecondMember(String idConversationStr, int idCurrentMember) {
+		if (idConversationStr == "null") {
+			return "";
+		}
+		int idConversation = Integer.parseInt(idConversationStr);
 		ConversationDao conversationDao = new ConversationDao();
 		List<RegisterBean> members = conversationDao.getMembersConversation(idConversation);
 		
@@ -38,9 +51,23 @@ public class ConversationController extends HttpServlet {
 		return members.get(0).getFirstname() + " " + members.get(0).getLastname(); 
 	}
 	
-	public static String getAllMessages() {
+	public static String getAllMessages(String idConversationStr, int idCurrentMember) {
+		if (idConversationStr == "null") {
+			return "";
+		}
+		int idConversation = Integer.parseInt(idConversationStr);
+		MessageDao messageDao = new MessageDao();
+		List<MessageBean> allMessagesConversation = messageDao.getAllMessages(idConversation);
 		
-		return "<p></p>";
+		String outStr = "";
+		for (MessageBean message : allMessagesConversation) {
+			String style = idCurrentMember != message.getIdSender() ? " style='font-weight:bold;'" : "";
+			outStr += "<p" + style + ">" + message.getContent() + "</p>"
+					+ "<p>" + message.getTimestamp() + "</p>";
+		}
+		return outStr;
+		//return outStr;
+		
 	}
 	
  	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

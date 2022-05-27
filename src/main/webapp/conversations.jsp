@@ -224,17 +224,22 @@ body {
 
 <div class="container-fluid form-section">
 
+	<div>
+		<p>Vos discussions</p>
+		<%= ConversationController.getAllConversations(Integer.parseInt(session.getAttribute("idMember").toString())) %>
+	</div>
     <div class="col-sm-3"></div>
-    
+    	<h3><%= ConversationController.getSecondMember(String.valueOf(request.getParameter("idConversation")), Integer.parseInt(session.getAttribute("idMember").toString()))%></h3>
+		<%= ConversationController.getAllMessages(String.valueOf(request.getParameter("idConversation")), Integer.parseInt(session.getAttribute("idMember").toString())) %>
+    <% if (request.getParameter("idConversation") != null) { %>
     <form class="form col-sm-9" action="ConversationController" method="post">
     <div>
-    	<h3><%= ConversationController.getSecondMember(ConversationController.getIdConversation(), Integer.parseInt(session.getAttribute("idMember").toString()))%></h3>
-		<%= ConversationController.getAllMessages() %>
-    	<input type="number" name="idConversation" value="<%= ConversationController.getIdConversation() %>" hidden="false"/>
+    	<input type="number" name="idConversation" value="<%= request.getParameter("idConversation") %>" hidden="true"/>
     	<input type="text" class="form-control space-between" name="content" id="content" placeholder="Votre message">
     	<button type="submit" class="btn btn-primary">Envoyer</button>
     </div>
     </form>
+    <% } %>
 </div>
 
 <div id="footer"></div>
