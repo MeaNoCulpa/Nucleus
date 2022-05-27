@@ -231,7 +231,7 @@ body {
 <form id="creation" method="post" action="OfferCreationController"  enctype="multipart/form-data" onsubmit="return validation()">
 <div class="form-group">
 <label for="location" class="form-label">Où souhaitez-vous créer votre offre ?</label>
-<input type="text" id="location" class="form-control" name="location">
+<input type="text" id="location" class="form-control" onkeypress="return /[0-9a-zA-Z\-éèàçôîûâê ]/i.test(event.key)" name="location">
 
 <br/>
 
@@ -251,7 +251,7 @@ body {
 <br/>
 
 <label for="description" class="form-label">Décrivez votre offre:</label>
-<input type="text" id="description" class="form-control" name="description">
+<input type="text" id="description" class="form-control" onkeypress="return /[0-9a-zA-Z\-.,éèàçôîûâê ]/i.test(event.key)" name="description">
 
 </div>
 

@@ -1,4 +1,4 @@
-package com.example.nucleus.model;
+package model;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -9,6 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 
 public class OfferDao {
@@ -24,7 +27,7 @@ public class OfferDao {
         Part filePart = offerBean.getOffer_image();
         
         try {
-        	createOffer(offerBean,loginBean);
+        	createOffer(offerBean);
         	InputStream inputStream = null; // input stream of the upload file
         	if (filePart != null) {
                 // prints out some information for debugging
@@ -45,16 +48,19 @@ public class OfferDao {
     }
 	
 	
-	public void createOffer(OfferBean offerBean, LoginBean loginBean) {
+	public void createOffer(OfferBean offerBean) {
 		Connection conn;
 		Statement stmt;
 		PreparedStatement pst = null;
+		//HttpSession session = request.getSession();
 		
 		String location = offerBean.getLocation();
         String date_start = offerBean.getDate_start();
         String date_end= offerBean.getDate_end();
         String description= offerBean.getDescription();
         int id_member = 1;//TODO Change to LOGINBEAN
+        String username ;
+        
         
         try {
             Class.forName(JDBC_DRIVER);

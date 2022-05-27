@@ -1,4 +1,4 @@
-package com.example.nucleus.model;
+package model;
 
 public class LoginBean {
 

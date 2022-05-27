@@ -1,4 +1,4 @@
-package com.example.nucleus.model;
+package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

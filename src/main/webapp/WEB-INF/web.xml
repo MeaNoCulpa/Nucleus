@@ -13,7 +13,7 @@
     <description></description>
     <display-name>LoginController</display-name>
     <servlet-name>LoginController</servlet-name>
-    <servlet-class>com.example.nucleus.controller.LoginController</servlet-class>
+    <servlet-class>controller.LoginController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
@@ -23,7 +23,7 @@
     <description></description>
     <display-name>RegisterController</display-name>
     <servlet-name>RegisterController</servlet-name>
-    <servlet-class>com.example.nucleus.controller.RegisterController</servlet-class>
+    <servlet-class>controller.RegisterController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RegisterController</servlet-name>
@@ -33,7 +33,7 @@
     <description></description>
     <display-name>OfferCreationController</display-name>
     <servlet-name>OfferCreationController</servlet-name>
-    <servlet-class>com.example.nucleus.controller.OfferCreationController</servlet-class>
+    <servlet-class>controller.OfferCreationController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>OfferCreationController</servlet-name>
@@ -43,10 +43,20 @@
     <description></description>
     <display-name>SettingsController</display-name>
     <servlet-name>SettingsController</servlet-name>
-    <servlet-class>com.example.nucleus.controller.SettingsController</servlet-class>
+    <servlet-class>controller.SettingsController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SettingsController</servlet-name>
     <url-pattern>/SettingsController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ImageDisplayController</display-name>
+    <servlet-name>ImageDisplayController</servlet-name>
+    <servlet-class>controller.ImageDisplayController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImageDisplayController</servlet-name>
+    <url-pattern>/ImageDisplayController</url-pattern>
   </servlet-mapping>
 </web-app>

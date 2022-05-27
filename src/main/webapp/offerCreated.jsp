@@ -78,6 +78,6 @@ e.printStackTrace();
 %>
 
 <br/>
-<a href='#' onclick='javascript:window.open("http://localhost:8080/Nucleus/imageDisplay.jsp", "_blank", "scrollbars=1,resizable=1,height=300,width=300");' title='Pop Up'>Display Image</a>
+<a href='#' onclick='javascript:window.open("http://localhost:8080/Nucleus/ImageDisplayController", "_blank", "scrollbars=1,resizable=1,height=300,width=300");' title='Pop Up'>Display Image</a>
 </body>
 </html>

@@ -1,10 +1,9 @@
-package com.example.nucleus.model;
+package model;
 
-public class SettingsBean {
+public class RegisterBean {
 	private String firstname, lastname, email, password;
-	private int id;
-	
-	public String getFirstname() {
+
+    public String getFirstname() {
         return firstname;
     }
 
@@ -35,12 +34,4 @@ public class SettingsBean {
     public void setPassword(String password) {
         this.password = password;
     }
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 }

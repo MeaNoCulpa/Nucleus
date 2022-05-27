@@ -1,14 +1,14 @@
-package com.example.nucleus.controller;
+package controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import model.RegisterBean;
+import model.RegisterDao;
 
-import com.example.nucleus.model.RegisterBean;
-import com.example.nucleus.model.RegisterDao;
+import java.io.IOException;
 
 /**
  * Servlet implementation class RegisterController
