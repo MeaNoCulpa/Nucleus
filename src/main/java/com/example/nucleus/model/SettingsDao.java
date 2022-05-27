@@ -66,7 +66,6 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
-
 		    try {
 		    	Class.forName("com.mysql.cj.jdbc.Driver");
 		        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
@@ -118,7 +117,6 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
-
 		    try {
 		    	Class.forName("com.mysql.cj.jdbc.Driver");
 		        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
@@ -168,7 +166,6 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
-
 		    try {
 		    	Class.forName("com.mysql.cj.jdbc.Driver");
 		        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);

@@ -1,5 +1,7 @@
 package com.example.nucleus.model.messages;
 
+import java.sql.Date;
+
 public class MessageBean {
 	private int idConversation, idSender;
 	private String content;
