@@ -7,15 +7,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import model.RegisterBean;
-import model.SettingsBean;
-import model.SettingsDao;
 import model.messages.ConversationBean;
 import model.messages.ConversationDao;
 import model.messages.MessageBean;

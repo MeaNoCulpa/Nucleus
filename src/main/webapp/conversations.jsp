@@ -233,12 +233,10 @@
 			</div>
 			<div class="col-sm-3"></div>
 			<h3>
-				<%= ConversationController.getSecondMember(String.valueOf(request.getParameter("idConversation")),
-				Integer.parseInt(session.getAttribute("idMember").toString()))%>
+				<%= ConversationController.getSecondMember(String.valueOf(request.getParameter("idConversation")), Integer.parseInt(session.getAttribute("idMember").toString()))%>
 			</h3>
-			<%= ConversationController.getAllMessages(String.valueOf(request.getParameter("idConversation")),
-			Integer.parseInt(session.getAttribute("idMember").toString())) %> <% if (request.getParameter("idConversation") !=
-			null) { %>
+			<%= ConversationController.getAllMessages(String.valueOf(request.getParameter("idConversation")), Integer.parseInt(session.getAttribute("idMember").toString())) %>
+			<% if (request.getParameter("idConversation") != null) { %>
 			<form class="form col-sm-9" action="ConversationController" method="post">
 				<div>
 					<input type="number" name="idConversation" value="<%= request.getParameter("idConversation") %>"
