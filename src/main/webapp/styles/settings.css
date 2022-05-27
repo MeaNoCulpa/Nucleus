@@ -1,0 +1,99 @@
+:root {
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
+body {
+	background: #f7f7f8;
+}
+
+h3 {
+	color: #27343b;
+}
+
+.profil-section {
+	height: 100%;
+	background: white;
+	border-bottom: 1px solid #e0e4e7;
+}
+
+.profil-info {
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 50px;
+	padding-right: 12px;
+	padding-top: 40px;
+}
+
+.form-section {
+	max-width: 1280px;
+	margin-left: 10%;
+}
+
+@media (min-width: 1280px){
+.form-section {
+  max-width: 1280px;
+}
+}
+
+@media (min-width: 600px){
+.form-section {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+}
+
+.form-group {
+	border: 1px solid #d7dade;
+	padding: 28px;
+	background-color: white;
+	border-radius: 2px;
+}
+
+.btn {
+	margin-top: 40px;
+	background-color: #f6673c;
+	border-color: #f6673c;
+}
+
+.space-between {
+	margin-top: 30px;
+}
+
+.btn-primary:hover {
+  background-color: #f88d6d;
+  border-color: #f88d6d;
+}
+
+.form-group h3 {
+	font-size: 18px;
+}
+
+.profil-name {
+	font-size: 22px;
+	line-height: 32px;
+	font-weight: 600px;
+}
+
+.form-group input {
+    box-shadow: none;
+    border-width: 0px 0px 1px 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 50%;
+}
+
+.form-control {
+  padding: 6px 0 7px;
+}
+
+.form-group input:hover {
+	border-bottom: 2px solid #f6673c!important;
+}
+
+.form-group input:focus {
+	box-shadow: none;
+	border-bottom: 2px solid #f6673c!important;
+}
