@@ -13,7 +13,7 @@
     <description></description>
     <display-name>LoginController</display-name>
     <servlet-name>LoginController</servlet-name>
-    <servlet-class>com.example.nucleus.controller.LoginController</servlet-class>
+    <servlet-class>controller.LoginController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
@@ -23,7 +23,7 @@
     <description></description>
     <display-name>RegisterController</display-name>
     <servlet-name>RegisterController</servlet-name>
-    <servlet-class>com.example.nucleus.controller.RegisterController</servlet-class>
+    <servlet-class>controller.RegisterController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RegisterController</servlet-name>
@@ -33,7 +33,7 @@
     <description></description>
     <display-name>NewServlet</display-name>
     <servlet-name>NewServlet</servlet-name>
-    <servlet-class>com.example.nucleus.controller.NewServlet</servlet-class>
+    <servlet-class>controller.NewServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>NewServlet</servlet-name>
@@ -43,7 +43,7 @@
     <description></description>
     <display-name>SettingsController</display-name>
     <servlet-name>SettingsController</servlet-name>
-    <servlet-class>com.example.nucleus.controller.SettingsController</servlet-class>
+    <servlet-class>controller.SettingsController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SettingsController</servlet-name>
@@ -53,7 +53,7 @@
     <description></description>
     <display-name>ConversationController</display-name>
     <servlet-name>ConversationController</servlet-name>
-    <servlet-class>com.example.nucleus.controller.ConversationController</servlet-class>
+    <servlet-class>controller.ConversationController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ConversationController</servlet-name>
