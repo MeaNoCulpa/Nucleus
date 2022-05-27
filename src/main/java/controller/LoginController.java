@@ -11,7 +11,6 @@ import model.LoginBean;
 import model.LoginDao;
 
 import java.io.IOException;
-
 /**
  * Servlet implementation class LoginController
  */
