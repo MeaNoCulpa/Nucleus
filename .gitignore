@@ -3,4 +3,8 @@
 /.idea/
 /.settings/
 build
+<<<<<<< HEAD
 target/
+=======
+/target/
+>>>>>>> 1301e8e7ed3746cc46945dca81cd7a7ddbbfb5e7

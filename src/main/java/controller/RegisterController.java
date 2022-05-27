@@ -1,17 +1,14 @@
 package controller;
 
 import java.io.IOException;
-
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import model.RegisterBean;
 import model.RegisterDao;
 
@@ -36,6 +33,7 @@ public class RegisterController extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -46,7 +44,7 @@ public class RegisterController extends HttpServlet {
 	            String lastname = request.getParameter("lastname");
 	            String email = request.getParameter("email");
 	            String password = request.getParameter("password");
-	            
+
 	            try {
 	                // getInstance() method is called with algorithm SHA-512
 	                MessageDigest md = MessageDigest.getInstance("SHA-512");
@@ -97,9 +95,6 @@ public class RegisterController extends HttpServlet {
 	            catch (NoSuchAlgorithmException e) {
 	                throw new RuntimeException(e);
 	            }
-	            
-	            
-	            
 	    }
 	}
 

@@ -6,9 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LoginDao {
-	String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
-	String DBLOGIN = "root";
-	String DBPASSWORD = "root";
+
+	private final String DBURL = "jdbc:mysql://localhost:3306/NUCLEUS";
+	private final String DBLOGIN = "root";
+	private final String DBPASSWORD = "root";
 	
 	public String authoriseLogin(LoginBean loginBean) {
 	    String username = loginBean.getUsername();
@@ -16,6 +17,7 @@ public class LoginDao {
 
 	    String dbUsername;
 	    String dbPassword;
+
 	    try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
 	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
