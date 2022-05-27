@@ -1,6 +1,5 @@
 package model.messages;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class MessageBean {
