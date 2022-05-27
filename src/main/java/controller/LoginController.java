@@ -67,33 +67,36 @@ public class LoginController extends HttpServlet {
                 
                 LoginBean loginBean = new LoginBean();
 
-
-            loginBean.setUsername(username);
-            loginBean.setPassword(hashtext);
-
-            LoginDao loginDao = new LoginDao();
-
-            String authorise = loginDao.authoriseLogin(loginBean);
-            String firstname = loginDao.getFirstnameFromDataBase(loginBean);
-            String lastname = loginDao.getLastnameFromDataBase(loginBean);
-            int idMember = loginDao.getIdFromDataBase(loginBean);
-
-            if (authorise.equals("SUCCESS LOGIN")) {
-                HttpSession session = request.getSession();
-                session.setAttribute("username", loginBean.getUsername());
-                session.setAttribute("password", hashtext);
-                session.setAttribute("firstname", firstname);
-                session.setAttribute("lastname", lastname);
-                session.setAttribute("idMember", idMember);
-                response.sendRedirect("index.jsp");
-                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
-                //requestDispatcher.forward(request, response);
-            }
+	            loginBean.setUsername(username);
+	            loginBean.setPassword(hashtext);
+	
+	            LoginDao loginDao = new LoginDao();
+	
+	            String authorise = loginDao.authoriseLogin(loginBean);
+	            String firstname = loginDao.getFirstnameFromDataBase(loginBean);
+	            String lastname = loginDao.getLastnameFromDataBase(loginBean);
+	            int idMember = loginDao.getIdFromDataBase(loginBean);
+	
+	            if (authorise.equals("SUCCESS LOGIN")) {
+	                HttpSession session = request.getSession();
+	                session.setAttribute("username", loginBean.getUsername());
+	                session.setAttribute("password", hashtext);
+	                session.setAttribute("firstname", firstname);
+	                session.setAttribute("lastname", lastname);
+	                session.setAttribute("idMember", idMember);
+	                response.sendRedirect("index.jsp");
+	                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
+	                //requestDispatcher.forward(request, response);
+	            }
+	            else {
+	            	System.out.println("Login unsuccessful");
+	            }
             }
             // For specifying wrong message digest algorithms
             catch (NoSuchAlgorithmException e) {
                 throw new RuntimeException(e);
             }
+            
         }
 
 
