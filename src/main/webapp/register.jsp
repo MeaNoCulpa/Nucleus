@@ -244,9 +244,55 @@
 						<input type="email" name="email" class="form-control" id="email" placeholder="example@mail.com" required />
 						<small></small>
 					</div>
-
-					<br />
-
+				</div>
+<div class="form-group">
+  	<label class="form-label" for="lastname">Nom : *</label>
+  	<input type="text" name="lastname" class="form-control" id="lname" required>
+  	
+  	<br>
+  	
+  	<label class="form-label" for="firstname">Prénom : *</label>
+  	<input type="text" name="firstname" class="form-control" id="fname" required>
+  	
+  	<br>
+  	
+  	<div>
+  	<label class="form-label" for="email">Nom d'utilisateur (adresse électronique) : *</label>
+  	<input type="email" name="email" class="form-control" id="email" placeholder="example@mail.com" required>
+  	<small></small>
+	</div>
+	
+	<br>
+	
+	<div>
+  	<label class="form-label" for="password">Mot de passe : *</label>
+  	<input type="password" name="password" class="form-control" id="password" required>
+  	<small></small>
+	</div>
+	
+	<br>
+	
+	<div>
+  	<label class="form-label" for="confirm-password">Confirmez le mot de passe : *</label>
+    <input type="password" name="confirm-password" class="form-control" id="confirm-password" autocomplete="off" required>
+    <small></small>
+    </div>
+</div>    
+    
+    <br>
+    <div class="form-terms">
+    <div class="form-check">
+  	<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+  	<label class="form-check-label" for="defaultCheck1">
+    J'ai lu et j'accepte les <a href="terms.jsp">Conditions Générales d'Utilisation</a> et la <a href="#">Politique de Confidentialité</a>. *
+  	</label>
+	</div>
+    
+  	<button type="submit" name="register_btn" class="btn btn-primary">S'inscrire</button>
+	</div>
+  <h4 class="text-center"> Avez-vous un compte ? <a href="login.jsp">Se connecter</a></h4>
+</form>
+</div>
 					<div>
 						<label class="form-label" for="password">Mot de passe : *</label>
 						<input type="password" name="password" class="form-control" id="password" required />

@@ -11,6 +11,10 @@ import model.SettingsDao;
 
 import java.io.IOException;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class SettingsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -20,31 +24,45 @@ public class SettingsController extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             
-            SettingsBean settingsBean = new SettingsBean();
-            settingsBean.setEmail(username);
-            settingsBean.setPassword(password);
-            
-            HttpSession session = request.getSession();
-            String currentUsername = (String) session.getAttribute("username");
-            System.out.println(currentUsername);
-            
-            SettingsDao settingsDao = new SettingsDao();
-            //settingsDao.getIDFromDataBase(settingsBean);
-            
-            String authorise = settingsDao.authoriseSettings(settingsBean, currentUsername);
-            System.out.println(authorise);
-            
-            if (authorise.equals("SUCCESS")) {
-                session.setAttribute("username", settingsBean.getEmail());
-                response.sendRedirect("index.jsp");
-                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
-                //requestDispatcher.forward(request, response);
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA-512");
+                byte[] messageDigest = md.digest(password.getBytes());
+                BigInteger no = new BigInteger(1, messageDigest);
+                String hashtext = no.toString(16);
+                while (hashtext.length() < 32) {
+                    hashtext = "0" + hashtext;
+                }
+                
+                SettingsBean settingsBean = new SettingsBean();
+	            settingsBean.setEmail(username);
+	            settingsBean.setPassword(hashtext);
+	            
+	            HttpSession session = request.getSession();
+	            String currentUsername = (String) session.getAttribute("username");
+	            System.out.println(currentUsername);
+	            
+	            SettingsDao settingsDao = new SettingsDao();
+	            //settingsDao.getIDFromDataBase(settingsBean);
+	            
+	            String authorise = settingsDao.authoriseSettings(settingsBean, currentUsername);
+	            System.out.println(authorise);
+	            
+	            if (authorise.equals("SUCCESS")) {
+	                session.setAttribute("username", settingsBean.getEmail());
+	                response.sendRedirect("index.jsp");
+	                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
+	                //requestDispatcher.forward(request, response);
+	            }
+	            else {
+	            	response.sendRedirect("settings.jsp");
+	                //request.setAttribute("WrongLoginMsg", authorise);
+	                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
+	                //requestDispatcher.include(request, response);
+	            }
+                  
             }
-            else {
-            	response.sendRedirect("settings.jsp");
-                //request.setAttribute("WrongLoginMsg", authorise);
-                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
-                //requestDispatcher.include(request, response);
+            catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
 		}
 
@@ -53,23 +71,45 @@ public class SettingsController extends HttpServlet {
 			String newPassword = request.getParameter("new-password");
 			String newPasswordConfirmation = request.getParameter("new-password-confirmation");
 			
+			
 			HttpSession session = request.getSession();
             String username = (String) session.getAttribute("username");
 			
 			if (newPassword.equals(newPasswordConfirmation)) {
-				SettingsBean settingsBean = new SettingsBean();
-				settingsBean.setPassword(newPassword);
-				settingsBean.setEmail(username);
-			
-				SettingsDao settingsDao = new SettingsDao();
-				String authorise = settingsDao.authoriseSettingsPassword(settingsBean, currentPassword);
-			
-				if (authorise.equals("Success")) {
-					response.sendRedirect("index.jsp");
-				}
-				else {
-					response.sendRedirect("settings.jsp");
-				}
+				
+				try {
+		            MessageDigest md = MessageDigest.getInstance("SHA-512");
+		            byte[] messageDigest = md.digest(newPassword.getBytes());
+		            BigInteger no = new BigInteger(1, messageDigest);
+		            String hashtext = no.toString(16);
+		            while (hashtext.length() < 32) {
+		                hashtext = "0" + hashtext;
+		            }
+		            
+		            byte[] messageDigestCurrentPassword = md.digest(currentPassword.getBytes());
+		            BigInteger noCurrentPassword = new BigInteger(1, messageDigestCurrentPassword);
+		            String hashCurrentPassword = noCurrentPassword.toString(16);
+		            while (hashCurrentPassword.length() < 32) {
+		            	hashCurrentPassword = "0" + hashCurrentPassword;
+		            }
+		            
+		            SettingsBean settingsBean = new SettingsBean();
+					settingsBean.setPassword(hashtext);
+					settingsBean.setEmail(username);
+				
+					SettingsDao settingsDao = new SettingsDao();
+					String authorise = settingsDao.authoriseSettingsPassword(settingsBean, hashCurrentPassword);
+				
+					if (authorise.equals("Success")) {
+						response.sendRedirect("index.jsp");
+					}
+					else {
+						response.sendRedirect("settings.jsp");
+					}
+		        }
+		        catch (NoSuchAlgorithmException e) {
+		            throw new RuntimeException(e);
+		        }
 			}
 			
 		}
@@ -98,6 +138,7 @@ public class SettingsController extends HttpServlet {
 				
 				session.setAttribute("lastname", newLastname);
 			}
+			
 			if (newFirstname != currentFirstname && newFirstname != "") {
 				SettingsBean settingsBean = new SettingsBean();
 				settingsBean.setFirstname(newFirstname);

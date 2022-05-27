@@ -23,7 +23,7 @@ public class RegisterDao {
 
             PreparedStatement preparedStatement = null;
 
-            String query = "insert into member(Username,Password,Firstname,Lastname,Role) values(?,?,?,?,?)";
+            String query = "INSERT INTO member(Username,Password,Firstname,Lastname,Role) values(?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
