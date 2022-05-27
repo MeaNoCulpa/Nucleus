@@ -12,8 +12,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import model.RegisterBean;
-import model.RegisterDao;
+import model.register.RegisterBean;
+import model.register.RegisterDao;
 
 /**
  * Servlet implementation class RegisterController

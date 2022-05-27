@@ -6,8 +6,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import model.LoginBean;
-import model.LoginDao;
+import model.login.LoginBean;
+import model.login.LoginDao;
 
 import java.io.IOException;
 import java.math.BigInteger;

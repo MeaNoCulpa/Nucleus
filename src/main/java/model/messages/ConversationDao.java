@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.RegisterBean;
+import model.register.RegisterBean;
 
 public class ConversationDao {
     String DBURL = "jdbc:mysql://localhost:3306/Nucleus";

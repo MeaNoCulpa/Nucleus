@@ -1,4 +1,4 @@
-package model;
+package model.register;
 
 public class RegisterBean {
 	private String firstname, lastname, email, password;
