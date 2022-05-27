@@ -1,0 +1,29 @@
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.menu li {
+	list-style-type: none;
+}
+
+.col-sm-9 {
+	border-radius: 12px;
+	border: solid 1px #e4e4e4;
+	background-color: #ffffff;
+	padding: 70px 50px;
+	margin-bottom: 20px;
+}
+
+@media (min-width: 576px){
+.col-sm-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+}
+@media (min-width: 576px){
+.col-sm-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+}
