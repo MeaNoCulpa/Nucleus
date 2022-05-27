@@ -28,7 +28,7 @@
                     <div class="col-sm-4 col-md-3 item">
                         <h3>Légal</h3>
                         <ul>
-                            <li><a href="#">CGU</a></li>
+                            <li><a href="terms.jsp">CGU</a></li>
                             <li><a href="#">Politique de confidentialité</a></li>
                         </ul>
                     </div>
