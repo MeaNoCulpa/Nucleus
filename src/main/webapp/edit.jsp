@@ -223,9 +223,9 @@
 	</div>
 </div>
 
-  <div class="container-fluid center-block form-section">
+  <div class="container-fluid">
     
-    <div class="justify-content-center">
+    <div class="justify-content-center center-block form-section">
             <jsp:useBean id="bean" class="model.user.EditBean" scope="request"></jsp:useBean>
             
             <form class="form-horizontal" action="editController" method="post">
@@ -233,24 +233,49 @@
             <div class="form-group">
               <input type="hidden" name="id" value="<%=ServletUtility.getStringData(bean.getId())%>">
                
+              <div class="row"> 
               <label class="col-sm-4 control-label" for="firstname" class="col-sm-2 control-label">Prénom</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control" name="firstname" value="<%=ServletUtility.getStringData(bean.getFirstname())%>">
               </div>
+              </div>
               
+              <br>
+              
+              <div class="row">
               <label class="col-sm-4 control-label" for="lastname">Nom</label>
               <div class="col-sm-8">
                   <input type="text" class="form-control" name="lastname" value="<%=ServletUtility.getStringData(bean.getLastname())%>" >
               </div>
-               
+              </div>
+              
+              <br>
+              
+              <div class="row">
               <label class="col-sm-4 control-label" for="email">Nom d'utilisateur</label>
               <div class="col-sm-8">
                   <input type="text" class="form-control" name="email" value="<%=ServletUtility.getStringData(bean.getEmail())%>" >
               </div>
+              </div>
               
-              <label class="col-sm-4 control-label" for="role">Rôle ("user" ou "admin")</label>
-              <div class="col-sm-8">
-                  <input type="text" class="form-control" name="role" value="<%=ServletUtility.getStringData(bean.getRole())%>" >
+              <br>
+              
+              <div class="row">
+	              <label class="col-sm-4 control-label" for="role">Rôle</label>
+	              <div class="col-sm-8">
+		              <select class="form-control" name="role" id="role">
+		              <%
+		              String role = ServletUtility.getStringData(bean.getRole());
+		              if (role.equals("admin")) {
+		            	%>
+		            	<option value="admin" selected>Admin</option>
+					    <option value="user">User</option>
+		              <%}else {%>
+		              <option value="user" selected>User</option>
+					  <option value="admin">Admin</option>
+		              <%}%>
+					  </select>
+	              </div>
               </div>
               
               </div>

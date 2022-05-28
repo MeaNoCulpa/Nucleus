@@ -29,11 +29,11 @@ public class EditController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EditDao userModel = new EditDao();
 		long id = Long.parseLong(request.getParameter("id"));
-		  if (id > 0) {
+		if (id > 0) {
 			    EditBean userBean = null;
 			    userBean = userModel.FindByPk(id);
 			    request.setAttribute("bean", userBean);
-		  }
+		}
 		request.getRequestDispatcher("edit.jsp").forward(request, response);
 	}
 

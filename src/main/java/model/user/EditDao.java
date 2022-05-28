@@ -20,7 +20,7 @@ public class EditDao {
 	      
 	      if(rs.next()) {
 	        user = new EditBean();
-	        System.out.println("ID: " + rs.getLong("ID_Member"));
+	        //System.out.println("ID: " + rs.getLong("ID_Member"));
 	        user.setId(rs.getLong("ID_Member"));
 	        user.setFirstname(rs.getString("Firstname"));
 	        user.setLastname(rs.getString("Lastname"));
