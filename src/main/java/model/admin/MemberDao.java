@@ -1,11 +1,12 @@
 package model.admin;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
+import utility.DatabaseConnection;
 
 public class MemberDao {
 	
@@ -14,14 +15,12 @@ public class MemberDao {
 	static String DBPASSWORD = "root";
 	
 	public List<MemberBean> getAllMembers() {
+		
 		ArrayList<MemberBean> memberList = new ArrayList<>();
 		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
-
+			Connection dbconn = DatabaseConnection.initialiseDatabase();
 			PreparedStatement preparedStatement = null;
-
 	        preparedStatement = dbconn.prepareStatement("SELECT * FROM member");
 	        ResultSet resultSet = preparedStatement.executeQuery();
 	        

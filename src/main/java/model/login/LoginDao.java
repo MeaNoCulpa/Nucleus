@@ -1,14 +1,12 @@
 	package model.login;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import utility.DatabaseConnection;
+
 public class LoginDao {
-	String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
-	String DBLOGIN = "root";
-	String DBPASSWORD = "root";
 	
 	public String authoriseLogin(LoginBean loginBean) {
 	    String username = loginBean.getUsername();
@@ -19,8 +17,7 @@ public class LoginDao {
 	    String dbRole;
 	    
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+	        Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;
 
 	        preparedStatement = dbconn.prepareStatement("SELECT * FROM member WHERE Username=? AND Password=?");
@@ -55,8 +52,7 @@ public class LoginDao {
 	    String password = loginBean.getPassword();
 	    
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+	    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;
 
 	        preparedStatement = dbconn.prepareStatement("select Firstname from member where Username=? and Password=?");
@@ -82,8 +78,7 @@ public class LoginDao {
 	    String password = loginBean.getPassword();
 	    
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+	    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;
 
 	        preparedStatement = dbconn.prepareStatement("SELECT Lastname FROM member WHERE Username=? AND Password=?");
@@ -108,8 +103,7 @@ public class LoginDao {
 	    String password = loginBean.getPassword();
 	    
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+	    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;
 
 	        preparedStatement = dbconn.prepareStatement("SELECT ID_Member FROM member WHERE Username=? AND Password=?");

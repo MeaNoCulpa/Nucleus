@@ -1,26 +1,22 @@
 package model.messages;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 import model.register.RegisterBean;
+import utility.DatabaseConnection;
 
 public class ConversationDao {
-    String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
-    String DBLOGIN = "root";
-    String DBPASSWORD = "root";
 
 	public int createConversation(ConversationBean conversationBean) {
 		int idMember1 = conversationBean.getIdMember1();
 		int idMember2 = conversationBean.getIdMember2();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+        	Connection connection = DatabaseConnection.initialiseDatabase();
             PreparedStatement preparedStatement = null;
 
             String query = "INSERT INTO conversation(ID_Member_1, ID_Member_2) VALUES(?,?)";
@@ -47,8 +43,7 @@ public class ConversationDao {
 	
 	public List<RegisterBean> getMembersConversation(int idConversation) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+        	Connection connection = DatabaseConnection.initialiseDatabase();
             PreparedStatement preparedStatement = null;
 
             String query = "SELECT * FROM member INNER JOIN conversation ON member.ID_Member=conversation.ID_Member1 OR member.ID_Member=conversation.ID_Member2 WHERE ID_Conversation = ?;";
@@ -77,8 +72,7 @@ public class ConversationDao {
 	
 	public List<ConversationBean> getAllConversations(int idCurrentMember) {
 		try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+			Connection connection = DatabaseConnection.initialiseDatabase();
             PreparedStatement preparedStatement = null;
 
             String query = "SELECT * FROM conversation WHERE ID_Member1 = ? OR ID_Member2 = ?;";

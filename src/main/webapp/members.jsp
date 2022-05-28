@@ -231,10 +231,10 @@
   <thead>
     <tr>
       <th scope="col">Indice</th>
-      <th scope="col">Prénom</th>
-      <th scope="col">Nom</th>
       <th scope="col">Addresse électronique</th>
       <th scope="col">Rôle</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
     </tr>
   </thead>
   <tbody>
@@ -248,15 +248,17 @@
   %>
     <tr>
       <th scope="row"><%=index++%></th>
-      <td><%=member.getFirstname()%></td>
-      <td><%=member.getLastname()%></td>
       <td><%=member.getUsername()%></td>
       <td><%=member.getRole()%></td>
+      <td><%=member.getLastname()%></td>
+      <td><%=member.getFirstname()%></td>
     </tr>
 <%}%>
   </tbody>
 </table>
 </div>
+
 <div id="footer"></div>
+
 </body>
 </html>
