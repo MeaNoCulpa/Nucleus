@@ -24,6 +24,7 @@
 	});
 </script>
 
+<link rel="stylesheet" href="styles/register.css" />
 <link href="styles/footer.css" rel="stylesheet" />
 <style type="text/css">
 	body {
@@ -219,14 +220,16 @@
 %>
 <div id="header"></div>
 
-<div class="container-fluid">
-<h2>Gérer les membres</h2>
-<br>
-<h4 style="color: red;"><%= ServletUtility.getErrorMessage(request)%></h4>
-<h4 style="color: green;"><%= ServletUtility.getSuccessMessage(request)%></h4>
+<div class="container-fluid profil-section">
+<div class="profil-info"></div>
+	<h2>Gérer les membres</h2>
+	
+	<p style="color: red;"><%= ServletUtility.getErrorMessage(request)%></p>
+	<p style="color: green;"><%= ServletUtility.getSuccessMessage(request)%></p>
 </div>
 
 <div class="container-fluid">
+<div class="justify-content-center center-block form-section">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -258,6 +261,7 @@
 <%}%>
   </tbody>
 </table>
+</div>
 </div>
 
 <div id="footer"></div>
