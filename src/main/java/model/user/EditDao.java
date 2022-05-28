@@ -25,7 +25,7 @@ public class EditDao {
 	        user.setFirstname(rs.getString("Firstname"));
 	        user.setLastname(rs.getString("Lastname"));
 	        user.setEmail(rs.getString("Username"));
-	        user.setRole(rs.getString("Role"));  
+	        user.setRole(rs.getString("Role"));
 	      }
 	      
 	    } catch (Exception e) {

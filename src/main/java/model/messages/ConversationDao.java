@@ -103,8 +103,7 @@ public class ConversationDao {
 	public static int conversationWithExist(int idMember1, int idMember2) {
 
 		try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+			Connection connection = DatabaseConnection.initialiseDatabase();
             PreparedStatement preparedStatement = null;
 
             String query = "SELECT ID_Conversation FROM conversation WHERE ID_Member1 = ? AND ID_Member2 = ? OR  ID_Member2 = ? AND ID_Member1 = ?;";
