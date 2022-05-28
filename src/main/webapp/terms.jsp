@@ -16,16 +16,20 @@
 
 <script>
 var firstname = '<%=session.getAttribute("firstname")%>';
-$(function(){
-	if (firstname == "null"){
-	  $("#header").load("header.jsp");
+var role = '<%=session.getAttribute("role")%>';
+$(function () {
+	if (role == 'admin') {
+		$('#header').load('headerAdmin.jsp');
+	}
+	else if (firstname == 'null') {
+		$('#header').load('header.jsp');
 	}
 	else {
-		$("#header").load("headerLogged.jsp");
+		$('#header').load('headerLogged.jsp');
 	}
 	
-	  $("#footer").load("footer.jsp"); 
-	});
+	$('#footer').load('footer.jsp');
+});
 </script>
 
 <link href="styles/terms.css" rel="stylesheet">
@@ -52,7 +56,7 @@ body {
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #f6673c;
+    background-color: #f37b41;
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -64,11 +68,11 @@ body {
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #f6673c;
+    color: #f37b41;
     font-size: 50px;
   }
   .logo {
-    color: #f6673c;
+    color: #f37b41;
     font-size: 200px;
   }
   .thumbnail {
@@ -141,7 +145,7 @@ body {
   }
   .navbar {
     margin-bottom: 0;
-    background-color: #f6673c;
+    background-color: #f37b41;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -164,7 +168,7 @@ body {
   footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #f6673c;
+    color: #f37b41;
   }
   .slideanim {visibility:hidden;}
   .slide {

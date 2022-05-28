@@ -1,14 +1,12 @@
-package model;
+package model.settings;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import utility.DatabaseConnection;
+
 public class SettingsDao {
-	    static String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
-	    static String DBLOGIN = "root";
-	    static String DBPASSWORD = "root";
 	    
 		public String authoriseSettings(SettingsBean settingsBean, String currentUsername) {
 		    String username = settingsBean.getEmail();
@@ -18,9 +16,7 @@ public class SettingsDao {
 		    int dbID;
 		    
 		    try {
-		        Class.forName("com.mysql.cj.jdbc.Driver");
-		        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
-
+		    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 		        PreparedStatement preparedStatement = null;
 
 		        preparedStatement = dbconn.prepareStatement("SELECT * FROM member WHERE Username=? AND Password=?");
@@ -66,10 +62,9 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
+			
 		    try {
-		    	Class.forName("com.mysql.cj.jdbc.Driver");
-		        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
-
+		    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 		        PreparedStatement preparedStatement = null;
 		        preparedStatement = dbconn.prepareStatement("SELECT * FROM member WHERE Username=? AND Password=?");
 		        preparedStatement.setString(1, username);
@@ -118,9 +113,7 @@ public class SettingsDao {
 			String dbPassword;
 			int dbID;
 		    try {
-		    	Class.forName("com.mysql.cj.jdbc.Driver");
-		        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
-
+		    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 		        PreparedStatement preparedStatement = null;
 		        preparedStatement = dbconn.prepareStatement("SELECT * FROM member WHERE Username=? AND Password=?");
 		        preparedStatement.setString(1, username);
@@ -166,10 +159,9 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
+			
 		    try {
-		    	Class.forName("com.mysql.cj.jdbc.Driver");
-		        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
-
+		    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 		        PreparedStatement preparedStatement = null;
 		        preparedStatement = dbconn.prepareStatement("SELECT * FROM member WHERE Username=? AND Password=?");
 		        preparedStatement.setString(1, username);
@@ -212,11 +204,8 @@ public class SettingsDao {
 		    String password = settingsBean.getPassword();
 		    
 		    try {
-		        Class.forName("com.mysql.cj.jdbc.Driver");
-		        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
-
+		    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 		        PreparedStatement preparedStatement = null;
-
 		        preparedStatement = dbconn.prepareStatement("select ID_Member from member where Username=? and Password=?");
 		        preparedStatement.setString(1, username);
 		        preparedStatement.setString(2, password);

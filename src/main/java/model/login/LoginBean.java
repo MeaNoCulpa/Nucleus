@@ -1,8 +1,8 @@
-package model;
+package model.login;
 
 public class LoginBean {
 
-	private String username, password, firstname;
+	private String username, password, firstname, role;
 
 
     public String getUsername() {
@@ -27,5 +27,13 @@ public class LoginBean {
 
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

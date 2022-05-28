@@ -122,3 +122,6 @@ div.success input {
 div small {
     color: var(--error-color);
 }
+select {
+	width: 50%!important;
+}

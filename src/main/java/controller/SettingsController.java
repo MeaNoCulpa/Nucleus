@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.SettingsBean;
-import model.SettingsDao;
+import model.settings.SettingsBean;
+import model.settings.SettingsDao;
 
 import java.io.IOException;
 

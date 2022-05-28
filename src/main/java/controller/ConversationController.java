@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-import model.RegisterBean;
+import model.register.RegisterBean;
 import model.messages.ConversationBean;
 import model.messages.ConversationDao;
 import model.messages.MessageBean;

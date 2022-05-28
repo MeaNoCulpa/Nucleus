@@ -1,16 +1,14 @@
 package model.messages;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.DatabaseConnection;
+
 public class MessageDao {
-    String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
-    String DBLOGIN = "root";
-    String DBPASSWORD = "root";  
     
 	public String sendMessage(MessageBean messageBean) {
 		int idConversation = messageBean.getIdConversation();
@@ -18,8 +16,7 @@ public class MessageDao {
 		String content = messageBean.getContent();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+        	Connection connection = DatabaseConnection.initialiseDatabase();
             PreparedStatement preparedStatement = null;
 
             String query = "insert into message(ID_Conversation, ID_sender, Content) values(?,?,?)";
@@ -42,8 +39,7 @@ public class MessageDao {
 
 	public List<MessageBean> getAllMessages(int idConversation) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+        	Connection connection = DatabaseConnection.initialiseDatabase();
             PreparedStatement preparedStatement = null;
 
             String query = "SELECT * FROM message WHERE ID_Conversation = ? ORDER BY Date";

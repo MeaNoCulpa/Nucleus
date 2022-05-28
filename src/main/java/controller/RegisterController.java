@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.RegisterBean;
-import model.RegisterDao;
+import model.register.RegisterBean;
+import model.register.RegisterDao;
 
 /**
  * Servlet implementation class RegisterController

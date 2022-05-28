@@ -1,13 +1,14 @@
 package controller;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-import model.LoginBean;
-import model.LoginDao;
+import model.login.LoginBean;
+import model.login.LoginDao;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -88,8 +89,20 @@ public class LoginController extends HttpServlet {
 	                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
 	                //requestDispatcher.forward(request, response);
 	            }
+	            if (authorise.equals("SUCCESS ADMIN LOGIN")) {
+	            	HttpSession session = request.getSession();
+	            	session.setAttribute("username", loginBean.getUsername());
+	                session.setAttribute("password", hashtext);
+	                session.setAttribute("firstname", firstname);
+	                session.setAttribute("lastname", lastname);
+	                session.setAttribute("idMember", idMember);
+	                session.setAttribute("role", loginBean.getRole());
+	                response.sendRedirect("index.jsp");
+	            }
 	            else {
-	            	System.out.println("Login unsuccessful");
+	            	System.out.println("LOGIN UNSUCCESSFUL");
+	            	RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
+	                requestDispatcher.include(request, response);
 	            }
             }
             // For specifying wrong message digest algorithms

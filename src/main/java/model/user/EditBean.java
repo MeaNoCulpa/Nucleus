@@ -1,10 +1,18 @@
-package model;
+package model.user;
 
-public class SettingsBean {
-	private String firstname, lastname, email, password;
-	private int id;
-	
-	public String getFirstname() {
+public class EditBean {
+	private String firstname, lastname, email, password, role;
+	long id;
+    
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFirstname() {
         return firstname;
     }
 
@@ -36,11 +44,11 @@ public class SettingsBean {
         this.password = password;
     }
 
-	public int getId() {
-		return id;
+	public String getRole() {
+		return role;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
