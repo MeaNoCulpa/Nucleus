@@ -1,10 +1,10 @@
 package controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,7 +27,6 @@ public class ConversationController extends HttpServlet {
 			int idConversation = conversation.getIdConversation();
 			outStr += "<a href=\"conversations.jsp?idConversation=" + idConversation + "\">" + secondMember + "</a>";
 		}
-		
 		return outStr;
 	}
 	
@@ -79,7 +78,26 @@ public class ConversationController extends HttpServlet {
 			
 			MessageDao messageDao = new MessageDao();
 			messageDao.sendMessage(messageBean);
+			response.sendRedirect("conversations.jsp?idConversation=" + idConversation);
+		} else {
+			response.sendRedirect("conversations.jsp");			
 		}
-		response.sendRedirect("conversations.jsp");
 	}
+ 	
+ 	public static String newConversation(int idMember1, int idMember2) {
+ 		ConversationBean conversationBean = new ConversationBean();
+ 		conversationBean.setIdMember1(idMember1);
+ 		conversationBean.setIdMember2(idMember2);
+ 		
+ 		int newIdConversation = ConversationDao.createConversation(conversationBean);
+ 		return String.valueOf(newIdConversation);
+ 	}
+ 	
+ 	public static String conversationWith(int idMember1, int idMember2) {
+ 		int idConversation = ConversationDao.conversationWithExist(idMember1, idMember2);
+ 		if (idConversation != -1) {
+ 			return String.valueOf(idConversation);
+ 		}
+ 		return newConversation(idMember1, idMember2);
+ 	}
 }
