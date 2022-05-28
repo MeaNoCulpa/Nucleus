@@ -92,4 +92,13 @@ public class ServletUtility {
 	public static <E> List<E> getList(HttpServletRequest request) {
 	    return (List<E>) request.getAttribute("list");
 	  }
+	
+	  public static String getStringData(Object val) {
+		    
+		    if (val != null) {
+		      return val.toString();
+		    } else {
+		      return "";
+		    }
+		  }
 }

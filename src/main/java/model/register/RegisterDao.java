@@ -2,7 +2,6 @@ package model.register;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
 import utility.DatabaseConnection;
 
 public class RegisterDao {

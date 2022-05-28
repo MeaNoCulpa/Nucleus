@@ -2,6 +2,7 @@ package model.admin;
 
 public class MemberBean {
 	private String firstname, lastname, username, role;
+	private int id;
 
 	public String getFirstname() {
 		return firstname;
@@ -33,6 +34,14 @@ public class MemberBean {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

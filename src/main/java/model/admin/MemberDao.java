@@ -34,6 +34,7 @@ public class MemberDao {
 	        	member.setLastname(resultSet.getString("Lastname"));
 	        	member.setUsername(resultSet.getString("Username"));
 	        	member.setRole(resultSet.getString("Role"));
+	        	member.setId(resultSet.getInt("ID_Member"));
 	        	memberList.add(member);
 	        }
 	        preparedStatement.close();

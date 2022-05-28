@@ -33,7 +33,6 @@ public class MemberController extends HttpServlet {
 		MemberDao memberDao = new MemberDao();
 		List<MemberBean> members = null;
 		members = (List<MemberBean>) memberDao.getAllMembers();
-		//System.out.println(members.size());
 		
 		if (members == null) {
 			ServletUtility.setErrorMessage("Record not found", request);

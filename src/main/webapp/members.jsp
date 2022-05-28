@@ -235,6 +235,7 @@
       <th scope="col">Rôle</th>
       <th scope="col">Nom</th>
       <th scope="col">Prénom</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -252,6 +253,7 @@
       <td><%=member.getRole()%></td>
       <td><%=member.getLastname()%></td>
       <td><%=member.getFirstname()%></td>
+      <td><a href="editController?id=<%=member.getId()%>">Modifier</a></td>
     </tr>
 <%}%>
   </tbody>

@@ -1,15 +1,15 @@
-package model.register;
+package model.user;
 
-public class RegisterBean {
+public class EditBean {
 	private String firstname, lastname, email, password, role;
-	int idMember;
+	long id;
     
-    public int getIdMember() {
-        return idMember;
+    public long getId() {
+        return id;
     }
 
-    public void setIdMember(int idMember) {
-        this.idMember = idMember;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstname() {
