@@ -16,15 +16,16 @@
 			var firstname = '<%=session.getAttribute("firstname")%>';
 			var role = '<%=session.getAttribute("role")%>';
 			$(function () {
-				if (firstname == 'null') {
-					$('#header').load('header.jsp');
-				} 
-				if (role == "admin") {
+				if (role == 'admin') {
 					$('#header').load('headerAdmin.jsp');
+				}
+				else if (firstname == 'null') {
+					$('#header').load('header.jsp');
 				}
 				else {
 					$('#header').load('headerLogged.jsp');
 				}
+				
 				$('#footer').load('footer.jsp');
 			});
 		</script>

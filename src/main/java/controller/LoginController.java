@@ -1,5 +1,6 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -100,6 +101,8 @@ public class LoginController extends HttpServlet {
 	            }
 	            else {
 	            	System.out.println("LOGIN UNSUCCESSFUL");
+	            	RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
+	                requestDispatcher.include(request, response);
 	            }
             }
             // For specifying wrong message digest algorithms

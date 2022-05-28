@@ -16,16 +16,20 @@
 
 <script>
 var firstname = '<%=session.getAttribute("firstname")%>';
-$(function(){
-	if (firstname == "null"){
-	  $("#header").load("header.jsp");
+var role = '<%=session.getAttribute("role")%>';
+$(function () {
+	if (role == 'admin') {
+		$('#header').load('headerAdmin.jsp');
+	}
+	else if (firstname == 'null') {
+		$('#header').load('header.jsp');
 	}
 	else {
-		$("#header").load("headerLogged.jsp");
+		$('#header').load('headerLogged.jsp');
 	}
 	
-	  $("#footer").load("footer.jsp"); 
-	});
+	$('#footer').load('footer.jsp');
+});
 </script>
 
 <link href="styles/terms.css" rel="stylesheet">

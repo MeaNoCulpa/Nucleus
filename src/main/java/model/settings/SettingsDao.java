@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class SettingsDao {
+	
 	    static String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
 	    static String DBLOGIN = "root";
 	    static String DBPASSWORD = "root";
