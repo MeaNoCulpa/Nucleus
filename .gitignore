@@ -3,3 +3,6 @@
 /.idea/
 .settings
 build
+/target/
+bin/
+.metadata/
