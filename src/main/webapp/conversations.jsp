@@ -1,9 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <%@ page import="java.io.PrintWriter" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<title>Paramètres du compte</title>
+		<title>Mes messages</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" media="all" />
@@ -220,15 +220,12 @@
 			}
 		</style>
 	</head>
-
 	<body id="myPage">
-		<% if (session.getAttribute("firstname") == null || session.getAttribute("firstname") == "") {
-		response.sendRedirect("index.jsp"); } %>
+		<%@page import="controller.ConversationController" %>
 		<div id="header"></div>
-
 		<div class="container-fluid profil-section">
 			<div class="profil-info">
-				<h1>Paramètres</h1>
+				<h1>Mes messages</h1>
 				<div>
 					<span class="profil-name"><%=session.getAttribute("firstname")%></span>
 				</div>
@@ -236,123 +233,33 @@
 		</div>
 
 		<div class="container-fluid form-section">
-			<div class="col-sm-3"></div>
-
-			<div class="col-sm-9">
-				<form class="form" method="post" action="SettingsController" id="settings-form" name="settings-form">
-					<div class="form-group">
-						<h3>Adresse électronique</h3>
-
-						<input type="email" class="form-control space-between" id="email"
-						placeholder="<%=session.getAttribute("username")%>" disabled>
-
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-							Modifier l'adresse électronique
-						</button>
-					</div>
-
-					<div class="modal fade" id="myModal" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Mettre à jour l'addresse électronique</h4>
-								</div>
-								<div class="modal-body">
-									<div class="form-group">
-										<p>
-											Saisissez la nouvelle adresse électronique de votre compte. Une fois la nouvelle adresse vérifiée,
-											votre compte sera mis à jour.
-										</p>
-										<input
-											type="email"
-											class="form-control"
-											id="email"
-											placeholder="Entrez votre addresse électronique *"
-											name="username"
-										/>
-										<input
-											type="password"
-											class="form-control space-between"
-											id="password"
-											placeholder="Vérifier avec votre mot de passe *"
-											name="password"
-										/>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
-									<button type="submit" name="settings_email_btn" class="btn btn-primary" value="Enregistrer">
-										Enregistrer
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-
-				<form class="form" method="post" id="passwordForm" action="SettingsController" name="passwordForm">
-					<div class="form-group">
-						<h3>Changer le mot de passe</h3>
-
-						<input
-							type="password"
-							class="form-control space-between"
-							name="current-password"
-							placeholder="Mot de passe actuel"
-						/>
-
-						<div>
-							<input
-								type="password"
-								id="new-password"
-								class="form-control space-between"
-								name="new-password"
-								placeholder="Nouveau mot de passe"
-								size="20"
-							/>
-							<small></small>
-						</div>
-
-						<div>
-							<input
-								type="password"
-								id="confirm-password"
-								class="form-control space-between"
-								name="new-password-confirmation"
-								placeholder="Nouveau mot de passe (encore)"
-							/>
-							<small></small>
-						</div>
-						<button type="submit" name="settings_password_btn" class="btn btn-primary">Modifier le mot de passe</button>
-					</div>
-				</form>
-
-				<div class="form-group">
-					<form class="form" method="post" action="SettingsController" name="infoForm" id="infoForm">
-						<h3>Informations du compte</h3>
-
-						<div>
-							<input type="text" class="form-control space-between" id="lname" name="lastname"
-							value="<%=session.getAttribute("lastname")%>">
-							<small></small>
-						</div>
-						<!-- <button type="submit" name="settings_lname_btn" class="btn btn-primary">Enregistrer</button>
-   	 </form>
-   	
-    <form class="form" method="post" action="SettingsController" name="infoForm" id="fname-form"> -->
-						<div>
-							<input type="text" class="form-control space-between" id="fname" name="firstname"
-							value="<%=session.getAttribute("firstname")%>">
-							<small></small>
-						</div>
-						<button type="submit" name="settings_info_btn" class="btn btn-primary">Enregistrer</button>
-					</form>
-				</div>
+			<div>
+				<p>Vos discussions</p>
+				<%= ConversationController.getAllConversations(Integer.parseInt(session.getAttribute("idMember").toString())) %>
 			</div>
+			<div class="col-sm-3"></div>
+			<h3>
+				<%= ConversationController.getSecondMember(String.valueOf(request.getParameter("idConversation")), Integer.parseInt(session.getAttribute("idMember").toString()))%>
+			</h3>
+			<%= ConversationController.getAllMessages(String.valueOf(request.getParameter("idConversation")), Integer.parseInt(session.getAttribute("idMember").toString())) %>
+			<a href="conversations.jsp?idConversation=<%= ConversationController.conversationWith(Integer.parseInt(session.getAttribute("idMember").toString()), 3) %>">Discuter avec Test</a>
+			<% if (request.getParameter("idConversation") != null) { %>
+			<form class="form col-sm-9" action="ConversationController" method="post">
+				<div>
+					<input type="number" name="idConversation" value="<%= request.getParameter("idConversation") %>"
+					hidden="true"/>
+					<input
+						type="text"
+						class="form-control space-between"
+						name="content"
+						id="content"
+						placeholder="> Votre message"
+					/>
+					<button type="submit" class="btn btn-primary">Envoyer</button>
+				</div>
+			</form>
+			<% } %>
 		</div>
-
-		<script src="scripts/settings.js"></script>
 
 		<div id="footer"></div>
 	</body>

@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <header>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
@@ -15,8 +16,8 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-left">
 					<li><a href="index.jsp#header">ACCUEIL</a></li>
-					<li><a href="index.jsp#about">À PROPOS</a></li>
 					<li><a href="offerSummaryController">OFFRES</a></li>
+					<li><a href="memberController">MEMBRES</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="settings.jsp"><%=session.getAttribute("firstname")%></a></li>

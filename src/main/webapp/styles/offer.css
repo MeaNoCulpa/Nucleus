@@ -49,6 +49,22 @@ label {
 }
 }
 
+.form-check {
+	border: 1px solid #d7dade;
+	padding: 28px;
+	background-color: white;
+	border-radius: 2px;
+	margin-bottom: 0;
+}
+
+.form-check input {
+    box-shadow: none;
+    width:100%;
+    border-width: 0px 0px 1px 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
 .form-group {
 	border: 1px solid #d7dade;
 	padding: 28px;
@@ -121,7 +137,4 @@ div.success input {
 
 div small {
     color: var(--error-color);
-}
-select {
-	width: 50%!important;
 }
