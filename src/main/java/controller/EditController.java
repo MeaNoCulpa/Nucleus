@@ -50,7 +50,7 @@ public class EditController extends HttpServlet {
 	    
 	    if (user.getId() > 0) {
 	        //To Update the records
-	         long i = EditDao.UpdateUser(user);
+	         long i = EditDao.updateUser(user);
 	            if (i > 0) {
 	              ServletUtility.setSuccessMessage("L'utilisateur a bien été mis à jour", request);
 	              
