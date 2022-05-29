@@ -3,7 +3,7 @@ package model.login;
 public class LoginBean {
 
 	private String username, password, firstname, role;
-	private long id;
+	private int id;
 
 
     public String getUsername() {
@@ -38,11 +38,11 @@ public class LoginBean {
 		this.role = role;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 }

@@ -98,7 +98,7 @@ public class LoginDao {
 	    return "null";
 	}
 	
-	public long getIdFromDataBase(LoginBean loginBean) {
+	public int getIdFromDataBase(LoginBean loginBean) {
 		String username = loginBean.getUsername();
 	    String password = loginBean.getPassword();
 	    
@@ -112,7 +112,7 @@ public class LoginDao {
 	        ResultSet resultSet = preparedStatement.executeQuery();
 
 	        while (resultSet.next()) {
-	            return resultSet.getLong("ID_Member");
+	            return resultSet.getInt("ID_Member");
 	        }
 	        preparedStatement.close();
 	        dbconn.close();
