@@ -25,7 +25,7 @@ public class ConversationController extends HttpServlet {
 		for (ConversationBean conversation : allConversations) {
 			String secondMember = getSecondMember(String.valueOf(conversation.getIdConversation()), idCurrentMember);
 			int idConversation = conversation.getIdConversation();
-			outStr += "<a href=\"conversations.jsp?idConversation=" + idConversation + "\">" + secondMember + "</a>";
+			outStr += "<li><a href=\"conversations.jsp?idConversation=" + idConversation + "\">" + secondMember + "</a></li>";
 		}
 		return outStr;
 	}
@@ -59,9 +59,7 @@ public class ConversationController extends HttpServlet {
 					+ "<p>  " + message.getTimestamp() + "</p>" : "<p" + style + "> > " + message.getContent() + "</p>"
 							+ "<p>" + message.getTimestamp() + "</p>";
 		}
-		return outStr;
-		//return outStr;
-		
+		return outStr;		
 	}
 	
  	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

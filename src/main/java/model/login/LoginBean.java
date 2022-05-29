@@ -5,7 +5,6 @@ public class LoginBean {
 	private String username, password, firstname, role;
 	private int id;
 
-
     public String getUsername() {
         return username;
     }
