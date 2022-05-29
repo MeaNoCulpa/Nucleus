@@ -87,9 +87,8 @@ public class OfferDao {
         }
 	}
 	
-public List<OfferBean> getAllOffers(LoginBean loginBean) {
+public List<OfferBean> getAllOffers(long ID_Owner) {
      	//TODO LoginBean 
-		long ID_Owner = session.;
 		ArrayList<OfferBean> offerList = new ArrayList<>();
 		
 		try {
