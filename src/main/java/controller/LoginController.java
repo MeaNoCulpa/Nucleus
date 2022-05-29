@@ -76,7 +76,8 @@ public class LoginController extends HttpServlet {
 	            String authorise = loginDao.authoriseLogin(loginBean);
 	            String firstname = loginDao.getFirstnameFromDataBase(loginBean);
 	            String lastname = loginDao.getLastnameFromDataBase(loginBean);
-	            int idMember = loginDao.getIdFromDataBase(loginBean);
+	            long idMember = loginDao.getIdFromDataBase(loginBean);
+	            loginBean.setId(idMember);
 	
 	            if (authorise.equals("SUCCESS LOGIN")) {
 	                HttpSession session = request.getSession();
