@@ -2,11 +2,17 @@ package controller;
 
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.offer.OfferBean;
+import model.offer.OfferDao;
+import model.offer.RequestBean;
 import utility.ServletUtility;
 
 /**
@@ -28,15 +34,25 @@ public class OfferSummaryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		long idMember = (long) session.getAttribute("idMember");
+		int idMember = (int) session.getAttribute("idMember");
 		
 		try {
+			OfferDao offerDao = new OfferDao();
+			List<OfferBean> offerBeanList = offerDao.getAllOffers(idMember);
+			List<RequestBean> requestBeanList = offerDao.getAllRequests(idMember);
+			request.setAttribute("offerBeanList", offerBeanList);
+			request.setAttribute("requestBeanList", requestBeanList);
 			
+			ServletUtility.forward("offerSummary.jsp", request, response);
+	        
+	        
+	        
+	        
 		} catch (Exception e) {
 			System.out.println(e);
 			throw e;
 		}
-		ServletUtility.forward("/WEB-INF/offerCreation.jsp", request, response);
+		
 	}
 
 	/**
@@ -46,4 +62,5 @@ public class OfferSummaryController extends HttpServlet {
 		doGet(request, response);
 	}
 
+	
 }

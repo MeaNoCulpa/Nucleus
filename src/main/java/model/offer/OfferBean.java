@@ -1,10 +1,12 @@
 package model.offer;
 
+import java.util.List;
+
 import jakarta.servlet.http.Part;
 
 public class OfferBean {
 	private String location, date_start, date_end, description;
-	private String[] services, limitations;
+	private List<String> services, limitations;
 	private int id_owner, id_offer;
 	private Part offer_image;
 	
@@ -32,16 +34,18 @@ public class OfferBean {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String[] getServices() {
+	
+	
+	public List<String> getServices() {
 		return services;
 	}
-	public void setServices(String[] services) {
+	public void setServices(List<String> services) {
 		this.services = services;
 	}
-	public String[] getLimitations() {
+	public List<String> getLimitations() {
 		return limitations;
 	}
-	public void setLimitations(String[] limitations) {
+	public void setLimitations(List<String> limitations) {
 		this.limitations = limitations;
 	}
 	public Part getOffer_image() {
