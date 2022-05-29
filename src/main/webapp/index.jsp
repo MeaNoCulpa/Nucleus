@@ -226,11 +226,11 @@
 		<div class="jumbotron text-center">
 			<h1>Nucleus</h1>
 			<p>OU PARTEZ-VOUS A L'AVENTURE ?</p>
-			<form class="form-inline">
+			<form class="form-inline" action="searchController">
 				<div class="input-group">
-					<input type="text" class="form-control" size="50" placeholder="Rechercher une destination" name="city lookup" required />
+					<input type="text" class="form-control" size="50" placeholder="Rechercher une destination" name="location" required />
 					<div class="input-group-btn">
-						<button type="button" class="btn btn-danger">Rechercher</button>
+						<button type="submit" class="btn btn-danger">Rechercher</button>
 					</div>
 				</div>
 			</form>

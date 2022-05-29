@@ -109,5 +109,15 @@
     <servlet-name>OfferSummaryController</servlet-name>
     <url-pattern>/offerSummaryController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchController</display-name>
+    <servlet-name>SearchController</servlet-name>
+    <servlet-class>controller.SearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchController</servlet-name>
+    <url-pattern>/searchController</url-pattern>
+  </servlet-mapping>
   
 </web-app>
