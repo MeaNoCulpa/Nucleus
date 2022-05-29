@@ -24,7 +24,6 @@ public class RegisterController extends HttpServlet {
      */
     public RegisterController() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
 	/**

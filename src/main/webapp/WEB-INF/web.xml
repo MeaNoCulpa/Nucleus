@@ -89,4 +89,15 @@
     <servlet-name>EditController</servlet-name>
     <url-pattern>/editController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OfferSummaryController</display-name>
+    <servlet-name>OfferSummaryController</servlet-name>
+    <servlet-class>controller.OfferSummaryController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OfferSummaryController</servlet-name>
+    <url-pattern>/offerSummaryController</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

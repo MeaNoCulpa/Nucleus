@@ -1,4 +1,4 @@
-package model;
+package model.offer;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -8,18 +8,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
+import model.admin.MemberBean;
+import model.login.LoginBean;
+import utility.DatabaseConnection;
 
 public class OfferDao {
 	private final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	private final String DBURL = "jdbc:mysql://localhost:3306/NUCLEUS";
-    private final String DBLOGIN = "root";
-    private final String DBPASSWORD = "root";
-    
 	public boolean authoriseCreation(OfferBean offerBean) {
 		
 		String[] services = offerBean.getServices();
@@ -64,7 +63,7 @@ public class OfferDao {
         
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+            conn = DatabaseConnection.initialiseDatabase();
             System.out.println("Database..");
             stmt = conn.createStatement();
         
@@ -80,46 +79,47 @@ public class OfferDao {
 	        int row = pst.executeUpdate();
 	        
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 	}
 	
-	public Integer getcurrentAI(String Table) {
-		Connection conn;
-        Statement stmt;
-        int ai_value = 1;
+public List<OfferBean> getAllOffers(LoginBean loginBean) {
+     	//TODO LoginBean 
+		long ID_Owner = session.;
+		ArrayList<OfferBean> offerList = new ArrayList<>();
+		
 		try {
-			Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
-            System.out.println("Database..");
-            stmt = conn.createStatement();
-		
-			PreparedStatement pst = null;
+			Connection dbconn = DatabaseConnection.initialiseDatabase();
+			PreparedStatement preparedStatement = null;
+	        preparedStatement = dbconn.prepareStatement("SELECT * FROM OFFER WHERE ID_OWNER IS ?");
+	        preparedStatement.setLong(1,ID_Owner);
 	        
-	        String sql_query_ai = "SELECT AUTO_INCREMENT FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'NUCLEUS' AND   TABLE_NAME   =" + Table;
+	        ResultSet resultSet = preparedStatement.executeQuery();
 	        
-	        pst = conn.prepareStatement(sql_query_ai);
-	        
-	        ResultSet resultSet;
-	        
-	        resultSet = pst.executeQuery();
-	        while(resultSet.next()){
-	        	ai_value = resultSet.getInt("AUTO_INCREMENT");
+	        if (resultSet  == null) {
+	        	System.out.println("Null Result Set Output");
 	        }
-        
-        
-		} catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-		return ai_value;
-		
+	        
+	        while (resultSet.next()) {
+	        	OfferBean offer = new OfferBean();
+	        	offer.setId_offer(resultSet.getInt("ID_Offer"));
+	        	offer.setId_owner(resultSet.getInt("ID_Owner"));
+	        	offer.setDate_start(resultSet.getDate("Date_start").toString());
+	        	offer.setDate_end(resultSet.getDate("Date_end").toString());
+	        	offer.setLocation(resultSet.getString("Location"));
+	        	offer.setDescription(resultSet.getString("Description"));
+	        	offerList.add(offer);
+	        }
+	        preparedStatement.close();
+        	dbconn.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return offerList;
 	}
 }

@@ -57,43 +57,8 @@ public class OfferCreationController extends HttpServlet {
 	            String date_end=req.getParameter("date_end");
 	            String description=req.getParameter("description");
 	            String []services = req.getParameterValues("services");
-	            int service_binary=0;
-	            
-	            for (String service : services) {
-		            System.out.println(service);
-		            switch (service) {
-		            	case "keep_pets":
-		            		service_binary+=100;
-		            		break;
-		            	case "water_plants":
-		            		service_binary+=10;
-		            		break;
-		            	case "clean_house":
-		            		service_binary+=1;
-		            		break;
-		            }
-	            }
-	            
+	          
 	            String []limitations = req.getParameterValues("limitations");
-	            int limitation_binary=0;
-	            
-	            for (String limitation : limitations) {
-		            System.out.println(limitation);
-		            switch (limitation) {
-		            	case "No_smoking":
-		            		limitation_binary+=1000;
-		            		break;
-		            	case "No_night_disturbance":
-		            		limitation_binary+=100;
-		            		break;
-		            	case "No_children":
-		            		limitation_binary+=10;
-		            		break;
-		            	case "No_pets":
-		            		limitation_binary+=1;
-		            		break;	
-		            }
-	            }
 	            
 	            
 	            InputStream inputStream = null; // input stream of the upload file
@@ -111,19 +76,7 @@ public class OfferCreationController extends HttpServlet {
 	            }
 	            
 	            PreparedStatement pst = null;
-	            
-	            String sql_query_ai = "SELECT AUTO_INCREMENT FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'NUCLEUS' AND   TABLE_NAME   = 'OFFER'";
-	            
-	            pst = conn.prepareStatement(sql_query_ai);
-	            
-	            ResultSet resultSet;
-	            int ai_value = 1;
-	            resultSet = pst.executeQuery();
-	            while(resultSet.next()){
-	             ai_value = resultSet.getInt("AUTO_INCREMENT");
-	            System.out.println(ai_value + "boop");
-	            }
-	            
+	         
 	            String sql_offer = "INSERT INTO OFFER(ID_Owner, Date_start, Date_end, Location, Description, Service_binary, Limitation_binary) values(?,?,?,?,?,?,?)" ;
 	            pst = conn.prepareStatement(sql_offer);
 	            pst.setInt(1,1);
@@ -131,12 +84,11 @@ public class OfferCreationController extends HttpServlet {
 	            pst.setDate(3, Date.valueOf(date_end));
 	            pst.setString(4, location);
 	            pst.setString(5, description);
-	            pst.setInt(6,service_binary);
-	            pst.setInt(7,limitation_binary);
+	            
 	            
 	            int row = pst.executeUpdate();
 	            
-	            String sql_image = "INSERT INTO OFFER_IMAGE(OFFER_IMAGE_VALUE, ID_OFFER, ID_MEMBER, DATE, SIZE) values(?,?,?,?,?)" ;
+	            String sql_image = "INSERT INTO OFFER_IMAGE(OFFER_IMAGE_VALUE, ID_MEMBER, DATE, SIZE) values(?,?,?,?,?)" ;
 	            pst = conn.prepareStatement(sql_image);
 	            
 	            
@@ -145,10 +97,9 @@ public class OfferCreationController extends HttpServlet {
 	                pst.setBlob(1, inputStream);
 	            }
 	            
-	            pst.setInt(2, ai_value);
-	            pst.setInt(3, 1);
-	            pst.setDate(4, Date.valueOf(date_start));
-	            pst.setInt(5, (int) filePart.getSize());
+	            pst.setInt(2, 1);
+	            pst.setDate(3, Date.valueOf(date_start));
+	            pst.setInt(4, (int) filePart.getSize());
 	            
 	            row = pst.executeUpdate();
 	            
@@ -158,10 +109,10 @@ public class OfferCreationController extends HttpServlet {
 	            res.sendRedirect(req.getContextPath() + "/offerCreated.jsp");
 
 	        } catch (ClassNotFoundException e) {
-	            // TODO Auto-generated catch block
+
 	            e.printStackTrace();
 	        } catch (SQLException e) {
-	            // TODO Auto-generated catch block
+
 	            e.printStackTrace();
 	        }
 

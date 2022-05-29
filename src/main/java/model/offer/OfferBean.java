@@ -1,11 +1,11 @@
-package model;
+package model.offer;
 
 import jakarta.servlet.http.Part;
 
 public class OfferBean {
 	private String location, date_start, date_end, description;
 	private String[] services, limitations;
-	
+	private int id_owner, id_offer;
 	private Part offer_image;
 	
 	public String getLocation() {
@@ -49,6 +49,18 @@ public class OfferBean {
 	}
 	public void setOffer_image(Part offer_image) {
 		this.offer_image = offer_image;
+	}
+	public int getId_owner() {
+		return id_owner;
+	}
+	public void setId_owner(int id_owner) {
+		this.id_owner = id_owner;
+	}
+	public int getId_offer() {
+		return id_offer;
+	}
+	public void setId_offer(int id_offer) {
+		this.id_offer = id_offer;
 	}
 
 }

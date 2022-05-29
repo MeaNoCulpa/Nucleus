@@ -253,7 +253,7 @@
 						class="form-control space-between"
 						name="content"
 						id="content"
-						placeholder="Votre message"
+						placeholder="> Votre message"
 					/>
 					<button type="submit" class="btn btn-primary">Envoyer</button>
 				</div>
