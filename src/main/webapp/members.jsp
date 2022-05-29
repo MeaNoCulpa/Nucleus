@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.List"%>
 <%@ page import="model.admin.MemberBean"%>
@@ -24,6 +23,7 @@
 	});
 </script>
 
+<link rel="stylesheet" href="styles/members.css" />
 <link rel="stylesheet" href="styles/register.css" />
 <link href="styles/footer.css" rel="stylesheet" />
 <style type="text/css">
@@ -230,11 +230,13 @@
 
 <div class="container-fluid">
 <div class="justify-content-center center-block form-section">
-<table class="table table-striped">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rechercher un utilisateur" title="Entrez un nom d'utilisateur">
+
+<table class="table table-group" id="myTable">
   <thead>
-    <tr>
+    <tr class="header">
       <th scope="col">Indice</th>
-      <th scope="col">Addresse électronique</th>
+      <th scope="col">Adresse électronique</th>
       <th scope="col">Rôle</th>
       <th scope="col">Nom</th>
       <th scope="col">Prénom</th>
@@ -261,8 +263,33 @@
 <%}%>
   </tbody>
 </table>
+
 </div>
 </div>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 
 <div id="footer"></div>
 

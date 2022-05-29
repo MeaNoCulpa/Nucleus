@@ -21,7 +21,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="settings.jsp"><%=session.getAttribute("firstname")%></a></li>
 					<li><a href="conversations.jsp">CONVERSATIONS</a></li>
-					<li><a href="logout.jsp">DECONNEXION</a></li>
+					<li><a href="logoutController">DECONNEXION</a></li>
 
 					<!-- <li><a href="#portfolio">LES MIEUX NOTES</a></li> -->
 					<!-- <li><a href="index.jsp#services">OFFRES</a></li> -->
