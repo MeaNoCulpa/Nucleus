@@ -91,6 +91,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>DeleteController</display-name>
+    <servlet-name>DeleteController</servlet-name>
+    <servlet-class>controller.DeleteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteController</servlet-name>
+    <url-pattern>/deleteController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>OfferSummaryController</display-name>
     <servlet-name>OfferSummaryController</servlet-name>
     <servlet-class>controller.OfferSummaryController</servlet-class>

@@ -5,43 +5,43 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import model.user.EditDao;
 import utility.ServletUtility;
 
 /**
- * Servlet implementation class OfferSummaryController
+ * Servlet implementation class DeleteController
  */
-
-public class OfferSummaryController extends HttpServlet {
+public class DeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OfferSummaryController() {
+    public DeleteController() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		int idMember = (int) session.getAttribute("idMember");
-		
-		try {
-			
-		} catch (Exception e) {
-			System.out.println(e);
-			throw e;
-		}
-		ServletUtility.forward("/WEB-INF/offerCreation.jsp", request, response);
+		EditDao userModel = new EditDao();
+		  
+		  long id = Long.parseLong(request.getParameter("id"));
+		  if (id > 0) {
+			  EditDao.deleteUser(id);
+		    ServletUtility.setSuccessMessage("L'utilisateur a bien été supprimé", request);
+		  }
+		  ServletUtility.forward("memberController", request, response);
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

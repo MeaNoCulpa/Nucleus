@@ -27,7 +27,7 @@ import java.util.Calendar;
 /**
  * Servlet implementation class Creation_query
  */
-//TODO AmÃ©liorer l'image display
+//TODO Améliorer l'image display
 @MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB
 public class OfferCreationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -77,7 +77,7 @@ public class OfferCreationController extends HttpServlet {
 	            
 	            PreparedStatement pst = null;
 	         
-	            String sql_offer = "INSERT INTO OFFER(ID_Owner, Date_start, Date_end, Location, Description, Service_binary, Limitation_binary) values(?,?,?,?,?,?,?)" ;
+	            String sql_offer = "INSERT INTO OFFER(ID_Owner, Date_start, Date_end, Location, Description) values(?,?,?,?,?)" ;
 	            pst = conn.prepareStatement(sql_offer);
 	            pst.setInt(1,1);
 	            pst.setDate(2, Date.valueOf(date_start));
@@ -88,7 +88,7 @@ public class OfferCreationController extends HttpServlet {
 	            
 	            int row = pst.executeUpdate();
 	            
-	            String sql_image = "INSERT INTO OFFER_IMAGE(OFFER_IMAGE_VALUE, ID_MEMBER, DATE, SIZE) values(?,?,?,?,?)" ;
+	            String sql_image = "INSERT INTO OFFER_IMAGE(OFFER_IMAGE_VALUE, ID_MEMBER, DATE, SIZE) values(?,?,?,?)" ;
 	            pst = conn.prepareStatement(sql_image);
 	            
 	            

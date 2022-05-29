@@ -10,10 +10,6 @@ import utility.DatabaseConnection;
 
 public class MemberDao {
 	
-	static String DBURL = "jdbc:mysql://localhost:3306/Nucleus";
-	static String DBLOGIN = "root";
-	static String DBPASSWORD = "root";
-	
 	public List<MemberBean> getAllMembers() {
 		
 		ArrayList<MemberBean> memberList = new ArrayList<>();
@@ -25,7 +21,7 @@ public class MemberDao {
 	        ResultSet resultSet = preparedStatement.executeQuery();
 	        
 	        if (resultSet  == null) {
-	        	System.out.println("LOL");
+	        	System.out.println("Query result is null");
 	        }
 	        
 	        while (resultSet.next()) {
