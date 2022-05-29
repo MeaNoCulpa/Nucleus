@@ -215,13 +215,14 @@ body {
   }
 </style>
 </head>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <div id="header"></div>
 
 <div class="jumbotron text-center">
 <h1>Conditions générales d'utilisation</h1>
-<p>En vigueur au 25/05/2022</p>
+<p>Mises à jour le 25/05/2022</p>
 </div>
 
 <div class="container-fluid">
@@ -304,7 +305,7 @@ Adresse électronique : <a href="mailto:support@nucleus.fr">support@nucleus.fr</
 </p>
 
 <p>
-Le Directeur de la publication est : Monsieur LEDRICH Nathanaël.
+Le Directeur de la publication est : M. LEDRICH Nathanaël.
 </p>
 
 <p>
