@@ -1,8 +1,8 @@
-package model;
+package model.register;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import utility.DatabaseConnection;
 
 public class RegisterDao {
 	
@@ -18,9 +18,7 @@ public class RegisterDao {
         String password = registerBean.getPassword();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
-
+        	Connection connection = DatabaseConnection.initialiseDatabase();
             PreparedStatement preparedStatement = null;
 
             String query = "INSERT INTO member(Username,Password,Firstname,Lastname,Role) values(?,?,?,?,?)";

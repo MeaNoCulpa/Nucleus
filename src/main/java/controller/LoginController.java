@@ -1,14 +1,13 @@
 package controller;
 
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.LoginBean;
-import model.LoginDao;
+import model.login.LoginBean;
+import model.login.LoginDao;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -89,8 +88,20 @@ public class LoginController extends HttpServlet {
 	                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("welcome.jsp");
 	                //requestDispatcher.forward(request, response);
 	            }
+	            if (authorise.equals("SUCCESS ADMIN LOGIN")) {
+	            	HttpSession session = request.getSession();
+	            	session.setAttribute("username", loginBean.getUsername());
+	                session.setAttribute("password", hashtext);
+	                session.setAttribute("firstname", firstname);
+	                session.setAttribute("lastname", lastname);
+	                session.setAttribute("idMember", idMember);
+	                session.setAttribute("role", loginBean.getRole());
+	                response.sendRedirect("index.jsp");
+	            }
 	            else {
-	            	System.out.println("Login unsuccessful");
+	            	System.out.println("LOGIN UNSUCCESSFUL");
+	            	RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
+	                requestDispatcher.include(request, response);
 	            }
             }
             // For specifying wrong message digest algorithms

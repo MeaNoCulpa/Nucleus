@@ -69,4 +69,24 @@
     <servlet-name>ImageDisplayController</servlet-name>
     <url-pattern>/ImageDisplayController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberController</display-name>
+    <servlet-name>MemberController</servlet-name>
+    <servlet-class>controller.MemberController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberController</servlet-name>
+    <url-pattern>/memberController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditController</display-name>
+    <servlet-name>EditController</servlet-name>
+    <servlet-class>controller.EditController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditController</servlet-name>
+    <url-pattern>/editController</url-pattern>
+  </servlet-mapping>
 </web-app>

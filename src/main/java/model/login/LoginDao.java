@@ -1,26 +1,23 @@
-package model;
+	package model.login;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class LoginDao {
+import utility.DatabaseConnection;
 
-	private final String DBURL = "jdbc:mysql://localhost:3306/NUCLEUS";
-	private final String DBLOGIN = "root";
-	private final String DBPASSWORD = "root";
-	
+public class LoginDao {
 	public String authoriseLogin(LoginBean loginBean) {
 	    String username = loginBean.getUsername();
 	    String password = loginBean.getPassword();
 
 	    String dbUsername;
 	    String dbPassword;
+	    String dbRole;
+	    
 
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+	        Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;
 
 	        preparedStatement = dbconn.prepareStatement("SELECT * FROM member WHERE Username=? AND Password=?");
@@ -31,8 +28,13 @@ public class LoginDao {
 	        while (resultSet.next()) {
 	            dbUsername = resultSet.getString("Username");
 	            dbPassword = resultSet.getString("Password");
+	            dbRole = resultSet.getString("Role");
 
 	            if (username.equals(dbUsername) && password.equals(dbPassword)) {
+	            	if (dbRole.equals("admin")) {
+	            		loginBean.setRole("admin");
+	            		return "SUCCESS ADMIN LOGIN";
+	            	}
 	                return "SUCCESS LOGIN";
 	            }
 	        }
@@ -50,8 +52,7 @@ public class LoginDao {
 	    String password = loginBean.getPassword();
 	    
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+	    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;
 
 	        preparedStatement = dbconn.prepareStatement("select Firstname from member where Username=? and Password=?");
@@ -77,8 +78,7 @@ public class LoginDao {
 	    String password = loginBean.getPassword();
 	    
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+	    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;
 
 	        preparedStatement = dbconn.prepareStatement("SELECT Lastname FROM member WHERE Username=? AND Password=?");
@@ -103,8 +103,7 @@ public class LoginDao {
 	    String password = loginBean.getPassword();
 	    
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection dbconn = DriverManager.getConnection(DBURL, DBLOGIN, DBPASSWORD);
+	    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;
 
 	        preparedStatement = dbconn.prepareStatement("SELECT ID_Member FROM member WHERE Username=? AND Password=?");
