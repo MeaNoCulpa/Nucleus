@@ -52,11 +52,11 @@ public class EditController extends HttpServlet {
 	        //To Update the records
 	         long i = EditDao.UpdateUser(user);
 	            if (i > 0) {
-	              ServletUtility.setSuccessMessage("L'utilisateur a bien Ã©tÃ© mis Ã  jour", request);
+	              ServletUtility.setSuccessMessage("L'utilisateur a bien été mis à jour", request);
 	              
 	            }
 	            else {
-	              ServletUtility.setErrorMessage("Non insï¿½rï¿½", request);
+	              ServletUtility.setErrorMessage("Non inséré", request);
 	            }
 
 	    }

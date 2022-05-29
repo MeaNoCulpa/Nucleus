@@ -3,7 +3,6 @@ package controller;
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -28,7 +27,7 @@ public class OfferSummaryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		long idMember = (long) session.getAttribute("idMember");
+		int idMember = (int) session.getAttribute("idMember");
 		
 		try {
 			
