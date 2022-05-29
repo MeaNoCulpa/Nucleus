@@ -3,12 +3,6 @@
 /.idea/
 /.settings/
 build
-<<<<<<< HEAD
-target/
-<<<<<<< HEAD
-=======
-/target/
->>>>>>> 1301e8e7ed3746cc46945dca81cd7a7ddbbfb5e7
-=======
 bin/
->>>>>>> 8d715e48510f78056e11e2b0e2b2a6b5ca6a6bf5
+.metadata/
+target/
