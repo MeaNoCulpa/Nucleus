@@ -39,9 +39,9 @@ public class ConversationController extends HttpServlet {
 		List<RegisterBean> members = conversationDao.getMembersConversation(idConversation);
 		
 		if(members.get(0).getIdMember() == idCurrentMember) {
-			return members.get(1).getFirstname() + " " + members.get(1).getLastname(); 
+			return members.get(1).getFirstname() + " " + members.get(1).getLastname() + " "; 
 		}
-		return members.get(0).getFirstname() + " " + members.get(0).getLastname(); 
+		return members.get(0).getFirstname() + " " + members.get(0).getLastname() + " "; 
 	}
 	
 	public static String getAllMessages(String idConversationStr, int idCurrentMember) {
@@ -54,9 +54,10 @@ public class ConversationController extends HttpServlet {
 		
 		String outStr = "";
 		for (MessageBean message : allMessagesConversation) {
-			String style = idCurrentMember != message.getIdSender() ? " style='font-weight:bold;'" : "";
-			outStr += "<p" + style + ">" + message.getContent() + "</p>"
-					+ "<p>" + message.getTimestamp() + "</p>";
+			String style = idCurrentMember != message.getIdSender() ? " style='font-weight:bold;color:orange;'" : "";
+			outStr += idCurrentMember != message.getIdSender() ? "<p" + style + "> " + message.getContent() + "</p>"
+					+ "<p>  " + message.getTimestamp() + "</p>" : "<p" + style + "> > " + message.getContent() + "</p>"
+							+ "<p>" + message.getTimestamp() + "</p>";
 		}
 		return outStr;
 		//return outStr;

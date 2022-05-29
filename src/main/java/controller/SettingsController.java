@@ -5,12 +5,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import model.settings.SettingsBean;
 import model.settings.SettingsDao;
-
 import java.io.IOException;
-
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -71,12 +68,11 @@ public class SettingsController extends HttpServlet {
 			String newPassword = request.getParameter("new-password");
 			String newPasswordConfirmation = request.getParameter("new-password-confirmation");
 			
-			
 			HttpSession session = request.getSession();
             String username = (String) session.getAttribute("username");
 			
 			if (newPassword.equals(newPasswordConfirmation)) {
-				
+
 				try {
 		            MessageDigest md = MessageDigest.getInstance("SHA-512");
 		            byte[] messageDigest = md.digest(newPassword.getBytes());
@@ -110,6 +106,7 @@ public class SettingsController extends HttpServlet {
 		        catch (NoSuchAlgorithmException e) {
 		            throw new RuntimeException(e);
 		        }
+
 			}
 			
 		}
@@ -138,7 +135,7 @@ public class SettingsController extends HttpServlet {
 				
 				session.setAttribute("lastname", newLastname);
 			}
-			
+
 			if (newFirstname != currentFirstname && newFirstname != "") {
 				SettingsBean settingsBean = new SettingsBean();
 				settingsBean.setFirstname(newFirstname);

@@ -16,6 +16,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-left">
 					<li><a href="index.jsp#header">ACCUEIL</a></li>
+					<li><a href="offerSummaryController">OFFRES</a></li>
 					<li><a href="memberController">MEMBRES</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

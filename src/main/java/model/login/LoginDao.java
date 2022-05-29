@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import utility.DatabaseConnection;
 
 public class LoginDao {
-	
 	public String authoriseLogin(LoginBean loginBean) {
 	    String username = loginBean.getUsername();
 	    String password = loginBean.getPassword();
@@ -16,6 +15,7 @@ public class LoginDao {
 	    String dbPassword;
 	    String dbRole;
 	    
+
 	    try {
 	        Connection dbconn = DatabaseConnection.initialiseDatabase();
 	        PreparedStatement preparedStatement = null;

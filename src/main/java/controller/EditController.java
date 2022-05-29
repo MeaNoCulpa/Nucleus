@@ -21,7 +21,6 @@ public class EditController extends HttpServlet {
      */
     public EditController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -53,11 +52,11 @@ public class EditController extends HttpServlet {
 	        //To Update the records
 	         long i = EditDao.UpdateUser(user);
 	            if (i > 0) {
-	              ServletUtility.setSuccessMessage("L'utilisateur a bien été mis à jour", request);
+	              ServletUtility.setSuccessMessage("L'utilisateur a bien Ã©tÃ© mis Ã  jour", request);
 	              
 	            }
 	            else {
-	              ServletUtility.setErrorMessage("Non inséré", request);
+	              ServletUtility.setErrorMessage("Non insï¿½rï¿½", request);
 	            }
 
 	    }

@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import utility.DatabaseConnection;
 
 public class SettingsDao {
-	    
 		public String authoriseSettings(SettingsBean settingsBean, String currentUsername) {
 		    String username = settingsBean.getEmail();
 		    String password = settingsBean.getPassword();
+
 		    String dbUsername;
 		    String dbPassword;
 		    int dbID;
@@ -112,6 +112,7 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
+
 		    try {
 		    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 		        PreparedStatement preparedStatement = null;
@@ -159,7 +160,7 @@ public class SettingsDao {
 			String dbUsername;
 			String dbPassword;
 			int dbID;
-			
+
 		    try {
 		    	Connection dbconn = DatabaseConnection.initialiseDatabase();
 		        PreparedStatement preparedStatement = null;
@@ -199,7 +200,7 @@ public class SettingsDao {
 			return "Errare";
 		}
 		
-		public static String getIDFromDataBase(SettingsBean settingsBean) {
+		public String getIDFromDataBase(SettingsBean settingsBean) {
 			String username = settingsBean.getEmail();
 		    String password = settingsBean.getPassword();
 		    

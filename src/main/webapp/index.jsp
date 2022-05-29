@@ -3,7 +3,7 @@
 <html lang="fr">
 	<head>
 		<title>Accueil</title>
-
+		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
@@ -228,7 +228,7 @@
 			<p>Home Exchange Manager</p>
 			<form class="form-inline">
 				<div class="input-group">
-					<input type="text" class="form-control" size="50" placeholder="Rechercher une propriété" required />
+					<input type="text" class="form-control" size="50" placeholder="Rechercher une propriété" name="city lookup" required />
 					<div class="input-group-btn">
 						<button type="button" class="btn btn-danger">Rechercher</button>
 					</div>

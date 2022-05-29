@@ -6,6 +6,10 @@ import utility.DatabaseConnection;
 
 public class RegisterDao {
 	
+	private final String DBURL = "jdbc:mysql://localhost:3306/NUCLEUS";
+    private final String DBLOGIN = "root";
+    private final String DBPASSWORD = "root";
+    
 	public String authoriseRegister(RegisterBean registerBean) {
 		
         String firstname = registerBean.getFirstname();

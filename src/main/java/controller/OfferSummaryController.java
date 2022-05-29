@@ -6,18 +6,20 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import utility.ServletUtility;
 
 /**
- * Servlet implementation class LogoutController
+ * Servlet implementation class OfferSummaryController
  */
-@WebServlet("/logoutController")
-public class LogoutController extends HttpServlet {
+
+public class OfferSummaryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutController() {
+    public OfferSummaryController() {
         super();
     }
 
@@ -25,7 +27,16 @@ public class LogoutController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/logout.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		long idMember = (long) session.getAttribute("idMember");
+		
+		try {
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			throw e;
+		}
+		ServletUtility.forward("/WEB-INF/offerCreation.jsp", request, response);
 	}
 
 	/**

@@ -16,6 +16,7 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li><a href="index.jsp#header">ACCUEIL</a></li>
 					<li><a href="index.jsp#about">À PROPOS</a></li>
+					<li><a href="offerSummaryController">OFFRES</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="settings.jsp"><%=session.getAttribute("firstname")%></a></li>

@@ -31,6 +31,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>OfferCreationController</display-name>
+    <servlet-name>OfferCreationController</servlet-name>
+    <servlet-class>controller.OfferCreationController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OfferCreationController</servlet-name>
+    <url-pattern>/OfferCreationController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>SettingsController</display-name>
     <servlet-name>SettingsController</servlet-name>
     <servlet-class>controller.SettingsController</servlet-class>
@@ -48,6 +58,16 @@
   <servlet-mapping>
     <servlet-name>ConversationController</servlet-name>
     <url-pattern>/ConversationController</url-pattern>
+   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>ImageDisplayController</display-name>
+    <servlet-name>ImageDisplayController</servlet-name>
+    <servlet-class>controller.ImageDisplayController</servlet-class>
+   </servlet>
+  <servlet-mapping>
+    <servlet-name>ImageDisplayController</servlet-name>
+    <url-pattern>/ImageDisplayController</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -69,4 +89,15 @@
     <servlet-name>EditController</servlet-name>
     <url-pattern>/editController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OfferSummaryController</display-name>
+    <servlet-name>OfferSummaryController</servlet-name>
+    <servlet-class>controller.OfferSummaryController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OfferSummaryController</servlet-name>
+    <url-pattern>/offerSummaryController</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
