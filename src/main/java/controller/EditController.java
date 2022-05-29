@@ -2,6 +2,8 @@ package controller;
 
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
+
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -60,7 +62,8 @@ public class EditController extends HttpServlet {
 	            }
 
 	    }
-	    request.getRequestDispatcher("edit.jsp").forward(request, response);
+	    ServletUtility.forward("memberController", request, response);
+	    //request.getRequestDispatcher("memberController").forward(request, response);
 	}
 
 }
