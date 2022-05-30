@@ -19,7 +19,7 @@ import utility.ServletUtility;
 /**
  * Servlet implementation class Creation_query
  */
-//TODO Am�liorer l'image display
+
 @MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB
 public class OfferCreationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

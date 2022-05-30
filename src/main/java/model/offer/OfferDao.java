@@ -292,39 +292,6 @@ public class OfferDao {
 		return offer;
 }
 	
-	public List<RequestBean> getAllRequests(int ID_Owner) {
-		ArrayList<RequestBean> requestList = new ArrayList<>();
-		
-		try {
-			Connection dbconn = DatabaseConnection.initialiseDatabase();
-			PreparedStatement preparedStatement = null;
-	        preparedStatement = dbconn.prepareStatement("SELECT * FROM REQUEST WHERE ID_REQUESTER = ?");
-	        preparedStatement.setInt(1,ID_Owner);
-	        
-	        ResultSet resultSet = preparedStatement.executeQuery();
-	        
-	        if (resultSet  == null) {
-	        	System.out.println("Null Result Set Output");
-	        }
-	        
-	        while (resultSet.next()) {
-	        	RequestBean request = new RequestBean();
-	        	request.setId_request(resultSet.getInt("ID_Request"));
-	        	request.setId_requester(resultSet.getInt("ID_Requester"));
-	        	request.setId_offer(resultSet.getInt("Id_owner"));
-	        	request.setDate(resultSet.getDate("Date").toString());
-	        	request.setDescription(resultSet.getString("Description"));
-	        	requestList.add(request);
-	        }
-	        preparedStatement.close();
-        	dbconn.close();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return requestList;
-	}
-	
 	public List<String> getAllServices(int ID_Offer) {
 		List<String> serviceList = new ArrayList<>();
 		

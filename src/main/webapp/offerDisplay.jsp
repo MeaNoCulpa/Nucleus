@@ -266,11 +266,19 @@
 </table>
 <div id="functions">
 <form id="RatingForm" method="POST" action="ratingController">
-<label for="number">Veuillez noter l'offre de 0 à 5</label>
+<label for="ratingValue">Veuillez noter l'offre de 0 à 5</label>
 <input id="ratingValue" type="number" name="ratingValue" min="0" max="5">
 <input value="envoyer" type="submit" name="envoyer">
 
 </form>
+
+<form id="RequestForm" method="POST" action="requestController">
+<label for="Reqtext">Veuillez décrire brièvement votre séjour</label>
+<input id="Reqtext" type="text" name="ReqText">
+<input value="envoyer" type="submit" name="envoyer">
+</form>
+
+
 
 <a href="conversations.jsp?idConversation=<%= ConversationController.conversationWith(Integer.parseInt(session.getAttribute("idMember").toString()), offerBean.getId_owner()) %>">Discuter avec le propriétaire</a>
 </div>
