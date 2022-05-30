@@ -94,29 +94,31 @@ public class OfferDao {
         String date_start = offerBean.getDate_start();
         List<String> services = offerBean.getServices();
         
-        for (String service : services) {
-        
-	        try {
-	            Class.forName(JDBC_DRIVER);
-	            conn = DatabaseConnection.initialiseDatabase();
-	            System.out.println("Database..");
-	            stmt = conn.createStatement();
+        if (services !=null ) {
+	        for (String service : services) {
 	        
-	        
-		        String sql_offer = "INSERT INTO SERVICE(ID_OFFER, DATE, VALUE) values(?,?,?)" ;
-		        pst = conn.prepareStatement(sql_offer);
-		        pst.setInt(1,id_offer);
-		        pst.setDate(2, Date.valueOf(date_start));
-		        pst.setString(3, service);
+		        try {
+		            Class.forName(JDBC_DRIVER);
+		            conn = DatabaseConnection.initialiseDatabase();
+		            System.out.println("Database..");
+		            stmt = conn.createStatement();
 		        
-		        int row = pst.executeUpdate();
 		        
-	        } catch (ClassNotFoundException e) {
-	
-	            e.printStackTrace();
-	        } catch (SQLException e) {
-	
-	            e.printStackTrace();
+			        String sql_offer = "INSERT INTO SERVICE(ID_OFFER, DATE, VALUE) values(?,?,?)" ;
+			        pst = conn.prepareStatement(sql_offer);
+			        pst.setInt(1,id_offer);
+			        pst.setDate(2, Date.valueOf(date_start));
+			        pst.setString(3, service);
+			        
+			        int row = pst.executeUpdate();
+			        
+		        } catch (ClassNotFoundException e) {
+		
+		            e.printStackTrace();
+		        } catch (SQLException e) {
+		
+		            e.printStackTrace();
+		        }
 	        }
         }
 	}
@@ -131,29 +133,31 @@ public class OfferDao {
         String date_start = offerBean.getDate_start();
         List<String> limitations = offerBean.getLimitations();
         
-        for (String limitation : limitations) {
-        
-	        try {
-	            Class.forName(JDBC_DRIVER);
-	            conn = DatabaseConnection.initialiseDatabase();
-	            System.out.println("Database..");
-	            stmt = conn.createStatement();
+        if (limitations !=null ) {
+	        for (String limitation : limitations) {
 	        
-	        
-		        String sql_offer = "INSERT INTO LIMITATION(ID_OFFER, DATE, VALUE) values(?,?,?)" ;
-		        pst = conn.prepareStatement(sql_offer);
-		        pst.setInt(1,id_offer);
-		        pst.setDate(2, Date.valueOf(date_start));
-		        pst.setString(3, limitation);
+		        try {
+		            Class.forName(JDBC_DRIVER);
+		            conn = DatabaseConnection.initialiseDatabase();
+		            System.out.println("Database..");
+		            stmt = conn.createStatement();
 		        
-		        int row = pst.executeUpdate();
 		        
-	        } catch (ClassNotFoundException e) {
-	
-	            e.printStackTrace();
-	        } catch (SQLException e) {
-	
-	            e.printStackTrace();
+			        String sql_offer = "INSERT INTO LIMITATION(ID_OFFER, DATE, VALUE) values(?,?,?)" ;
+			        pst = conn.prepareStatement(sql_offer);
+			        pst.setInt(1,id_offer);
+			        pst.setDate(2, Date.valueOf(date_start));
+			        pst.setString(3, limitation);
+			        
+			        int row = pst.executeUpdate();
+			        
+		        } catch (ClassNotFoundException e) {
+		
+		            e.printStackTrace();
+		        } catch (SQLException e) {
+		
+		            e.printStackTrace();
+		        }
 	        }
         }
 	}
@@ -303,6 +307,23 @@ public class OfferDao {
 	        while (resultSet.next()) {
 	        	String service = resultSet.getString("Value");
 	        	
+	        	switch (service) {
+	        	case "keep_pets":
+	        		service = "S'occuper des animaux";
+	        		break;
+	        	case "water_plants":
+	        		service = "Arroser les plantes";
+	        		break;
+	        	case "clean_house":
+	        		service = "Nettoyer les lieux";
+	        		break;
+	        	case "keep_inventory":
+	        		service = "Remplacer les denrées alimentaires";
+	        		break;
+	        	}
+	        	
+	        	
+	        	
 	        	serviceList.add(service);
 	        }
 	        preparedStatement.close();
@@ -332,6 +353,28 @@ public class OfferDao {
 	        
 	        while (resultSet.next()) {
 	        	String limitation = resultSet.getString("Value");
+	        	
+	        	switch (limitation) {
+	        	case "No_smoking":
+	        		limitation = "Non fumeur";
+	        		break;
+	        	case "No_night_disturbance":
+	        		limitation = "Pas de bruit passé 23h";
+	        		break;
+	        	case "No_children":
+	        		limitation = "Pas d'enfant de moins de 2 ans";
+	        		break;
+	        	case "No_pets":
+	        		limitation = "Pas d'animal";
+	        		break;
+	        	case "No_party":
+	        		limitation = "Pas de fêtes";
+	        		break;
+	        			
+	        	}
+	        	
+	        	
+	        	
 	        	
 	        	limitationList.add(limitation);
 	        }

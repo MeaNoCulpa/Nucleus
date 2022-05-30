@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="model.offer.*" %>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -238,27 +239,40 @@
 
 		<!-- Container (Portfolio Section) -->
 		<div id="portfolio" class="container-fluid text-center bg-grey">
-			<h2>Décourvrez les logements les mieux notés</h2>
+			<h2>Découvrez les logements les mieux notés</h2>
 			<br />
 			<h4>Ce que nous vous proposons</h4>
 			<div class="row text-center slideanim">
 				<div class="col-sm-4">
 					<div class="thumbnail">
-						<img src="#" alt="Annonce Paris" width="400" height="300" />
+					<% OfferDao offerDao = new OfferDao();
+					   OfferBean offerBeanParis = new OfferBean();
+					   offerBeanParis.setId_offer(13);
+					   offerBeanParis.setOffer_image_string(offerDao.getOfferImageString(offerBeanParis));
+					   OfferBean offerBeanLyon = new OfferBean();
+					   offerBeanLyon.setId_offer(14);
+					   offerBeanLyon.setOffer_image_string(offerDao.getOfferImageString(offerBeanLyon));
+					   OfferBean offerBeanStrasbourg = new OfferBean();
+					   offerBeanStrasbourg.setId_offer(17);
+					   offerBeanStrasbourg.setOffer_image_string(offerDao.getOfferImageString(offerBeanStrasbourg));
+					%>
+					
+					
+						<img width="400" height="300" src=<%="data:image/png;base64," + offerBeanParis.getOffer_image_string()%>>
 						<p><strong>Paris IV</strong></p>
 						<p>Logement 1</p>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="thumbnail">
-						<img src="#" alt="Annonce Lyon" width="400" height="300" />
+						<img width="400" height="300" src=<%="data:image/png;base64," + offerBeanLyon.getOffer_image_string()%>>
 						<p><strong>Lyon III</strong></p>
 						<p>Logement 2</p>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="thumbnail">
-						<img src="#" alt="Annonce Strasbourg" width="400" height="300" />
+						<img width="400" height="300" src=<%="data:image/png;base64," + offerBeanStrasbourg.getOffer_image_string()%>>
 						<p><strong>Strasbourg</strong></p>
 						<p>Logement 3</p>
 					</div>

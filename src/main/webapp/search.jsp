@@ -244,6 +244,8 @@
   <thead>
     <tr class="header">
       <th scope="col">Location</th>
+      <th scope="col">De</th>
+      <th scope="col">A</th>
       <th scope="col">Description</th>
     </tr>
   </thead>
@@ -258,6 +260,8 @@
   %>
     <tr>
       <td scope="row"><%=member.getLocation()%></td>
+      <td scope="row"><%=member.getDateStart()%></td>
+      <td scope="row"><%=member.getDateEnd()%></td>
       <td><%=member.getDescription()%></td>
     </tr>
 <%}%>

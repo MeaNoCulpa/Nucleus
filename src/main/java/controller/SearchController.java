@@ -35,7 +35,7 @@ public class SearchController extends HttpServlet {
 		search = (List<SearchBean>) searchDao.getSearchResultFromLocation(location);
 		
 		if (search == null || search.size() == 0) {
-			ServletUtility.setErrorMessage("Pas de r�sultat !", request);
+			ServletUtility.setErrorMessage("Pas de resultat !", request);
 		}
 		
 		ServletUtility.setList(search, request);

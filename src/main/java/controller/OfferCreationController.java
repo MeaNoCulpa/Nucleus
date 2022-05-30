@@ -49,8 +49,10 @@ public class OfferCreationController extends HttpServlet {
 	            offerBean.setDate_start(date_start);
 	            offerBean.setDate_end(date_end);
 	            offerBean.setDescription(description);
-	            offerBean.setServices(Arrays.asList(services));
-	            offerBean.setLimitations(Arrays.asList(limitations));
+	            if (services!=null) {
+	            offerBean.setServices(Arrays.asList(services));}
+	            if (limitations!=null) {
+	            offerBean.setLimitations(Arrays.asList(limitations));}
 	            offerBean.setOffer_image(offer_image);
 	            
 	            OfferDao offerDao = new OfferDao();
