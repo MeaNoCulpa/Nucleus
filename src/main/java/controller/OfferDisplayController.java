@@ -2,66 +2,48 @@ package controller;
 
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.offer.OfferBean;
 import model.offer.OfferDao;
-import model.request.RequestBean;
-import model.request.RequestDao;
-import utility.ServletUtility;
 
 /**
- * Servlet implementation class OfferSummaryController
+ * Servlet implementation class OfferDisplayController
  */
 
-public class OfferSummaryController extends HttpServlet {
+public class OfferDisplayController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OfferSummaryController() {
+    public OfferDisplayController() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		OfferDao offerDao = new OfferDao();
+		OfferBean offerBean = new OfferBean();
 		HttpSession session = request.getSession();
-		int idMember = (int) session.getAttribute("idMember");
-		
-		try {
-			OfferDao offerDao = new OfferDao();
-			RequestDao requestDao = new RequestDao();
-			List<OfferBean> offerBeanList = offerDao.getAllOffers(idMember);
-			List<RequestBean> requestBeanList = requestDao.getAllRequests(idMember);
-			request.setAttribute("offerBeanList", offerBeanList);
-			request.setAttribute("requestBeanList", requestBeanList);
-			
-			ServletUtility.forward("offerSummary.jsp", request, response);
-	        
-	        
-	        
-	        
-		} catch (Exception e) {
-			System.out.println(e);
-			throw e;
-		}
-		
+		String offerString = request.getParameter("offer");
+		offerBean = offerDao.getOffer(Integer.parseInt(offerString));
+		session.setAttribute("offerBean", offerBean);
+		response.sendRedirect("offerDisplay.jsp");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
-	
 }

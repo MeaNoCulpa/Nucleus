@@ -22,7 +22,6 @@ public class SearchController extends HttpServlet {
      */
     public SearchController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -36,7 +35,7 @@ public class SearchController extends HttpServlet {
 		search = (List<SearchBean>) searchDao.getSearchResultFromLocation(location);
 		
 		if (search == null || search.size() == 0) {
-			ServletUtility.setErrorMessage("Pas de résultat !", request);
+			ServletUtility.setErrorMessage("Pas de resultat !", request);
 		}
 		
 		ServletUtility.setList(search, request);

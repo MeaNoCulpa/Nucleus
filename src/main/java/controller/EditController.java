@@ -27,11 +27,11 @@ public class EditController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EditDao userModel = new EditDao();
+		
 		long id = Long.parseLong(request.getParameter("id"));
 		if (id > 0) {
 			    EditBean userBean = null;
-			    userBean = userModel.FindByPk(id);
+			    userBean = EditDao.FindByPk(id);
 			    request.setAttribute("bean", userBean);
 		}
 		request.getRequestDispatcher("edit.jsp").forward(request, response);
@@ -52,11 +52,11 @@ public class EditController extends HttpServlet {
 	        //To Update the records
 	         long i = EditDao.updateUser(user);
 	            if (i > 0) {
-	              ServletUtility.setSuccessMessage("L'utilisateur a bien été mis à jour", request);
+	              ServletUtility.setSuccessMessage("L'utilisateur a bien ï¿½tï¿½ mis ï¿½jour", request);
 	              
 	            }
 	            else {
-	              ServletUtility.setErrorMessage("Non inséré", request);
+	              ServletUtility.setErrorMessage("Non insï¿½rï¿½", request);
 	            }
 
 	    }

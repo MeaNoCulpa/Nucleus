@@ -119,5 +119,34 @@
     <servlet-name>SearchController</servlet-name>
     <url-pattern>/searchController</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>OfferDisplayController</display-name>
+    <servlet-name>OfferDisplayController</servlet-name>
+    <servlet-class>controller.OfferDisplayController</servlet-class>
+   </servlet>
+  <servlet-mapping>
+    <servlet-name>OfferDisplayController</servlet-name>
+    <url-pattern>/offerDisplayController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RatingController</display-name>
+    <servlet-name>RatingController</servlet-name>
+    <servlet-class>controller.RatingController</servlet-class>
+   </servlet>
+  <servlet-mapping>
+    <servlet-name>RatingController</servlet-name>
+    <url-pattern>/ratingController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestController</display-name>
+    <servlet-name>RequestController</servlet-name>
+    <servlet-class>controller.RequestController</servlet-class>
+   </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestController</servlet-name>
+    <url-pattern>/requestController</url-pattern>
+  </servlet-mapping>
 </web-app>

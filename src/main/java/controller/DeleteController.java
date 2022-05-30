@@ -19,7 +19,6 @@ public class DeleteController extends HttpServlet {
      */
     public DeleteController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -31,7 +30,7 @@ public class DeleteController extends HttpServlet {
 		  long id = Long.parseLong(request.getParameter("id"));
 		  if (id > 0) {
 			  EditDao.deleteUser(id);
-		    ServletUtility.setSuccessMessage("L'utilisateur a bien été supprimé", request);
+		    ServletUtility.setSuccessMessage("L'utilisateur a bien ï¿½tï¿½ supprimï¿½", request);
 		  }
 		  ServletUtility.forward("memberController", request, response);
 
@@ -41,7 +40,6 @@ public class DeleteController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

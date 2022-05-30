@@ -305,7 +305,7 @@
 
 </div>
 <br/>
-<input type="submit" value="Register offer"/> 
+<input type="submit" value="Créer offre"/> 
 
 </form>
 
