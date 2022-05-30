@@ -29,7 +29,7 @@
 					<h3>Légal</h3>
 					<ul>
 						<li><a href="terms.jsp">CGU</a></li>
-						<li><a href="#">Politique de confidentialité</a></li>
+						<li><a href="privacy.jsp">Politique de confidentialité</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-3 item social">

@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ServletUtility {
-	  static String Error = "DonnÃ©es non valides";
-	  static String SucessMessage = "SuccÃ¨s";
+	  static String Error = "Données non valides";
+	  static String SucessMessage = "Succès";
 	  
 	  public static void forward(String page, HttpServletRequest request, HttpServletResponse response)
 	      throws IOException, ServletException {

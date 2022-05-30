@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.List"%>
-<%@ page import="java.util.stream.Collectors"%>
-<%@ page import="model.offer.OfferBean"%>
-<%@ page import="model.offer.RequestBean"%>
+<%@ page import="model.search.SearchBean"%>
 <%@ page import="utility.ServletUtility"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sommaire d'offres - Home Exchange Manager</title>
+<title>Résultat de la recherche</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
@@ -18,16 +16,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<script>
-	$(function () {
-		$('#header').load('headerAdmin.jsp');
-		$('#footer').load('footer.jsp');
-	});
-</script>
-
 <link rel="stylesheet" href="styles/members.css" />
-<link rel="stylesheet" href="styles/register.css" />
+
 <link href="styles/footer.css" rel="stylesheet" />
+
 <style type="text/css">
 	body {
 		background: #f7f7f8;
@@ -213,19 +205,33 @@
 		}
 	}
 </style>
-</head>
 
+<script>
+	var firstname = '<%=session.getAttribute("firstname")%>';
+	var role = '<%=session.getAttribute("role")%>';
+	$(function () {
+		if (role == 'admin') {
+			$('#header').load('headerAdmin.jsp');
+		}
+		else if (firstname == 'null') {
+			$('#header').load('header.jsp');
+		}
+		else {
+			$('#header').load('headerLogged.jsp');
+		}
+		
+		$('#footer').load('footer.jsp');
+	});
+</script>
+
+</head>
 <body id="myPage">
-<% if (session.getAttribute("firstname") == null) {
-	ServletUtility.redirect("index.jsp",request, response);
-	}
-%>
 
 <div id="header"></div>
 
 <div class="container-fluid profil-section">
 <div class="profil-info"></div>
-	<h2>Sommaire d'offres</h2>
+	<h2>Résultats de recherche pour <%=ServletUtility.getParameter("location", request)%></h2>
 	
 	<p style="color: red;"><%= ServletUtility.getErrorMessage(request)%></p>
 	<p style="color: green;"><%= ServletUtility.getSuccessMessage(request)%></p>
@@ -233,79 +239,31 @@
 
 <div class="container-fluid">
 <div class="justify-content-center center-block form-section">
-<h3>Vos offres</h3>
-<table class="table table-group" id="offerTable">
+
+<table class="table table-group" id="myTable">
   <thead>
     <tr class="header">
-      <th scope="col">Lieu</th>
-      <th scope="col">De</th>
-      <th scope="col">A</th>
+      <th scope="col">Location</th>
       <th scope="col">Description</th>
-      <th scope="col">Services</th>
-      <th scope="col">Contraintes</th>
-      <th scope="col">Image</th>
     </tr>
   </thead>
   <tbody>
   <%
           int index = 1;
-          @SuppressWarnings("unchecked")
-          List<OfferBean> beanList = (List<OfferBean>) request.getAttribute("offerBeanList");
-          beanList = beanList.stream().distinct().collect(Collectors.toList());
-          Iterator<OfferBean> it = beanList.iterator();
+          List<SearchBean> list = ServletUtility.getList(request);
+          Iterator<SearchBean> it = list.iterator();
           
           while(it.hasNext()){
-        	  OfferBean offer = (OfferBean) it.next();
+          	SearchBean member = (SearchBean) it.next();
   %>
     <tr>
-      <td><%=offer.getLocation()%></td>
-      <td><%=offer.getDate_start()%></td>
-      <td><%=offer.getDate_end()%></td>
-      <td><%=offer.getDescription()%></td>
-      <td><%=offer.getServices()%></td>
-      <td><%=offer.getLimitations()%></td>
-      <td><%=offer.getOffer_image()%></td>
+      <td scope="row"><%=member.getLocation()%></td>
+      <td><%=member.getDescription()%></td>
     </tr>
 <%}%>
   </tbody>
 </table>
 
- <a type="button" href="offerCreation.jsp">Créer une nouvelle offre</a>
- 
-
-
-<h3>Vos demandes</h3>
-<table class="table table-group" id="requestTable">
-  <thead>
-    <tr class="header">
-      <th scope="col">Offre</th>
-      <th scope="col">Date</th>
-      <th scope="col">Statut</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <%
-          int index_request = 1;
-  		  @SuppressWarnings("unchecked")
-          List<RequestBean> requestList = (List<RequestBean>) request.getAttribute("requestBeanList");
-          Iterator<RequestBean> it_request = requestList.iterator();
-          
-          while(it.hasNext()){
-        	  RequestBean requestB = (RequestBean) it_request.next();
-  %>
-    <tr>
-      <td><%=requestB.getId_offer()%></td>
-      <td><%=requestB.getDate()%></td>
-      <td><%=requestB.getStatus()%></td>
-      <td><%=requestB.getDescription()%></td>
-    </tr>
-<%}%>
-  </tbody>
-</table>
- 
- <a type="button" href="offerLookup.jsp">Rechercher une nouvelle offre</a>
- 
 </div>
 </div>
 

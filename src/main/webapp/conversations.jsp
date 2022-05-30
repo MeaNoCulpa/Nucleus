@@ -226,16 +226,15 @@
 		<div class="container-fluid profil-section">
 			<div class="profil-info">
 				<h1>Mes messages</h1>
-				<div>
-					<span class="profil-name"><%=session.getAttribute("firstname")%></span>
-				</div>
 			</div>
 		</div>
 
 		<div class="container-fluid form-section">
 			<div>
 				<p>Vos discussions</p>
+				<ul>
 				<%= ConversationController.getAllConversations(Integer.parseInt(session.getAttribute("idMember").toString())) %>
+				</ul>
 			</div>
 			<div class="col-sm-3"></div>
 			<h3>

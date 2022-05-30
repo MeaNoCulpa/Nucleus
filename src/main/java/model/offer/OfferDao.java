@@ -23,12 +23,17 @@ public class OfferDao {
 	public boolean authoriseCreation(OfferBean offerBean) {
 		
         try {
+        	System.out.println("Créa Offre");
         	createOffer(offerBean);
+        	System.out.println("Récup ID Offre");
+        	offerBean.setId_offer(getCurrentID(offerBean));
+        	System.out.println("Créa Image Offre");
         	createOfferImage(offerBean);
+        	System.out.println("Créa Services Offre");
         	createServices(offerBean);
+        	System.out.println("Créa Limitations Offre");
         	createLimitations(offerBean);
-        	//TODO createServices(offerBean);
-        	//TODO createLimitations(offerBean);
+
             return true;
         }
         catch (Exception e) {
@@ -48,8 +53,7 @@ public class OfferDao {
         String date_start = offerBean.getDate_start();
         String date_end= offerBean.getDate_end();
         String description= offerBean.getDescription();
-        int id_member = offerBean.getId_owner();//TODO Change to LOGINBEAN
-        String username ;
+        int id_member = offerBean.getId_owner();
         
         
         try {
@@ -67,18 +71,7 @@ public class OfferDao {
 	        pst.setString(4, location);
 	        pst.setString(5, description);
 	        
-
-	        ResultSet resultSet = pst.exec;
-	        
-	        if (resultSet  == null) {
-	        	System.out.println("Null Result Set Output");
-	        }
-	        
-	        while (resultSet.next()) {
-	        	currentID = resultSet.getInt(0);
-	        }
-	        preparedStatement.close();
-        	dbconn.close();
+	        int row = pst.executeUpdate();
 	        
         } catch (ClassNotFoundException e) {
 
@@ -220,8 +213,7 @@ public class OfferDao {
 		}
 	}
 	
-	public List<OfferBean> getAllOffers(int ID_Owner) {
-	     	//TODO LoginBean 
+	public List<OfferBean> getAllOffers(int ID_Owner) { 
 			ArrayList<OfferBean> offerList = new ArrayList<>();
 			
 			try {
@@ -258,7 +250,6 @@ public class OfferDao {
 	}
 	
 	public List<RequestBean> getAllRequests(int ID_Owner) {
-     	//TODO LoginBean 
 		ArrayList<RequestBean> requestList = new ArrayList<>();
 		
 		try {
@@ -351,13 +342,26 @@ public class OfferDao {
 		return limitationList;
 	}
 	
-	public int getCurrentID() {
+	public int getCurrentID(OfferBean offerBean) {
 		int currentID=1;
+		String location = offerBean.getLocation();
+        String date_start = offerBean.getDate_start();
+        String date_end= offerBean.getDate_end();
+        String description= offerBean.getDescription();
+        int id_member = offerBean.getId_owner();
+		
 		
 		try {
 			Connection dbconn = DatabaseConnection.initialiseDatabase();
 			PreparedStatement preparedStatement = null;
-	        preparedStatement = dbconn.prepareStatement("SELECT LAST_INSERT_ID()");
+	        preparedStatement = dbconn.prepareStatement("SELECT ID_OFFER FROM OFFER WHERE ID_OWNER = ? AND DATE_START = ? AND DATE_END = ? AND LOCATION = ? AND DESCRIPTION = ?");
+	        
+	        preparedStatement.setInt(1,id_member);
+	        preparedStatement.setDate(2, Date.valueOf(date_start));
+	        preparedStatement.setDate(3, Date.valueOf(date_end));
+	        preparedStatement.setString(4, location);
+	        preparedStatement.setString(5, description);
+	        
 	        
 	        ResultSet resultSet = preparedStatement.executeQuery();
 	        

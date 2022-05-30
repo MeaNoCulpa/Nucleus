@@ -225,12 +225,12 @@
 
 		<div class="jumbotron text-center">
 			<h1>Nucleus</h1>
-			<p>Home Exchange Manager</p>
-			<form class="form-inline">
+			<p>OU PARTEZ-VOUS A L'AVENTURE ?</p>
+			<form class="form-inline" action="searchController">
 				<div class="input-group">
-					<input type="text" class="form-control" size="50" placeholder="Rechercher une propriété" name="city lookup" required />
+					<input type="text" class="form-control" size="50" placeholder="Rechercher une destination" name="location" required />
 					<div class="input-group-btn">
-						<button type="button" class="btn btn-danger">Rechercher</button>
+						<button type="submit" class="btn btn-danger">Rechercher</button>
 					</div>
 				</div>
 			</form>
@@ -238,7 +238,7 @@
 
 		<!-- Container (Portfolio Section) -->
 		<div id="portfolio" class="container-fluid text-center bg-grey">
-			<h2>Logements les mieux notés</h2>
+			<h2>Décourvrez les logements les mieux notés</h2>
 			<br />
 			<h4>Ce que nous vous proposons</h4>
 			<div class="row text-center slideanim">
@@ -271,20 +271,10 @@
 					<div class="col-sm-8">
 						<h2>À propos</h2>
 						<br />
-						<h4>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-							ea commodo consequat.
-						</h4>
-						<br />
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-							ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-							mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-							ea commodo consequat.
-						</p>
+						<h4>Vous souhaitez voyager à moindre coût ?</h4>
+						<h4>Vous rêvez de ne payez pour l'hébergement ?</h4>
+						<h4>Nucleus rend cela possible grâce à notre plateforme d'échange de logement de particuliers à particuliers.</h4>
+						<h4>Echangez vos maisons, appartement ou studios pour le temps qu vous souhaitez, fixez vos conditions puis partez à l'aventure !</h4>
 						<br />
 						<a href="index.jsp#contact">
 							<button class="btn btn-default btn-lg">Entrer en contact</button>
@@ -324,48 +314,36 @@
 			<!-- Container (Services Section) -->
 			<div id="services" class="container-fluid text-center">
 				<h2>OFFRES</h2>
-				<h4>Ce que nous vous offrons</h4>
+				<h4>Nucleus est une solution :</h4>
 				<br />
 				<div class="row slideanim">
 					<div class="col-sm-4">
-						<span class="glyphicon glyphicon-off logo-small"></span>
-						<h4>POUVOIR</h4>
-						<p>Lorem ipsum dolor sit amet..</p>
+						<span class="glyphicon glyphicon-refresh logo-small"></span>
+						<h4>PAP</h4>
+						<p>Discutez et échangez
+						<br>
+						entre particulliers</p>
 					</div>
 					<div class="col-sm-4">
-						<span class="glyphicon glyphicon-heart logo-small"></span>
-						<h4>AMOUR</h4>
-						<p>Lorem ipsum dolor sit amet..</p>
+						<span class="glyphicon glyphicon-euro logo-small"></span>
+						<h4>SOLIDAIRE</h4>
+						<p>Partez en vacances
+						<br>
+						0 € pour l'hébergement</p>
 					</div>
 					<div class="col-sm-4">
-						<span class="glyphicon glyphicon-lock logo-small"></span>
-						<h4>SECURITE</h4>
-						<p>Lorem ipsum dolor sit amet..</p>
-					</div>
-				</div>
-				<br /><br />
-				<div class="row slideanim">
-					<div class="col-sm-4">
-						<span class="glyphicon glyphicon-leaf logo-small"></span>
-						<h4>VERT</h4>
-						<p>Lorem ipsum dolor sit amet..</p>
-					</div>
-					<div class="col-sm-4">
-						<span class="glyphicon glyphicon-certificate logo-small"></span>
-						<h4>CERTIFIE</h4>
-						<p>Lorem ipsum dolor sit amet..</p>
-					</div>
-					<div class="col-sm-4">
-						<span class="glyphicon glyphicon-wrench logo-small"></span>
-						<h4 style="color: #303030">TRAVAIL</h4>
-						<p>Lorem ipsum dolor sit amet..</p>
+						<span class="glyphicon glyphicon-education logo-small"></span>
+						<h4>INNOVANTE</h4>
+						<p>Révolutionnez vos vancances
+						<br>
+						partez différemment</p>
 					</div>
 				</div>
 			</div>
 
 			<br />
 
-			<h2>Ce que nous membres disent</h2>
+			<h2>Ils le disent</h2>
 			<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
 				<!-- Indicators -->
 				<ol class="carousel-indicators">
@@ -380,10 +358,10 @@
 						<h4>"Bla bla"<br /><span>Michael Jackson, Vice Président, Vilebrequin</span></h4>
 					</div>
 					<div class="item">
-						<h4>"Un mot... WOW!!"<br /><span>Stéphan Plaza, Agent immobilier, Stephan Plaza</span></h4>
+						<h4>"Un mot... WOW!!"<br /><span>Stéphane Plaza, Agent immobilier, Stéphane Plaza</span></h4>
 					</div>
 					<div class="item">
-						<h4>"C'est top !"<br /><span>Philippe Echtebest, Cuisinier, Le Bisrtot Régent</span></h4>
+						<h4>"C'est top !"<br /><span>Philippe Etchebest, Cuisinier, Le Bisrtot Régent</span></h4>
 					</div>
 				</div>
 
@@ -500,7 +478,7 @@
 								class="form-control"
 								id="email"
 								name="email"
-								placeholder="Adresse courriel"
+								placeholder="Adresse électronique"
 								type="email"
 								required
 							/>

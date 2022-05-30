@@ -91,6 +91,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>DeleteController</display-name>
+    <servlet-name>DeleteController</servlet-name>
+    <servlet-class>controller.DeleteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteController</servlet-name>
+    <url-pattern>/deleteController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>OfferSummaryController</display-name>
     <servlet-name>OfferSummaryController</servlet-name>
     <servlet-class>controller.OfferSummaryController</servlet-class>
@@ -98,6 +108,16 @@
   <servlet-mapping>
     <servlet-name>OfferSummaryController</servlet-name>
     <url-pattern>/offerSummaryController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchController</display-name>
+    <servlet-name>SearchController</servlet-name>
+    <servlet-class>controller.SearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchController</servlet-name>
+    <url-pattern>/searchController</url-pattern>
   </servlet-mapping>
   
 </web-app>

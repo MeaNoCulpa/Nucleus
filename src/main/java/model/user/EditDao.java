@@ -35,7 +35,7 @@ public class EditDao {
 	    return user;
 	  }
 	
-	public static long UpdateUser(EditBean user) {
+	public static long updateUser(EditBean user) {
     int i = 0;
     
     try {
@@ -52,11 +52,21 @@ public class EditDao {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    
-    
     return i;
   }
 	
+	public static long deleteUser(long id) {
+	  int i = 0;
+	  try {
+	    Connection connection = DatabaseConnection.initialiseDatabase();
+	    PreparedStatement stmt = connection.prepareStatement("DELETE FROM member WHERE ID_Member=?");
+	    stmt.setLong(1, id);
+	    i = stmt.executeUpdate();
+	  } catch (Exception e) {
+	    e.printStackTrace();
+	  }
+	  return i;
+	}
 }
 
 

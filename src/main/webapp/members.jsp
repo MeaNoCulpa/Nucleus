@@ -24,7 +24,6 @@
 </script>
 
 <link rel="stylesheet" href="styles/members.css" />
-<link rel="stylesheet" href="styles/register.css" />
 <link href="styles/footer.css" rel="stylesheet" />
 <style type="text/css">
 	body {
@@ -258,7 +257,8 @@
       <td><%=member.getRole()%></td>
       <td><%=member.getLastname()%></td>
       <td><%=member.getFirstname()%></td>
-      <td><a href="editController?id=<%=member.getId()%>">Modifier</a></td>
+      <td><a class="btn btn-info" href="editController?id=<%=member.getId()%>">Modifier</a>&nbsp;
+      <a class="btn btn-danger" href="deleteController?id=<%=member.getId()%>">Delete</a></td>
     </tr>
 <%}%>
   </tbody>
