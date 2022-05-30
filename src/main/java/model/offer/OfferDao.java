@@ -2,6 +2,7 @@ package model.offer;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -10,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
@@ -238,6 +240,7 @@ public class OfferDao {
 		        	offer.setDescription(resultSet.getString("Description"));
 		        	offer.setServices(getAllServices(resultSet.getInt("ID_Offer")));
 		        	offer.setLimitations(getAllLimitations(resultSet.getInt("ID_Offer")));
+		        	offer.setOffer_image_string(getOfferImageString(offer));
 		        	offerList.add(offer);
 		        }
 		        preparedStatement.close();
@@ -340,6 +343,40 @@ public class OfferDao {
 		}
 		
 		return limitationList;
+	}
+	
+	public String getOfferImageString(OfferBean offerBean) {
+		Blob offerImageBlob = null;
+		byte[] imgData = null;
+		String offerImageString = null;
+		int id_offer = offerBean.getId_offer();
+		
+		try {
+			Connection dbconn = DatabaseConnection.initialiseDatabase();
+			PreparedStatement preparedStatement = null;
+	        preparedStatement = dbconn.prepareStatement("SELECT OFFER_IMAGE_VALUE FROM OFFER_IMAGE WHERE ID_OFFER = ?");
+	        
+	        preparedStatement.setInt(1,id_offer);
+	        
+	        ResultSet resultSet = preparedStatement.executeQuery();
+	        
+	        if (resultSet  == null) {
+	        	System.out.println("Null Result Set Output");
+	        }
+	        
+	        while (resultSet.next()) {
+	        	offerImageBlob = resultSet.getBlob("OFFER_IMAGE_VALUE");
+	        	imgData = offerImageBlob.getBytes(1,(int)offerImageBlob.length());
+	        	offerImageString = new String(Base64.getEncoder().encode(imgData) , "UTF-8");
+	        }
+	        preparedStatement.close();
+        	dbconn.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return offerImageString;
 	}
 	
 	public int getCurrentID(OfferBean offerBean) {

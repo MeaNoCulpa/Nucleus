@@ -1,5 +1,6 @@
 package model.offer;
 
+import java.sql.Blob;
 import java.util.List;
 
 import jakarta.servlet.http.Part;
@@ -9,6 +10,7 @@ public class OfferBean {
 	private List<String> services, limitations;
 	private int id_owner, id_offer;
 	private Part offer_image;
+	private String offer_image_string;
 	
 	public String getLocation() {
 		return location;
@@ -65,6 +67,12 @@ public class OfferBean {
 	}
 	public void setId_offer(int id_offer) {
 		this.id_offer = id_offer;
+	}
+	public String getOffer_image_string() {
+		return offer_image_string;
+	}
+	public void setOffer_image_string(String offer_image_string) {
+		this.offer_image_string = offer_image_string;
 	}
 
 }

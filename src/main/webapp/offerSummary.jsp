@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.List"%>
+<%@ page import="java.util.Base64"%>
 <%@ page import="java.util.stream.Collectors"%>
 <%@ page import="model.offer.OfferBean"%>
 <%@ page import="model.offer.RequestBean"%>
@@ -256,6 +257,7 @@
           
           while(it.hasNext()){
         	  OfferBean offer = (OfferBean) it.next();
+        	 
   %>
     <tr>
       <td><%=offer.getLocation()%></td>
@@ -264,7 +266,7 @@
       <td><%=offer.getDescription()%></td>
       <td><%=offer.getServices()%></td>
       <td><%=offer.getLimitations()%></td>
-      <td><%=offer.getOffer_image()%></td>
+      <td><img src=<%="data:image/png;base64," + offer.getOffer_image_string()%>></td>
     </tr>
 <%}%>
   </tbody>
