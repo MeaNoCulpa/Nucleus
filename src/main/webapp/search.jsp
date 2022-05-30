@@ -247,6 +247,7 @@
       <th scope="col">De</th>
       <th scope="col">A</th>
       <th scope="col">Description</th>
+      <th scope="col">Lien</th>
     </tr>
   </thead>
   <tbody>
@@ -263,6 +264,7 @@
       <td scope="row"><%=member.getDateStart()%></td>
       <td scope="row"><%=member.getDateEnd()%></td>
       <td><%=member.getDescription()%></td>
+      <td><a href="offerDisplayController?offer=<%=member.getIdOffer()%>">Voir l'offre</a></td>
     </tr>
 <%}%>
   </tbody>

@@ -31,7 +31,7 @@
 				
 				$('#footer').load('footer.jsp');
 				
-				if (idMember == <%= offerBean.getId_owner()%>){
+				if (idMember != <%= offerBean.getId_owner()%>){
 					functions.style.display= 'block';
 				} else {
 					functions.style.display = 'none';
@@ -274,7 +274,7 @@
 
 <form id="RequestForm" method="POST" action="requestController">
 <label for="Reqtext">Veuillez décrire brièvement votre séjour</label>
-<input id="Reqtext" type="text" name="ReqText">
+<input id="Reqtext" type="text" name="Reqtext">
 <input value="envoyer" type="submit" name="envoyer">
 </form>
 

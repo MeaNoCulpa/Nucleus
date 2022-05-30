@@ -42,7 +42,8 @@ public class RequestController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int idMember = (int) session.getAttribute("idMember");
-		String description = request.getParameter("reqTest");
+		String description = request.getParameter("Reqtext");
+
 		OfferBean offerBean = (OfferBean) session.getAttribute("offerBean");
 		
 		RequestDao requestDao = new RequestDao();
@@ -52,7 +53,7 @@ public class RequestController extends HttpServlet {
 		requestBean.setId_requester(idMember);
 		requestBean.setId_offer(offerBean.getId_offer());
 		requestDao.createRequest(requestBean);
-		ServletUtility.redirect("offerSummaryController.jsp", request, response);
+		ServletUtility.redirect("offerSummaryController", request, response);
 	}
 
 }

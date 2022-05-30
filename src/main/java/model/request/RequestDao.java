@@ -13,13 +13,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
-
+import model.request.RequestBean;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import model.admin.MemberBean;
 import model.login.LoginBean;
 import model.offer.OfferBean;
-import model.request.RequestBean;
 import utility.DatabaseConnection;
 
 public class RequestDao {
@@ -85,7 +84,7 @@ public class RequestDao {
 	        	RequestBean request = new RequestBean();
 	        	request.setId_request(resultSet.getInt("ID_Request"));
 	        	request.setId_requester(resultSet.getInt("ID_Requester"));
-	        	request.setId_offer(resultSet.getInt("Id_owner"));
+	        	request.setId_offer(resultSet.getInt("Id_offer"));
 	        	request.setDate(resultSet.getDate("Date").toString());
 	        	request.setDescription(resultSet.getString("Description"));
 	        	requestList.add(request);

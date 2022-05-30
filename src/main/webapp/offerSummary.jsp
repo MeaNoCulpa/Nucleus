@@ -4,7 +4,7 @@
 <%@ page import="java.util.Base64"%>
 <%@ page import="java.util.stream.Collectors"%>
 <%@ page import="model.offer.OfferBean"%>
-<%@ page import="model.offer.RequestBean"%>
+<%@ page import="model.request.RequestBean"%>
 <%@ page import="utility.ServletUtility"%>
 <!DOCTYPE html>
 <html>
