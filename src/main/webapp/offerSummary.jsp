@@ -235,6 +235,7 @@
 <div class="container-fluid">
 <div class="justify-content-center center-block form-section">
 <h3>Vos offres</h3>
+
 <table class="table table-group" id="offerTable">
   <thead>
     <tr class="header">
@@ -245,9 +246,11 @@
       <th scope="col">Services</th>
       <th scope="col">Contraintes</th>
       <th scope="col">Image</th>
+      <th scope="col">Lien</th>
     </tr>
   </thead>
   <tbody>
+  
   <%
           int index = 1;
           @SuppressWarnings("unchecked")
@@ -267,8 +270,10 @@
       <td><%=offer.getServices()%></td>
       <td><%=offer.getLimitations()%></td>
       <td><img src=<%="data:image/png;base64," + offer.getOffer_image_string()%>></td>
+      <td><a href="OfferDisplayController?offer=<%=offer.getId_offer()%>">Voir l'offre</a></td>
     </tr>
 <%}%>
+
   </tbody>
 </table>
 
@@ -306,7 +311,7 @@
   </tbody>
 </table>
  
- <a type="button" href="offerLookup.jsp">Rechercher une nouvelle offre</a>
+ <a type="button" href="index.jsp">Rechercher une nouvelle offre</a>
  
 </div>
 </div>

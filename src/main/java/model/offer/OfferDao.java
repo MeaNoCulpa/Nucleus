@@ -256,6 +256,42 @@ public class OfferDao {
 			return offerList;
 	}
 	
+	
+	public OfferBean getOffer(int ID_Offer) { 
+		OfferBean offer = new OfferBean();
+		
+		try {
+			Connection dbconn = DatabaseConnection.initialiseDatabase();
+			PreparedStatement preparedStatement = null;
+	        preparedStatement = dbconn.prepareStatement("SELECT * FROM OFFER WHERE ID_OFFER = ?");
+	        preparedStatement.setInt(1,ID_Offer);
+	        
+	        ResultSet resultSet = preparedStatement.executeQuery();
+	        
+	        if (resultSet  == null) {
+	        	System.out.println("Null Result Set Output");
+	        }
+	        
+	        while (resultSet.next()) {
+	        	offer.setId_offer(resultSet.getInt("ID_Offer"));
+	        	offer.setId_owner(resultSet.getInt("ID_Owner"));
+	        	offer.setDate_start(resultSet.getDate("Date_start").toString());
+	        	offer.setDate_end(resultSet.getDate("Date_end").toString());
+	        	offer.setLocation(resultSet.getString("Location"));
+	        	offer.setDescription(resultSet.getString("Description"));
+	        	offer.setServices(getAllServices(resultSet.getInt("ID_Offer")));
+	        	offer.setLimitations(getAllLimitations(resultSet.getInt("ID_Offer")));
+	        	offer.setOffer_image_string(getOfferImageString(offer));
+	        }
+	        preparedStatement.close();
+        	dbconn.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return offer;
+}
+	
 	public List<RequestBean> getAllRequests(int ID_Owner) {
 		ArrayList<RequestBean> requestList = new ArrayList<>();
 		
