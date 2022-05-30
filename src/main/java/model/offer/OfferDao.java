@@ -370,7 +370,7 @@ public class OfferDao {
 	        }
 	        
 	        while (resultSet.next()) {
-	        	currentID = resultSet.getInt(0);
+	        	currentID = resultSet.getInt("ID_Offer");
 	        }
 	        preparedStatement.close();
         	dbconn.close();
