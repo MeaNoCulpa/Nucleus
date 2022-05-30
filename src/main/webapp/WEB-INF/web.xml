@@ -127,6 +127,16 @@
    </servlet>
   <servlet-mapping>
     <servlet-name>OfferDisplayController</servlet-name>
-    <url-pattern>/OfferDisplayController</url-pattern>
+    <url-pattern>/offerDisplayController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RatingController</display-name>
+    <servlet-name>RatingController</servlet-name>
+    <servlet-class>controller.RatingController</servlet-class>
+   </servlet>
+  <servlet-mapping>
+    <servlet-name>RatingController</servlet-name>
+    <url-pattern>/ratingController</url-pattern>
   </servlet-mapping>
 </web-app>

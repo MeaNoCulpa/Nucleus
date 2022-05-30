@@ -31,7 +31,7 @@
 				
 				$('#footer').load('footer.jsp');
 				
-				if (idMember != <%= offerBean.getId_owner()%>){
+				if (idMember == <%= offerBean.getId_owner()%>){
 					functions.style.display= 'block';
 				} else {
 					functions.style.display = 'none';
@@ -265,9 +265,10 @@
      </tbody>
 </table>
 <div id="functions">
-<form id="RatingForm" method="POST" action="/RatingController">
+<form id="RatingForm" method="POST" action="ratingController">
 <label for="number">Veuillez noter l'offre de 0 à 5</label>
-<input id="number" type="number" min="0" max="5">
+<input id="ratingValue" type="number" name="ratingValue" min="0" max="5">
+<input value="envoyer" type="submit" name="envoyer">
 
 </form>
 

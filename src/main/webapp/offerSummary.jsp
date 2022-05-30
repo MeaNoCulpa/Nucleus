@@ -270,7 +270,7 @@
       <td><%=offer.getServices()%></td>
       <td><%=offer.getLimitations()%></td>
       <td><img src=<%="data:image/png;base64," + offer.getOffer_image_string()%>></td>
-      <td><a href="OfferDisplayController?offer=<%=offer.getId_offer()%>">Voir l'offre</a></td>
+      <td><a href="offerDisplayController?offer=<%=offer.getId_offer()%>">Voir l'offre</a></td>
     </tr>
 <%}%>
 
